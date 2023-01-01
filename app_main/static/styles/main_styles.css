@@ -17,7 +17,7 @@ nav {
     justify-content: center;
     height: 94px;
     padding-top: 32px;
-    margin-bottom: 95px;
+    margin-bottom: 92px;
 }
 
 .container {
@@ -35,7 +35,9 @@ nav {
 
 
 .nav-logo {
-    margin-right: 325px;
+    margin-right: 525px;
+    height: 80px;
+    width: 80px;
 }
 
 .nav-links {

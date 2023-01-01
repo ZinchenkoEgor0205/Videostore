@@ -1,24 +1,22 @@
+
 {% load static %}
+
 
 <!DOCTYPE html>
 <html lang="en">
+{% block head %}
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/main_styles.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-{#    <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}"> -->#}
-{#    <style>#}
-{#        .hero-container {#}
-{#            background-image: url("{{ videocards.last.background }}");#}
-{#        }#}
-{#    </style>#}
 </head>
+{% endblock %}
 <body>
     <nav>
         <div class="container nav-container">
-            <img class="nav-logo" src="../static/img/nav-logo.png" alt="logo">
+            <a href="{% url 'main_view' %}"><img class="nav-logo" src="{% static 'images/nav-logo.png' %}" alt="logo"></a>
             <div class="nav-links">
                 <a href="#" class="nav-links-item">О нас</a>
                 <a href="#" class="nav-links-item">Отзывы</a>
@@ -36,6 +34,7 @@
             </svg>
         </div>
     </nav>
+    {% block afternav %}
     <section class="hero">
         <div class="container hero-container" style="background-image: url({{ videocards_promo.last.background }});">
             <div class="hero-info">
@@ -78,5 +77,6 @@
             </div>
         </div>
     </section>
+    {% endblock %}
 </body>
 </html>

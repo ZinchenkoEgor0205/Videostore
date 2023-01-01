@@ -1,0 +1,182 @@
+
+* {
+    box-sizing: border-box;
+    color: #0D0D0D;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+html {
+    background-color: #E6E6E6;
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    height: 94px;
+    padding-top: 32px;
+    margin-bottom: 92px;
+}
+
+.container {
+    width: 1550px;
+    border-radius: 32px;
+}
+
+.nav-container {
+    display: flex;
+    padding-left: 74px;
+    align-items: center;
+    height: 94px;
+    background-color: #fff;
+}
+
+
+.nav-logo {
+    margin-right: 525px;
+    height: 80px;
+    width: 80px;
+}
+
+.nav-links {
+    width: 600px;
+    display: inline-flex;
+    justify-content: space-between;
+    margin-right: 132px;
+}
+
+.nav-links-item {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.registration {
+    display: flex;
+    justify-content: center;
+    height: 650px;
+}
+
+.registration-container {
+    display: flex;
+    width: 1100px;
+    background: linear-gradient(308.47deg, #BB0000 34.38%, #0B0B0B 73.49%);
+    border-radius: 32px;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 13px;
+}
+
+.registration-header {
+    display: inline-block;
+    height: 95px;
+    width: 577px;
+    font-weight: 800;
+    font-size: 80px;
+    line-height: 98px;
+    color: #F1F1F1;
+    margin-bottom: 25px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-inputs {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 890px;
+    justify-content: space-between;
+}
+
+#id_username,
+#id_password1,
+#id_password2,
+.form-input {
+    width: 403px;
+    height: 70px;
+    background: #D3D3D3;
+    border-radius: 16px;
+    margin-bottom: 36px;
+    padding-left: 20px;
+    padding-top: 5px;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 22px;
+    color: #0D0D0D;
+    border: none;
+}
+
+#id_username::placeholder,
+#id_password1::placeholder,
+#id_password2::placeholder,
+.form-input::placeholder {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 22px;
+    color: #3A3232;
+}
+
+
+.registration-content {
+    display: flex;
+    width: 890px;
+}
+
+.registration-content-left {
+    margin-right: 85px;
+}
+    
+
+.registration-content-left-item {
+    width: 403px;
+    height: 70px;
+    background: #D3D3D3;
+    border-radius: 16px;
+    margin-bottom: 49px;
+}
+
+.registration-content-left-item-text {
+    width: 398px;
+    height: 70px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    color: #3A3232;
+    margin-left: 5px;
+}
+
+.registration-content-right {
+    
+}
+
+.registration-content-right-item {
+    width: 403px;
+    height: 70px;
+    background: #D3D3D3;
+    border-radius: 16px;
+    margin-bottom: 49px;
+}
+
+.registration-content-btn {
+    width: 226px;
+    height: 64px;
+    background: #0D0D0D;
+    border-radius: 16px;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F1F1F1;
+    cursor: pointer;
+}

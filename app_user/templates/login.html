@@ -1,14 +1,33 @@
+{% extends 'main.html' %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+{% block head %}
 <head>
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/login_styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+{% endblock head %}
 <body>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button>Login</button>
-</form>
+{% block afternav %}
+    <section class="signup">
+        <div class="container signup-container">
+            <h1 class="signup-header">Вход</h1>
+            <form action="" method="post" class="signup-form">
+                {% csrf_token %}
+                <div class="signup-form-content">
+                   {% for input in form %}
+                       {{ input }}
+                    {% endfor %}
+                </div>
+                <button class="signup-btn">Войти</button>
+            </form>
+        </div>
+    </section>
+{% endblock afternav %}
 </body>
 </html>

@@ -1,0 +1,131 @@
+
+* {
+    box-sizing: border-box;
+    color: #0D0D0D;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+html {
+    background-color: #E6E6E6;
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    height: 94px;
+    padding-top: 32px;
+    margin-bottom: 92px;
+}
+
+.container {
+    width: 1550px;
+    border-radius: 32px;
+}
+
+.nav-container {
+    display: flex;
+    padding-left: 74px;
+    align-items: center;
+    height: 94px;
+    background-color: #fff;
+}
+
+
+.nav-logo {
+    margin-right: 525px;
+    height: 80px;
+    width: 80px;
+}
+
+.nav-links {
+    width: 600px;
+    display: inline-flex;
+    justify-content: space-between;
+    margin-right: 132px;
+}
+
+.nav-links-item {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.signup {
+    display: flex;
+    justify-content: center;
+    height: 650px;
+}
+
+.signup-container {
+    display: flex;
+    width: 901px;
+    background: linear-gradient(308.47deg, #BB0000 34.38%, #0B0B0B 73.49%);
+    border-radius: 32px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 13px;
+    padding-bottom: 33px;
+}
+
+.signup-header {
+    display: inline-block;
+    height: 95px;
+    width: 901px;
+    font-weight: 800;
+    font-size: 80px;
+    line-height: 98px;
+    color: #F1F1F1;
+    text-align: center;
+    margin-bottom: 74px;
+    
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    width: 403px;
+    height: 70px;
+    background: #D3D3D3;
+    border-radius: 16px;
+    margin-bottom: 72px;
+    padding-top: 5px;
+    padding-left: 20px;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 22px;
+    color: #0D0D0D;
+}
+
+.form-input::placeholder {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+    color: #3A3232;
+}
+
+
+.signup-btn {
+    width: 227px;
+    height: 64px;
+    background: #0D0D0D;
+    border-radius: 16px;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+    color: #F1F1F1;
+}

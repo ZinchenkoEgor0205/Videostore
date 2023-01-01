@@ -1,20 +1,33 @@
+{% extends 'main.html' %}
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
+{% block head %}
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="1.css">
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/register_styles.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+{% endblock %}
 <body>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button>register</button>
-</form>
+{% block afternav %}
+<section class="registration">
+    <div class="container registration-container">
+        <h1 class="registration-header">Регистрация</h1>
+        <form action="" method="post" class="form">
+            {% csrf_token %}
+            <div class="form-inputs">
+                {% for input in form %}
+                {{ input }}
+            {% endfor %}
+            </div>
+            <button class="registration-content-btn">Подтвердить</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
 </body>
 </html>

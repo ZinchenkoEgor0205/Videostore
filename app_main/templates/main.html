@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+{#    <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}"> -->#}
+{#    <style>#}
+{#        .hero-container {#}
+{#            background-image: url("{{ videocards.last.background }}");#}
+{#        }#}
+{#    </style>#}
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <img class="nav-logo" src="../static/img/nav-logo.png" alt="logo">
+            <div class="nav-links">
+                <a href="#" class="nav-links-item">О нас</a>
+                <a href="#" class="nav-links-item">Отзывы</a>
+                <a href="#" class="nav-links-item">Контакты</a>
+                {% if user.is_anonymous %}
+                    <a href="{% url 'login' %}" class="nav-links-item">Войти</a>
+                    <a href="{% url 'register' %}" class="nav-links-item">Регистрация</a>
+                {% else %}
+                    <a href="{% url 'account' %}" class="nav-links-item">{{ user.username }}</a>
+                {% endif %}
+            </div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="7.56126" height="1.89031" transform="matrix(0.713342 0.700816 -0.713342 0.700816 18.6062 17.3762)" fill="black"/>
+                <path d="M20.9303 10.7726C20.9303 16.1533 16.4855 20.5452 10.9652 20.5452C5.44478 20.5452 1 16.1533 1 10.7726C1 5.39198 5.44478 1 10.9652 1C16.4855 1 20.9303 5.39198 20.9303 10.7726Z" stroke="black" stroke-width="2"/>
+            </svg>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="container hero-container" style="background-image: url({{ videocards_promo.last.background }});">
+            <div class="hero-info">
+                <h1 class="hero-info-header">{{ videocards_promo.last.manufacturer }} {{ videocards_promo.last.name }}</h1>
+                <p class="hero-info-text">{{ videocards_promo.last.promo_note }}</p>
+                <div class="hero-info-footer">
+                    <a href="#" class="hero-info-btn">Купить сейчас</a>
+                    <div class="hero-info-price">{{ videocards_promo.last.price }} USD</div>
+                </div>
+            </div>
+            <img class="hero-img" src="media/amd-hero.png" alt="">
+        </div>
+    </section>
+    <section class="popular">
+        <div class="container popular-container">
+            <h1 class="popular-header">Популярные модели</h1>
+            <div class="popular-content">
+                <div class="popular-content-positions">
+
+                    {% for videocard in videocards.reverse|slice:':4' %}
+                        <div class="popular-content-positions-item">
+                            <img src={{ videocard.image }} alt="videocard" class="popular-content-positions-item-img popular-content-positions-item-img-1">
+                            <div class="popular-content-positions-item-footer">
+                                <p class="popular-content-positions-item-footer-info">{{ videocard.manufacturer }} {{ videocard.name }}</p>
+                                <a href="#" class="popular-content-positions-item-footer-link">
+                                    <p class="popular-content-positions-item-footer-link-text">купить за</p>
+                                    <p class="popular-content-positions-item-footer-link-price">{{ videocard.price }} USD</p>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+                <a href="#" class="popular-content-btn">
+                    <svg class="popular-content-btn-icon" width="46" height="33" viewBox="0 0 46 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M26 3C26 1.34315 24.6569 0 23 0C21.3431 0 20 1.34315 20 3H26ZM20.8787 32.1213C22.0503 33.2929 23.9497 33.2929 25.1213 32.1213L44.2132 13.0294C45.3848 11.8579 45.3848 9.95837 44.2132 8.7868C43.0416 7.61522 41.1421 7.61522 39.9706 8.7868L23 25.7574L6.02944 8.7868C4.85786 7.61522 2.95837 7.61522 1.7868 8.7868C0.615223 9.95837 0.615223 11.8579 1.7868 13.0294L20.8787 32.1213ZM20 3V30H26V3H20Z" fill="#F1F1F1"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

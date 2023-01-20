@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="">{{ videocard.manufacturer }}</div>
+<div class="">{{ videocard.vendor }}</div>
+<div class="">{{ videocard.name }}</div>
+<img src='{{ MEDIA_URL }}/{{ videocard.image }}' alt="">
+<div class="">{{ videocard.price }}</div>
+<div class="">{{ videocard.info.release_date }}</div>
+<form action="{% url 'basket_add' videocard.id %}" method="post">
+    {{ basket_videocard_form }}
+    {% csrf_token %}
+    <input type="submit" value="В корзину">
+</form>
+</body>
+</html>

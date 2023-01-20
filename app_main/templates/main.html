@@ -9,8 +9,25 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/main_styles.css' %}">
+{#    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">#}
+    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/main_style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+    $( function() {
+    $( "#accordion" ).accordion({
+        collapsible: true,
+        active: false,
+    });
+    } );
+    $(document).ready(function() {
+        $('a#button').click(function() {
+    $('#button-svg').toggleClass("down"); $('#button').toggleClass("down")});
+    });
+    </script>
 </head>
 {% endblock %}
 <body>
@@ -20,7 +37,7 @@
             <div class="nav-links">
                 <a href="#" class="nav-links-item">О нас</a>
                 <a href="#" class="nav-links-item">Отзывы</a>
-                <a href="#" class="nav-links-item">Контакты</a>
+                <a href="{% url 'basket_detail' %}" class="nav-links-item">Корзина</a>
                 {% if user.is_anonymous %}
                     <a href="{% url 'login' %}" class="nav-links-item">Войти</a>
                     <a href="{% url 'register' %}" class="nav-links-item">Регистрация</a>
@@ -51,29 +68,44 @@
     <section class="popular">
         <div class="container popular-container">
             <h1 class="popular-header">Популярные модели</h1>
-            <div class="popular-content">
-                <div class="popular-content-positions">
-
-                    {% for videocard in videocards.reverse|slice:':4' %}
-                        <div class="popular-content-positions-item">
-                            <img src={{ videocard.image }} alt="videocard" class="popular-content-positions-item-img popular-content-positions-item-img-1">
-                            <div class="popular-content-positions-item-footer">
-                                <p class="popular-content-positions-item-footer-info">{{ videocard.manufacturer }} {{ videocard.name }}</p>
-                                <a href="#" class="popular-content-positions-item-footer-link">
-                                    <p class="popular-content-positions-item-footer-link-text">купить за</p>
-                                    <p class="popular-content-positions-item-footer-link-price">{{ videocard.price }} USD</p>
+            <div class="popular-content-positions-block">
+                <div class="popular-content">
+                    <div class="popular-content-positions">
+                        {% for videocard in videocards.reverse|slice:':4' %}
+                            <a href="{% url 'videocard_detail' videocard.id %}" class="popular-content-positions-item">
+                                <img src={{ videocard.image }} alt="videocard" class="popular-content-positions-item-img popular-content-positions-item-img-1">
+                                <div class="popular-content-positions-item-footer">
+                                    <p class="popular-content-positions-item-footer-info">{{ videocard.manufacturer }} {{ videocard.name }}</p>
+                                    <div class="popular-content-positions-item-footer-link">
+                                        <p class="popular-content-positions-item-footer-link-text">купить за</p>
+                                        <p class="popular-content-positions-item-footer-link-price">{{ videocard.price }} USD</p>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                    <div class="popular-extended" id="accordion">
+                        <a href="#" class="popular-content-btn popular-extended-btn" id="button">
+                            <svg class="popular-content-btn-icon" id="button-svg" width="46" height="33" viewBox="0 0 46 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M26 3C26 1.34315 24.6569 0 23 0C21.3431 0 20 1.34315 20 3H26ZM20.8787 32.1213C22.0503 33.2929 23.9497 33.2929 25.1213 32.1213L44.2132 13.0294C45.3848 11.8579 45.3848 9.95837 44.2132 8.7868C43.0416 7.61522 41.1421 7.61522 39.9706 8.7868L23 25.7574L6.02944 8.7868C4.85786 7.61522 2.95837 7.61522 1.7868 8.7868C0.615223 9.95837 0.615223 11.8579 1.7868 13.0294L20.8787 32.1213ZM20 3V30H26V3H20Z" fill="#F1F1F1"/>
+                            </svg>
+                        </a>
+                        <div class="popular-content-positions popular-extended-content">
+                            {% for videocard in videocards.reverse|slice:'4:' %}
+                               <a href="{% url 'videocard_detail' videocard.id %}" class="popular-content-positions-item popular-extended-content-positions-item">
+                                    <img src={{ videocard.image }} alt="videocard" class="popular-content-positions-item-img popular-content-positions-item-img-1">
+                                    <div class="popular-content-positions-item-footer">
+                                        <p class="popular-content-positions-item-footer-info">{{ videocard.manufacturer }} {{ videocard.name }}</p>
+                                        <div class="popular-content-positions-item-footer-link">
+                                            <p class="popular-content-positions-item-footer-link-text">купить за</p>
+                                            <p class="popular-content-positions-item-footer-link-price">{{ videocard.price }} USD</p>
+                                        </div>
+                                    </div>
                                 </a>
-                            </div>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
-
-
+                    </div>
                 </div>
-                <a href="#" class="popular-content-btn">
-                    <svg class="popular-content-btn-icon" width="46" height="33" viewBox="0 0 46 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M26 3C26 1.34315 24.6569 0 23 0C21.3431 0 20 1.34315 20 3H26ZM20.8787 32.1213C22.0503 33.2929 23.9497 33.2929 25.1213 32.1213L44.2132 13.0294C45.3848 11.8579 45.3848 9.95837 44.2132 8.7868C43.0416 7.61522 41.1421 7.61522 39.9706 8.7868L23 25.7574L6.02944 8.7868C4.85786 7.61522 2.95837 7.61522 1.7868 8.7868C0.615223 9.95837 0.615223 11.8579 1.7868 13.0294L20.8787 32.1213ZM20 3V30H26V3H20Z" fill="#F1F1F1"/>
-                    </svg>
-                </a>
             </div>
         </div>
     </section>

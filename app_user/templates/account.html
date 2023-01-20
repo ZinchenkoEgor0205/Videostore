@@ -1,17 +1,56 @@
+{% extends 'main.html' %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+{% block head %}
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/account_style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+{% endblock head %}
 <body>
-    <h3>Account info</h3>
-    <p>Username: {{ user.username }}</p>
-    <p>Email: {{ user.email }}</p>
-    <p>First name: {{ user.first_name }}</p>
-    <p>Last name: {{ user.last_name }}</p>
-    <p>City: {{ user.profile.city }}</p>
-    <p>Discount status: {{ user.profile.get_discount_status_display }}</p>
-    <a href="{% url 'logout' %}">Logout</a>
+{% block afternav %}
+<section class="account">
+    <div class="container account-container">
+        <h1 class="account-header">Профиль</h1>
+        <div class="account-content">
+            <div class="account-content-left">
+                <div class="account-content-left-item">Имя пользователя</div>
+                <div class="account-content-left-item">Email</div>
+                <div class="account-content-left-item">Имя</div>
+                <div class="account-content-left-item">Фамилия</div>
+                <div class="account-content-left-item">Город</div>
+                <div class="account-content-left-item">Тип скидки</div>
+            </div>
+            <div class="account-content-right">
+                <div class="account-content-right-item">
+                    <div class="account-content-right-item-text">{{ user.username }}</div>
+                </div>
+                <div class="account-content-right-item">
+                    <div class="account-content-right-item-text">{{ user.email }}</div>
+                </div>
+                <div class="account-content-right-item">
+                    <div class="account-content-right-item-text">{{ user.first_name }}</div>
+                </div>
+                <div class="account-content-right-item">
+                    <div class="account-content-right-item-text">{{ user.last_name }}</div>
+                </div>
+                <div class="account-content-right-item">
+                    <div class="account-content-right-item-text">{{ user.profile.city }}</div>
+                </div>
+                <div class="account-content-right-item">
+                    <div class="account-content-right-item-text">{{ user.profile.get_discount_status_display }}</div>
+                </div>
+            </div>
+        </div>
+        <a href="{% url 'logout' %}" class="account-btn">Выйти из профиля</a>
+    </div>
+</section>
+{% endblock afternav %}
 </body>
 </html>

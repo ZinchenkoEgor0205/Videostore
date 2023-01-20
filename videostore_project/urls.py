@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.views import LogoutView
-from django.urls import path
+from django.urls import path, include
 
 import videostore_project.settings
 from app_main.views import *
@@ -25,12 +25,7 @@ from videostore_project import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main_view, name='main_view'),
-    path('login/', login_view, name='login'),
-    path('register/', register_view, name='register'),
-    path('account/', account_view, name='account'),
-    path('logout/', LogoutView.as_view(), name='logout'),
-    path('test/', test_view, name='test'),
-]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=videostore_project.settings.MEDIA_ROOT)
+    path('', include('app_main.urls')),
+    path('user/', include('app_user.urls')),
+    path('basket/', include('app_basket.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

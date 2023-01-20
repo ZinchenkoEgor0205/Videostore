@@ -1,0 +1,94 @@
+
+.account {
+    display: flex;
+    justify-content: center;
+    height: 650px;
+}
+
+.account-container {
+    display: inline-flex;
+    width: 813px;
+    background: linear-gradient(308.47deg, #BB0000 34.38%, #0B0B0B 73.49%);
+    border-radius: 32px;
+    flex-direction: column;
+    padding-top: 13px;
+    padding-left: 57px;
+    padding-bottom: 23px;
+    padding-right: 45px;
+}
+
+.account-header {
+    display: inline-block;
+    height: 95px;
+    width: 452px;
+    font-weight: 800;
+    font-size: 80px;
+    line-height: 98px;
+    color: #F1F1F1;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.account-content {
+    display: flex;
+    width: 711px;
+    flex-wrap: wrap;
+    margin-bottom: 27px;
+}
+
+.account-content-left {
+    margin-right: 91px;
+}
+
+.account-content-left-item {
+    width: 195px;
+    height: 50px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    text-align: left;
+    color: #F1F1F1;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.account-content-right {
+    
+}
+
+.account-content-right-item {
+    width: 425px;
+    height: 50px;
+    background: #D3D3D3;
+    border-radius: 16px;
+    padding-left: 10px;
+    margin-bottom: 18px;
+}
+
+.account-content-right-item-text {
+    width: 417px;
+    height: 50px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #0D0D0D;
+}
+
+.account-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 273px;
+    height: 64px;
+    border-radius: 16px;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+    background: #0D0D0D;
+    color: #F1F1F1;
+    margin-left: 213px;
+}

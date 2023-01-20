@@ -1,0 +1,58 @@
+{% extends 'main.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/basket_styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+{% endblock head %}
+<body>
+{% block afternav %}
+    <section class="basket-section">
+        <div class="container basket-container">
+            <h1 class="basket-header">Ваша корзина</h1>
+            <div class="basket-content">
+                {% for item in basket %}
+                    {% with videocard=item.videocard %}
+                        <div class="basket-item">
+                            <a href="{{ videocard.get_absolute_url }}">
+                                <img src="{{ MEDIA_URL }}/{{ videocard.image }}" alt="" class="basket-item-img">
+                            </a>
+                            <h3 class="basket-item-name">{{ videocard.manufacturer }} {{ videocard.name }}</h3>
+                            <h3 class="basket-item-info">{{ item.quantity }}x {{ item.price }} USD<br>Сумма: {{ item.total_price }} USD</h3>
+                            <form action="{% url 'basket_add' videocard.id %}" method="post" class="basket-item-form">
+                                {{ item.update_quantity_form.quantity }}
+                                {{ item.update_quantity_form.update }}
+                                <div class="basket-item-form-btns">
+                                    <input type="submit" value="Обновить" class="basket-item-btn btn">
+                                    <a href="{% url 'basket_remove' videocard.id %}" class="basket-item-btn btn">Удалить</a>
+                                </div>
+                                {% csrf_token %}
+                            </form>
+                        </div>
+                    {% endwith %}
+                {% endfor %}
+                <div class="basket-content-footer">
+                    <div class="basket-content-footer-left">
+                        <p class="basket-content-footer-sum">Сумма заказа: {{ basket.get_total_price }} USD</p>
+                        <a href="#" class="basket-footer-content-purchase-btn btn">Оформить заказ</a>
+                    </div>
+                    <a href="{% url 'main_view' %}" class="basket-content-footer-return-btn btn">Вернуться в магазин</a>
+                </div>
+{#                <p>{{ basket.get_total_price }}</p>#}
+{#                <a href="{% url 'main_view' %}">В магазин</a>#}
+{#                <a href="#">Оформить заказ</a>#}
+            </div>
+        </div>
+    </section>
+
+{% endblock afternav %}
+</body>
+</html>

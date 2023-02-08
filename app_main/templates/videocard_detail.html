@@ -1,22 +1,69 @@
+{% extends 'main.html' %}
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
+{% block head %}
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/videocard_detail_styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+{% endblock head %}
 <body>
-<div class="">{{ videocard.manufacturer }}</div>
-<div class="">{{ videocard.vendor }}</div>
-<div class="">{{ videocard.name }}</div>
-<img src='{{ MEDIA_URL }}/{{ videocard.image }}' alt="">
-<div class="">{{ videocard.price }}</div>
-<div class="">{{ videocard.info.release_date }}</div>
-<form action="{% url 'basket_add' videocard.id %}" method="post">
-    {{ basket_videocard_form }}
-    {% csrf_token %}
-    <input type="submit" value="В корзину">
-</form>
+{% block afternav %}
+    <section class="detail">
+        <div class="detail-container container">
+            <h1 class="detail-header">{{ videocard.manufacturer }} {{ videocard.vendor }} {{ videocard.name }}</h1>
+            <div class="detail-content">
+                <img src="{{ MEDIA_URL }}/{{ videocard.image }}" alt="" class="detail-content-img">
+                <div class="detail-content-info">
+                    <div class="detail-content-info-item">
+                        <p class="detail-content-info-item-left">Год выпуска:</p>
+                        <p class="detail-content-info-item-right">{{ videocard.info.release_date }}</p>
+                    </div>
+                    <div class="detail-content-info-item">
+                        <p class="detail-content-info-item-left">Интерфейс:</p>
+                        <p class="detail-content-info-item-right">{{ videocard.info.interface }}</p>
+                    </div>
+                    <div class="detail-content-info-item">
+                        <p class="detail-content-info-item-left">Частота ядер:</p>
+                        <p class="detail-content-info-item-right">{{ videocard.info.core_frequency }} GHz</p>
+                    </div>
+                    <div class="detail-content-info-item">
+                        <p class="detail-content-info-item-left">Количество ядер:</p>
+                        <p class="detail-content-info-item-right">{{ videocard.info.core_count }}</p>
+                    </div>
+                    <div class="detail-content-info-item">
+                        <p class="detail-content-info-item-left">Частота памяти:</p>
+                        <p class="detail-content-info-item-right">{{ videocard.info.memory_frequency }} GHz</p>
+                    </div>
+                    <div class="detail-content-info-item">
+                        <p class="detail-content-info-item-left">Объём памяти:</p>
+                        <p class="detail-content-info-item-right">{{ videocard.info.memory_volume }} gb</p>
+                    </div>
+                    <div class="detail-content-info-item">
+                        <p class="detail-content-info-item-left">Размер шины:</p>
+                        <p class="detail-content-info-item-right">{{ videocard.info.memory_band_width }} bit</p>
+                    </div>
+                    <div class="detail-content-info-item">
+                        <p class="detail-content-info-item-left">Рекомендуемая мощность питания:</p>
+                        <p class="detail-content-info-item-right">{{ videocard.info.recommended_energy_supply }} W</p>
+                    </div>
+                </div>
+                <form class="detail-content-info-footer" action="{% url 'basket_add' videocard.id %}" method="post">
+                    <p class="detail-content-info-footer-text">Количество:</p>
+                    {{ basket_videocard_form.quantity }}
+                    {% csrf_token %}
+                    <input type="submit" class="detail-content-info-footer-btn" value="В корзину">
+                </form>
+            </div>
+        </div>
+    </section>
+
+{% endblock afternav %}
 </body>
 </html>

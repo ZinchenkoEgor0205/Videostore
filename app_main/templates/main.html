@@ -58,7 +58,7 @@
                 <h1 class="hero-info-header">{{ videocards_promo.last.manufacturer }} {{ videocards_promo.last.name }}</h1>
                 <p class="hero-info-text">{{ videocards_promo.last.promo_note }}</p>
                 <div class="hero-info-footer">
-                    <a href="#" class="hero-info-btn">Купить сейчас</a>
+                    <a href="{%  url 'videocard_detail' videocards_promo.last.id %}" class="hero-info-btn">Купить сейчас</a>
                     <div class="hero-info-price">{{ videocards_promo.last.price }} USD</div>
                 </div>
             </div>

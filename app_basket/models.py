@@ -1,11 +1,14 @@
-# from django.contrib.auth.models import User
-# from django.db import models
-#
-# from app_main.models import Videocard
+from django.contrib.auth.models import User
+from django.db import models
 
 
-# class Basket(models.Model):
-#     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='basket')
-#     videocard = models.ForeignKey(Videocard, on_delete=models.CASCADE)
-#     quantity = models.PositiveIntegerField(verbose_name='количество', default=0)
-#     add_datetime = models.DateTimeField(verbose_name='время', auto_now_add=True)
+class Order(models.Model):
+    name_surname = models.CharField(max_length=50)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField()
+    city = models.CharField(max_length=20)
+    street = models.CharField(max_length=20)
+    house = models.CharField(max_length=10)
+    housing = models.IntegerField()
+    apartment = models.IntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

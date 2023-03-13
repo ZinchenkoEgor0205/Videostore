@@ -9,9 +9,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-{#    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">#}
     <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/main_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/main_styles.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -33,11 +32,10 @@
 <body>
     <nav>
         <div class="container nav-container">
-            <a href="{% url 'main_view' %}"><img class="nav-logo" src="{% static 'images/nav-logo.png' %}" alt="logo"></a>
+            <a href="{% url 'main_view' %}" class="nav-logo-link"><img class="nav-logo" src="{% static 'images/nav-logo.png' %}" alt="logo"></a>
+            <a href="{% url 'main_view' %}" class="nav-logo-name-link">Hardware house</a>
             <div class="nav-links">
-                <a href="#" class="nav-links-item">О нас</a>
-                <a href="#" class="nav-links-item">Отзывы</a>
-                <a href="{% url 'basket_detail' %}" class="nav-links-item">Корзина</a>
+                <a href="{% url 'basket_detail_view' %}" class="nav-links-item">Корзина</a>
                 {% if user.is_anonymous %}
                     <a href="{% url 'login' %}" class="nav-links-item">Войти</a>
                     <a href="{% url 'register' %}" class="nav-links-item">Регистрация</a>

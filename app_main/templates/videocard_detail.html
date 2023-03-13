@@ -9,7 +9,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/videocard_detail_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/videocard_detail_style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 {% endblock head %}
@@ -54,7 +54,7 @@
                         <p class="detail-content-info-item-right">{{ videocard.info.recommended_energy_supply }} W</p>
                     </div>
                 </div>
-                <form class="detail-content-info-footer" action="{% url 'basket_add' videocard.id %}" method="post">
+                <form class="detail-content-info-footer" action="{% url 'basket_add_view' videocard.id %}" method="post">
                     <p class="detail-content-info-footer-text">Количество:</p>
                     {{ basket_videocard_form.quantity }}
                     {% csrf_token %}

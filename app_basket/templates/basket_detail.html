@@ -27,12 +27,12 @@
                             </a>
                             <h3 class="basket-item-name">{{ videocard.manufacturer }} {{ videocard.name }}</h3>
                             <h3 class="basket-item-info">{{ item.quantity }}x {{ item.price }} USD<br>Сумма: {{ item.total_price }} USD</h3>
-                            <form action="{% url 'basket_add' videocard.id %}" method="post" class="basket-item-form">
+                            <form action="{% url 'basket_add_view' videocard.id %}" method="post" class="basket-item-form">
                                 {{ item.update_quantity_form.quantity }}
                                 {{ item.update_quantity_form.update }}
                                 <div class="basket-item-form-btns">
                                     <input type="submit" value="Обновить" class="basket-item-btn btn">
-                                    <a href="{% url 'basket_remove' videocard.id %}" class="basket-item-btn btn">Удалить</a>
+                                    <a href="{% url 'basket_remove_view' videocard.id %}" class="basket-item-btn btn">Удалить</a>
                                 </div>
                                 {% csrf_token %}
                             </form>
@@ -42,13 +42,10 @@
                 <div class="basket-content-footer">
                     <div class="basket-content-footer-left">
                         <p class="basket-content-footer-sum">Сумма заказа: {{ basket.get_total_price }} USD</p>
-                        <a href="#" class="basket-footer-content-purchase-btn btn">Оформить заказ</a>
+                        <a href="{% url 'order_view' %}" class="basket-footer-content-purchase-btn btn">Оформить заказ</a>
                     </div>
                     <a href="{% url 'main_view' %}" class="basket-content-footer-return-btn btn">Вернуться в магазин</a>
                 </div>
-{#                <p>{{ basket.get_total_price }}</p>#}
-{#                <a href="{% url 'main_view' %}">В магазин</a>#}
-{#                <a href="#">Оформить заказ</a>#}
             </div>
         </div>
     </section>

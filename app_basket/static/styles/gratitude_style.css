@@ -1,0 +1,41 @@
+
+nav {
+    margin-bottom: 192px;
+}
+
+.gratitude {
+    height: 352px;
+}
+
+.gratitude-container{
+    width: 813px;
+    background: linear-gradient(308.47deg, #BB0000 34.38%, #0B0B0B 73.49%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 67px;
+}
+
+.gratitude-text {
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 73px;
+    text-align: center;
+    color: #F1F1F1;
+    margin-bottom: 73px;
+}
+
+.gratitude-btn {
+    width: 518px;
+    height: 73px;
+    background: #0D0D0D;
+    border-radius: 16px;
+
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F1F1F1;
+}

@@ -33,14 +33,17 @@ nav {
 .nav-container {
     display: flex;
     padding-left: 74px;
+    padding-right: 74px;
     align-items: center;
     height: 94px;
     background-color: #fff;
 }
 
+.nav-logo-link {
+    margin-right: auto;
+}
 
 .nav-logo {
-    margin-right: 525px;
     height: 80px;
     width: 80px;
     transition-property: scale;
@@ -51,10 +54,23 @@ nav {
     scale: 1.1;
 }
 
+.nav-logo-name-link {
+    padding-left: 6px;
+    width: 380px;
+    height: 50px;
+    background: linear-gradient(270.96deg, #0D0D0D 41.86%, #350D0D 78.04%, #350D0D 99.13%);
+    border-radius: 0 16px 16px 0;
+    margin-right: 525px;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 49px;
+    color: #F1F1F1;
+}
+
 .nav-links {
-    width: 600px;
+    width: 400px;
     display: inline-flex;
-    justify-content: space-between;
+    justify-content: right;
     margin-right: 132px;
 }
 
@@ -62,6 +78,10 @@ nav {
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
+}
+
+.nav-links-item:not(:last-child) {
+    margin-right: 30px;
 }
 
 .nav-links-item:hover {

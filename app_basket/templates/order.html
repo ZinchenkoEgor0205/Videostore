@@ -1,0 +1,63 @@
+{% extends 'main.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/order_style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+{% endblock head %}
+<body>
+    {% block afternav %}
+        <section class="form">
+            <form class="form-container container" method="post" action="">
+                {% csrf_token %}
+                <h3 class="form_header">Оформление заказа</h3>
+                <div class="form-items">
+                    <div class="form-item">
+                        <div class="form-item-left">Фамилия и имя:</div>
+                        {{ form.name_surname }}
+                    </div>
+                    <div class="form-item">
+                        <div class="form-item-left">Телефон:</div>
+                        {{ form.phone }}
+                    </div>
+                    <div class="form-item">
+                        <div class="form-item-left">Email:</div>
+                        {{ form.email }}
+                    </div>
+                    <div class="form-item">
+                        <div class="form-item-left">Город:</div>
+                        {{ form.city }}
+                    </div>
+                    <div class="form-item">
+                        <div class="form-item-left">Улица:</div>
+                        {{ form.street }}
+                    </div>
+                    <div class="form-item">
+                        <div class="form-item-left">Корпус:</div>
+                        {{ form.housing }}
+                    </div>
+                    <div class="form-item">
+                        <div class="form-item-left">Дом:</div>
+                        {{ form.house }}
+                    </div>
+                    <div class="form-item">
+                        <div class="form-item-left">Квартира:</div>
+                        {{ form.apartment }}
+                    </div>
+                </div>
+                <div class="form-footer">
+                    <button class="form-footer-btn">Оформить</button>
+                </div>
+            </form>
+        </section>
+    {% endblock afternav %}
+</body>
+</html>

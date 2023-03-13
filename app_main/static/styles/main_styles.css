@@ -5,7 +5,6 @@
 .hero-container {
     width: 1550px;
     height: 620px;
-    background: url(../../templates/media/hero-background.webp);
     z-index: 0;
 }
 
@@ -151,7 +150,7 @@
     padding-top: 14px;
     padding-left: 13px;
     background-color: #A2A2A2;
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 0 0 20px 20px;
 }
 
 .popular-content-positions-item-footer-info {
@@ -174,10 +173,10 @@
     flex-direction: row;
     width: 254px;
     height: 35px;
-    border-width: 0px 5px 5px 0px;
+    border-width: 0 5px 5px 0;
     border-style: solid;
     border-color: #DE1616;
-    border-radius: 0px 0px 16px 0px;
+    border-radius: 0 0 16px 0;
     padding-left: 7px;
     padding-right: 4px;
 }

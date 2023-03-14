@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.http import require_POST
@@ -9,6 +11,7 @@ from app_main.models import Videocard
 
 
 @require_POST
+@login_required
 def basket_add_view(request, videocard_id):
     basket = Basket(request)
     videocard= get_object_or_404(Videocard, id=videocard_id)
@@ -18,6 +21,7 @@ def basket_add_view(request, videocard_id):
         basket.add(videocard=videocard, quantity=cd['quantity'], update_quantity=cd['update'])
     return redirect('basket_detail_view')
 
+@login_required
 def basket_remove_view(request, videocard_id):
     basket = Basket(request)
     videocard = get_object_or_404(Videocard, id=videocard_id)
@@ -28,6 +32,7 @@ def basket_remove_view(request, videocard_id):
 def basket_detail_view(request):
     basket = Basket(request)
     for item in basket:
+        item['price'] = Decimal(item['price']) * request.user.profile.discount.price_multiplier
         item['update_quantity_form'] = BasketAddVideocardForm(initial={'quantity': item['quantity'], 'update': True})
     return render(request, 'basket_detail.html')
 

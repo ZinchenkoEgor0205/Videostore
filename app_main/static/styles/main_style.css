@@ -17,7 +17,7 @@
 
 .hero-info-header {
     display: inline-block;
-    width: 630px;
+    width: 650px;
     color: #f1f1f1;
     font-size: 70px;
     font-weight: 800;
@@ -164,9 +164,6 @@
 }
 
 .popular-content-positions-item-footer-link {
-    width: 274px;
-    height: 40px;
-    display: inline-flex;
     align-items: flex-end;
     justify-content: space-between;
     display: flex;
@@ -237,11 +234,11 @@
     margin-top: 30px;
     padding-top: 50px;
     padding-bottom: 50px;
+    padding-left: 160px;
+    padding-right: 160px;
     background: linear-gradient(270deg, #BC0101 54.11%, #280303 116.46%);
     width: 1550px;
     border-radius: 0 0 15px 15px;
-    padding-left: 160px;
-    padding-right: 160px;
 }
 
 .popular-extended-content-positions-item:nth-child(n-4) {

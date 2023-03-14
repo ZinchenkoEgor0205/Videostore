@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 from app_main.models import Videocard, VideocardInfo
-from app_user.models import Profile
 
 
 @admin.register(Videocard)
@@ -23,7 +22,3 @@ class VideocardInfoAdmin(admin.ModelAdmin):
     list_display = ['name', 'release_date']
 
 
-@admin.register(Profile)
-class VideocardAdmin(admin.ModelAdmin):
-    list_display = ['user', 'city', 'discount_status', 'phone', 'verification',]
-    list_filter = ['user']

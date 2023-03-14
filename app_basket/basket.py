@@ -1,5 +1,7 @@
 from decimal import Decimal
 
+from django.http import request
+
 from app_main.models import Videocard
 from videostore_project import settings
 

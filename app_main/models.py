@@ -11,11 +11,6 @@ class VideocardInfo(models.Model):
     memory_volume = models.IntegerField(blank=True)
     memory_band_width = models.IntegerField(blank=True)
     recommended_energy_supply = models.IntegerField(blank=True)
-    
-    # power_slots = models.IntegerField(blank=True)
-    # cooling_width = models.IntegerField(blank=True)
-    # length = models.IntegerField(blank=True)
-    # height = models.IntegerField(blank=True)
 
 
     def __str__(self):

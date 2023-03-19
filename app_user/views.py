@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 
-from app_user.forms import AuthForm, RegisterForm
+from app_user.forms import AuthForm, RegisterForm, AccountEditForm
 from app_user.models import Profile
 from videostore_project.settings import BASE_DIR
 
@@ -49,6 +49,29 @@ def account_view(request):
         'user': request.user
     }
     return render(request, 'account.html', context=context)
+
+def account_edit_view(request):
+    user = request.user
+    if request.method == 'POST':
+        form = AccountEditForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            user.username = cd['username']
+            user.email = cd['email']
+            user.profile.phone = cd['phone']
+            user.first_name = cd['first_name']
+            user.last_name = cd['last_name']
+            user.profile.city = cd['city']
+            user.profile.street = cd['street']
+            user.profile.housing = cd['housing']
+            user.profile.house = cd['house']
+            user.profile.apartment = cd['apartment']
+            user.save()
+            user.profile.save()
+            return redirect('/user/account')
+    else:
+        form = AccountEditForm()
+    return  render(request, 'account-edit.html', {'form': form, 'user': user})
 
 def logout_view(request):
     logout(request)

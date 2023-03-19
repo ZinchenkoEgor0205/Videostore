@@ -21,3 +21,25 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2',)
         field_classes = {"username": UsernameField}
+
+
+class AccountEditForm(forms.Form):
+    username = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Имя пользователя'}))
+    first_name = forms.CharField(required=False, max_length=30, help_text='Name',
+                                 widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Имя'}))
+    last_name = forms.CharField(required=False, max_length=30, help_text='Last name',
+                                widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Фамилия'}))
+    email = forms.EmailField(required=False,
+                             widget=forms.EmailInput(attrs={'class': 'form-input', 'placeholder': 'Email'}))
+    city = forms.CharField(required=False,
+                           widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Город'}))
+    phone = forms.CharField(required=False,
+                            widget=forms.NumberInput(attrs={'class': 'form-input', 'placeholder': 'Телефон'}))
+    street = forms.CharField(required=False,
+                           widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Улица'}))
+    housing = forms.CharField(required=False,
+                           widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Корпус'}))
+    house = forms.CharField(required=False,
+                           widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Дом'}))
+    apartment = forms.CharField(required=False,
+                           widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Квартира'}))

@@ -7,5 +7,5 @@ class DiscountAdmin(admin.ModelAdmin):
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'city', 'phone', 'verification',]
+    list_display = ['user', 'city', 'phone', 'street', 'housing', 'house', 'apartment', 'verification',]
     list_filter = ['user']

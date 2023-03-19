@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
     <link rel="stylesheet" href="{% static 'styles/videocard_detail_style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -58,7 +58,7 @@
                     <p class="detail-content-info-footer-text">Количество:</p>
                     {{ basket_videocard_form.quantity }}
                     {% csrf_token %}
-                    <input type="submit" class="detail-content-info-footer-btn" value="В корзину">
+                    <input type="submit" class="detail-content-info-footer-btn btn-black" value="В корзину">
                 </form>
             </div>
         </div>

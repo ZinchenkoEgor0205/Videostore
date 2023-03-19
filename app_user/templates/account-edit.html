@@ -1,0 +1,71 @@
+{% extends 'main.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/account_edit_style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+{% endblock head %}
+<body>
+{% block afternav %}
+<section class="account">
+    <form action="" method="post" class="container account-container">
+        {% csrf_token %}
+        <h1 class="account-header">Профиль</h1>
+        <div class="account-content">
+            <div class="account-content-item">
+                <div class="account-content-item-left">Имя пользователя</div>
+                <input type="text" value="{{ user.username }}" name="username" class="form-input account-content-item-right" placeholder="Имя пользователя" required="" id="id_username">
+            </div>
+            <div class="account-content-item">
+                <div class="account-content-item-left">Email</div>
+                <input type="text" value="{{ user.email }}" name="email" class="form-input account-content-item-right" placeholder="Email" required="" id="id_username">
+            </div>
+            <div class="account-content-item">
+                <div class="account-content-item-left">Телефон</div>
+                <input type="text" value="{{ user.profile.phone }}" name="phone" class="form-input account-content-item-right" placeholder="Телефон" required="" id="id_username">
+            </div>
+            <div class="account-content-item">
+                <div class="account-content-item-left">Имя</div>
+                <input type="text" value="{{ user.first_name }}" name="first_name" class="form-input account-content-item-right" placeholder="Имя" required="" id="id_username">
+            </div>
+            <div class="account-content-item">
+                <div class="account-content-item-left">Фамилия</div>
+                <input type="text" value="{{ user.last_name }}" name="last_name" class="form-input account-content-item-right" placeholder="Фамилия" required="" id="id_username">
+            </div>
+            <div class="account-content-item">
+                <div class="account-content-item-left">Город</div>
+                <input type="text" value="{{ user.profile.city }}" name="city" class="form-input account-content-item-right" placeholder="Город" required="" id="id_username">
+            </div>
+            <div class="account-content-item">
+                <div class="account-content-item-left">Улица</div>
+                <input type="text" value="{{ user.profile.street }}" name="street" class="form-input account-content-item-right" placeholder="Улица" required="" id="id_username">
+            </div>
+            <div class="account-content-item">
+                <div class="account-content-item-left">Корпус</div>
+                <input type="text" value="{{ user.profile.housing }}" name="housing" class="form-input account-content-item-right" placeholder="Корпус" required="" id="id_username">
+            </div>
+            <div class="account-content-item">
+                <div class="account-content-item-left">Дом</div>
+                <input type="text" value="{% if user.profile.house %}{{ user.profile.house }}{% else %}{% endif %}" name="house" class="form-input account-content-item-right" placeholder="Дом" required="" id="id_username">
+            </div>
+            <div class="account-content-item">
+                <div class="account-content-item-left">Квартира</div>
+                <input type="text" value="{% if user.profile.apartment %}{{ user.profile.apartment }}{% else %}{% endif %}" name="apartment" class="form-input account-content-item-right" placeholder="Квартира" required="" id="id_username">
+            </div>
+        </div>
+        <div class="account-footer">
+            <button class="account-btn btn-black">Подтвердить</button>
+        </div>
+    </form>
+</section>
+{% endblock afternav %}
+</body>
+</html>

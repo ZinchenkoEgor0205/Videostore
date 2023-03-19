@@ -94,4 +94,15 @@ section {
     justify-content: center;
 }
 
+.btn-black {
+    border: 0;
+    transition-duration: 0.2s;
+    transition-property: transform, background;
+    cursor: pointer;
+}
+
+.btn-black:hover {
+    transform: scale(1.03);
+    background: #232323;
+}
 

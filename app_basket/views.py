@@ -59,7 +59,8 @@ def order_view(request):
             return redirect('gratitude_view')
     else:
         form = OrderForm()
-    return render(request, 'order.html', context={'form': form})
+        user = request.user
+    return render(request, 'order.html', context={'form': form, 'user': user})
 
 def gratitude_view(request):
     return render(request, 'gratitude.html')

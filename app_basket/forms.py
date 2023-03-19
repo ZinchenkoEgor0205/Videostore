@@ -12,6 +12,6 @@ class OrderForm(forms.Form):
     email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Email'}))
     city = forms.CharField(max_length=20, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Город'}))
     street = forms.CharField(max_length=20, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Улица'}))
-    house = forms.CharField(max_length=10, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Дом'}))
-    housing = forms.IntegerField(required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Корпус'}))
+    house = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Дом'}))
+    housing = forms.CharField(max_length=10, required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Корпус'}))
     apartment = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Квартира'}))

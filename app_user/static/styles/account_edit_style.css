@@ -7,7 +7,7 @@
 
 .account-container {
     display: inline-flex;
-    width: 813px;
+    width: 1378px;
     background: linear-gradient(308.47deg, #BB0000 34.38%, #0B0B0B 73.49%);
     border-radius: 32px;
     flex-direction: column;
@@ -31,50 +31,54 @@
 
 .account-content {
     display: flex;
-    width: 711px;
+    flex-direction: column;
     flex-wrap: wrap;
-    margin-bottom: 27px;
+    height: 390px;
+    margin-bottom: 45px;
 }
 
-.account-content-left {
-    margin-right: 91px;
-}
-
-.account-content-left-item {
-    width: 195px;
+.account-content-item {
+    margin-right: 30px;
+    width: 623px;
     height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.account-content-item-left {
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
     display: flex;
-    text-align: left;
-    color: #F1F1F1;
     align-items: center;
-    margin-bottom: 18px;
+    color: #F1F1F1;
 }
 
-.account-content-right {
-    
-}
-
-.account-content-right-item {
-    width: 425px;
+.account-content-item-right {
+    border: 0;
+    width: 350px;
     height: 50px;
     background: #D3D3D3;
     border-radius: 16px;
-    padding-left: 10px;
-    margin-bottom: 18px;
-}
-
-.account-content-right-item-text {
-    width: 417px;
-    height: 50px;
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
     display: flex;
     align-items: center;
     color: #0D0D0D;
+    padding-left: 10px;
+}
+
+.account-content-item-right:focus {
+    border: 0;
+    outline: 0;
+}
+
+.account-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 630px;
 }
 
 .account-btn {
@@ -90,5 +94,4 @@
     line-height: 29px;
     background: #0D0D0D;
     color: #F1F1F1;
-    margin-left: 213px;
 }

@@ -11,6 +11,10 @@ class Discount(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     city = models.CharField(max_length=30, blank=True)
+    street = models.CharField(max_length=30, blank=True)
+    housing = models.CharField(max_length=10, blank=True)
+    house = models.IntegerField(blank=True, null=True)
+    apartment = models.IntegerField(blank=True, null=True)
     discount = models.ForeignKey(Discount, on_delete=models.CASCADE)
     phone = models.CharField(max_length=15, blank=True)
     verification = models.BooleanField(default=False)

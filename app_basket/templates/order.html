@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
     <link rel="stylesheet" href="{% static 'styles/order_style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -20,21 +20,21 @@
                 {% csrf_token %}
                 <h3 class="form_header">Оформление заказа</h3>
                 <div class="form-items">
-                    <div class="form-item">
+                     <div class="form-item">
                         <div class="form-item-left">Фамилия и имя:</div>
-                        {{ form.name_surname }}
+                         <input type="text" value="{{ user.last_name }} {{ user.first_name }}" name="name_surname" class="form-input" placeholder="Фамилия и имя" maxlength="50" required="" id="id_name_surname">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Телефон:</div>
-                        {{ form.phone }}
+                        <input type="text" value="{{ user.profile.phone }}" name="phone" class="form-input" placeholder="Телефон" maxlength="20" required="" id="id_phone">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Email:</div>
-                        {{ form.email }}
+                        <input type="text" value="{{ user.email }}" name="email" class="form-input" placeholder="Email" required="" id="id_email">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Город:</div>
-                        {{ form.city }}
+                        <input type="text" value="{{ user.profile.city }}" name="city" class="form-input" placeholder="Город" maxlength="20" required="" id="id_city">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Улица:</div>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="form-footer">
-                    <button class="form-footer-btn">Оформить</button>
+                    <button class="form-footer-btn btn-black">Оформить</button>
                 </div>
             </form>
         </section>

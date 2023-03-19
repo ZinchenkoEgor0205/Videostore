@@ -38,19 +38,19 @@
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Улица:</div>
-                        {{ form.street }}
+                        <input type="text" value="{{ user.profile.street }}" name="street" class="form-input" placeholder="Улица" maxlength="20" required="" id="id_city">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Корпус:</div>
-                        {{ form.housing }}
+                        <input type="text" value="{{ user.profile.housing }}" name="housing" class="form-input" placeholder="Корпус" maxlength="20" required="" id="id_city">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Дом:</div>
-                        {{ form.house }}
+                        <input type="text" value="{{ user.profile.house }}" name="house" class="form-input" placeholder="Дом" maxlength="20" required="" id="id_city">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Квартира:</div>
-                        {{ form.apartment }}
+                        <input type="text" value="{{ user.profile.apartment }}" name="apartment" class="form-input" placeholder="Квартира" maxlength="20" required="" id="id_city">
                     </div>
                 </div>
                 <div class="form-footer">

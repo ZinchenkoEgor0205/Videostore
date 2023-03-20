@@ -18,9 +18,8 @@
 }
 
 .account-header {
-    display: inline-block;
+    display: block;
     height: 95px;
-    width: 452px;
     font-weight: 800;
     font-size: 80px;
     line-height: 98px;

@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
     <link rel="stylesheet" href="{% static 'styles/order_style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -22,35 +22,35 @@
                 <div class="form-items">
                      <div class="form-item">
                         <div class="form-item-left">Фамилия и имя:</div>
-                         <input type="text" value="{{ user.last_name }} {{ user.first_name }}" name="name_surname" class="form-input" placeholder="Фамилия и имя" maxlength="50" required="" id="id_name_surname">
+                         <input type="text" value="{{ user.last_name }} {{ user.first_name }}" name="name_surname" class="form-input input-gray" placeholder="Фамилия и имя" maxlength="50" required="" id="id_name_surname">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Телефон:</div>
-                        <input type="text" value="{{ user.profile.phone }}" name="phone" class="form-input" placeholder="Телефон" maxlength="20" required="" id="id_phone">
+                        <input type="text" value="{{ user.profile.phone }}" name="phone" class="form-input input-gray" placeholder="Телефон" maxlength="20" required="" id="id_phone">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Email:</div>
-                        <input type="text" value="{{ user.email }}" name="email" class="form-input" placeholder="Email" required="" id="id_email">
+                        <input type="text" value="{{ user.email }}" name="email" class="form-input input-gray" placeholder="Email" required="" id="id_email">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Город:</div>
-                        <input type="text" value="{{ user.profile.city }}" name="city" class="form-input" placeholder="Город" maxlength="20" required="" id="id_city">
+                        <input type="text" value="{{ user.profile.city }}" name="city" class="form-input input-gray" placeholder="Город" maxlength="20" required="" id="id_city">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Улица:</div>
-                        <input type="text" value="{{ user.profile.street }}" name="street" class="form-input" placeholder="Улица" maxlength="20" required="" id="id_city">
+                        <input type="text" value="{{ user.profile.street }}" name="street" class="form-input input-gray" placeholder="Улица" maxlength="20" required="" id="id_city">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Корпус:</div>
-                        <input type="text" value="{{ user.profile.housing }}" name="housing" class="form-input" placeholder="Корпус" maxlength="20" required="" id="id_city">
+                        <input type="text" value="{{ user.profile.housing }}" name="housing" class="form-input input-gray" placeholder="Корпус" maxlength="20" required="" id="id_city">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Дом:</div>
-                        <input type="text" value="{{ user.profile.house }}" name="house" class="form-input" placeholder="Дом" maxlength="20" required="" id="id_city">
+                        <input type="text" value="{{ user.profile.house }}" name="house" class="form-input input-gray" placeholder="Дом" maxlength="20" required="" id="id_city">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Квартира:</div>
-                        <input type="text" value="{{ user.profile.apartment }}" name="apartment" class="form-input" placeholder="Квартира" maxlength="20" required="" id="id_city">
+                        <input type="text" value="{{ user.profile.apartment }}" name="apartment" class="form-input input-gray" placeholder="Квартира" maxlength="20" required="" id="id_city">
                     </div>
                 </div>
                 <div class="form-footer">

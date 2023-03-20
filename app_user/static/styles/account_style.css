@@ -20,7 +20,7 @@
 .account-header {
     display: inline-block;
     height: 95px;
-    width: 452px;
+    width: 800px;
     font-weight: 800;
     font-size: 80px;
     line-height: 98px;
@@ -40,6 +40,7 @@
 .account-content-item {
     width: 623px;
     height: 50px;
+    margin-right: 30px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;

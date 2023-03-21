@@ -9,8 +9,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/main_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/main_styles.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -71,7 +71,7 @@
                     <div class="popular-content-positions">
                         {% for videocard in videocards.reverse|slice:':4' %}
                             <a href="{% url 'videocard_detail' videocard.id %}" class="popular-content-positions-item">
-                                <img src={{ videocard.image }} alt="videocard" class="popular-content-positions-item-img popular-content-positions-item-img-1">
+                                <img src='{{ videocard.image }}' alt="videocard" class="popular-content-positions-item-img popular-content-positions-item-img-1">
                                 <div class="popular-content-positions-item-footer">
                                     <p class="popular-content-positions-item-footer-info">{{ videocard.manufacturer }} {{ videocard.name }}</p>
                                     <div class="popular-content-positions-item-footer-link">
@@ -89,6 +89,9 @@
                             </svg>
                         </a>
                         <div class="popular-content-positions popular-extended-content">
+                            <div class="popular-extended-content-links">
+                                <a href="{% url 'videocard_sorted' %}" class="filter-btn btn-black">Фильтровать товары</a>
+                            </div>
                             {% for videocard in videocards.reverse|slice:'4:' %}
                                <a href="{% url 'videocard_detail' videocard.id %}" class="popular-content-positions-item popular-extended-content-positions-item">
                                     <img src={{ videocard.image }} alt="videocard" class="popular-content-positions-item-img popular-content-positions-item-img-1">

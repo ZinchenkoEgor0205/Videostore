@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/videocards_sorted_style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+{% endblock head %}
+<body>
+{% block afternav %}
+    <section class="content">
+        <div class="content-container container">
+            <div class="content-filters">
+                <p class="content-filters-text">Отсортировать по:</p>
+                <form class="content-filters-form" method="post" action="">
+                    {% csrf_token %}
+                    {{ form.parameter }}
+                    {{ form.search }}
+                    <button class="content-filters-form-btn btn btn-black">Отсортировать</button>
+                </form>
+            </div>
+            <div class="content-items">
+                {% for videocard in videocards %}
+                    <a href="{% url 'videocard_detail' videocard.id %}" class="popular-content-positions-item">
+                        <img src='/{{ videocard.image }}' alt="videocard" class="popular-content-positions-item-img popular-content-positions-item-img-1">
+                        <div class="popular-content-positions-item-footer">
+                            <p class="popular-content-positions-item-footer-info">{{ videocard.manufacturer }} {{ videocard.name }}</p>
+                            <div class="popular-content-positions-item-footer-link">
+                                <p class="popular-content-positions-item-footer-link-text">купить за</p>
+                                <p class="popular-content-positions-item-footer-link-price">{{ videocard.price }} USD</p>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock afternav %}
+</body>
+</html>

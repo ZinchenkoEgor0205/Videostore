@@ -83,7 +83,7 @@
     max-width: 100%;
     box-sizing: border-box;
     margin: 0;
-    appearance: none;
+    appearance: unset;
     margin-right: 100px;
 }
 

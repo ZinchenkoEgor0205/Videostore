@@ -103,6 +103,8 @@ section {
     transition-duration: 0.2s;
     transition-property: transform, background;
     cursor: pointer;
+    background-color: #0D0D0D;
+    color: #FFFFFF;
 }
 
 .btn-black:hover {

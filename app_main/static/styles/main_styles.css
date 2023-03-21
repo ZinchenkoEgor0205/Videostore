@@ -241,6 +241,27 @@
     border-radius: 0 0 15px 15px;
 }
 
+.popular-extended-content-links {
+    display: flex;
+    width: 1550px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    width: 298px;
+    height: 64px;
+    background: #0D0D0D;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F1F1F1;
+}
+
 .popular-extended-content-positions-item:nth-child(n-4) {
     margin-bottom: 40px;
 }

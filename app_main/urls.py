@@ -5,5 +5,6 @@ from app_main.views import *
 
 urlpatterns = [
     path('', main_view, name='main_view'),
+    path('sorted/', videocards_sorted_view, name='videocard_sorted'),
     path('<int:pk>/', VideocardDetailView.as_view(), name='videocard_detail')
 ]

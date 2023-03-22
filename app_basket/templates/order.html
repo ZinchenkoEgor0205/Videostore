@@ -10,7 +10,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/order_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/order_style.css' %}?">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 {% endblock head %}
@@ -19,8 +19,8 @@
         <section class="form">
             <form class="form-container container" method="post" action="">
                 {% csrf_token %}
-                <h3 class="form_header">{% trans 'Оформление заказа' %}</h3>
                 <div class="form-items">
+                    <h3 class="form_header">{% trans 'Оформление заказа' %}</h3>
                      <div class="form-item">
                         <div class="form-item-left">{% trans 'Фамилия и имя' %}:</div>
                          <input type="text" value="{{ user.last_name }} {{ user.first_name }}" name="name_surname" class="form-input input-gray" placeholder="{% trans 'Фамилия и имя' %}" maxlength="50" required="" id="id_name_surname">
@@ -54,8 +54,9 @@
                         <input type="text" value="{% if user.profile.apartment %}{{ user.profile.apartment }}{% else %}{% endif %}" name="apartment" class="form-input input-gray" placeholder="{% trans 'Квартира' %}" maxlength="20" required="" id="id_city">
                     </div>
                 </div>
-                <div class="form-footer">
-                    <button class="form-footer-btn btn-black">{% trans 'Оформить' %}</button>
+                <div class="form-right">
+                    <div class="form-right-sum">{% trans 'Сумма заказа' %}: {{ total_sum }} USD</div>
+                    <button class="form-right-btn btn-black">{% trans 'Оформить' %}</button>
                 </div>
             </form>
         </section>

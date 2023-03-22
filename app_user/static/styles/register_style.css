@@ -2,7 +2,6 @@
 .registration {
     display: flex;
     justify-content: center;
-    height: 650px;
 }
 
 .registration-container {
@@ -13,6 +12,7 @@
     align-items: center;
     flex-direction: column;
     padding-top: 13px;
+    padding-bottom: 30px;
 }
 
 .registration-header {
@@ -24,6 +24,21 @@
     line-height: 98px;
     color: #F1F1F1;
     margin-bottom: 25px;
+}
+
+.registration-errors {
+    width: 891px;
+    background: #D3D3D3;
+    border-radius: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.registration-error{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.1;
+    color: #0D0D0D;
 }
 
 .form {
@@ -124,3 +139,4 @@
     color: #F1F1F1;
     cursor: pointer;
 }
+

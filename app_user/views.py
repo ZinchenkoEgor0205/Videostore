@@ -26,7 +26,12 @@ def login_view(request):
 def register_view(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
-        if form.is_valid():
+        if form.errors:
+            errors = []
+            for value in form.errors:
+                [errors.append(data.args[0]) for data in form.errors[value].data]
+            return render(request, 'register.html', {'form': form, 'errors': errors})
+        elif form.is_valid():
             user = form.save()
             phone = form.cleaned_data.get('phone')
             city = form.cleaned_data.get('city')
@@ -34,6 +39,8 @@ def register_view(request):
                 user=user,
                 city=city,
                 phone=phone,
+                discount_id=4,
+                total_sum=0,
             )
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')

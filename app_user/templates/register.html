@@ -10,7 +10,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/register_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/register_style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 {% endblock %}
@@ -19,6 +19,13 @@
 <section class="registration">
     <div class="container registration-container">
         <h1 class="registration-header">{% trans 'Регистрация' %}</h1>
+        {% if errors %}
+            <div class="registration-errors">
+                {% for error in errors %}
+                    <div class="registration-error">{{ error }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
         <form action="" method="post" class="form">
             {% csrf_token %}
             <div class="form-inputs">

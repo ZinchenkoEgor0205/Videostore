@@ -1,6 +1,6 @@
 
 {% load static %}
-
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
     <link rel="stylesheet" href="{% static 'styles/main_styles.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -32,10 +32,22 @@
 <body>
     <nav>
         <div class="container nav-container">
-            <a href="{% url 'main_view' %}" class="nav-logo-link"><img class="nav-logo" src="{% static 'images/nav-logo.png' %}" alt="logo"></a>
-            <a href="{% url 'main_view' %}" class="nav-logo-name-link">Hardware house</a>
+            <div class="nav-logo-container">
+                <a href="{% url 'main_view' %}" class="nav-logo-link"><img class="nav-logo" src="{% static 'images/nav-logo.png' %}" alt="logo"></a>
+                <a href="{% url 'main_view' %}" class="nav-logo-name-link">Hardware house</a>
+            </div>
             <div class="nav-links">
-                <a href="{% url 'basket_detail_view' %}" class="nav-links-item">Корзина</a>
+                {% get_available_languages as LANGUAGES %}
+                {% for lang in LANGUAGES %}
+                {% if LANGUAGE_CODE == lang.0 %}
+                {{lang.1}} ({{lang.0}})
+                {% else %}
+                <a href="{% url 'set_language' %}?l={{lang.0}}" class="nav-links-item nav-links-language">{{lang.1}} ({{lang.0}})</a>
+                {% endif %}
+                {% endfor %}
+                {% if user.is_authenticated %}
+                    <a href="{% url 'basket_detail_view' %}" class="nav-links-item">Корзина</a>
+                {% endif %}
                 {% if user.is_anonymous %}
                     <a href="{% url 'login' %}" class="nav-links-item">Войти</a>
                     <a href="{% url 'register' %}" class="nav-links-item">Регистрация</a>
@@ -43,10 +55,6 @@
                     <a href="{% url 'account' %}" class="nav-links-item">{{ user.username }}</a>
                 {% endif %}
             </div>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="7.56126" height="1.89031" transform="matrix(0.713342 0.700816 -0.713342 0.700816 18.6062 17.3762)" fill="black"/>
-                <path d="M20.9303 10.7726C20.9303 16.1533 16.4855 20.5452 10.9652 20.5452C5.44478 20.5452 1 16.1533 1 10.7726C1 5.39198 5.44478 1 10.9652 1C16.4855 1 20.9303 5.39198 20.9303 10.7726Z" stroke="black" stroke-width="2"/>
-            </svg>
         </div>
     </nav>
     {% block afternav %}

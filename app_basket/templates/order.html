@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +9,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
     <link rel="stylesheet" href="{% static 'styles/order_style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -18,43 +19,43 @@
         <section class="form">
             <form class="form-container container" method="post" action="">
                 {% csrf_token %}
-                <h3 class="form_header">Оформление заказа</h3>
+                <h3 class="form_header">{% trans 'Оформление заказа' %}</h3>
                 <div class="form-items">
                      <div class="form-item">
-                        <div class="form-item-left">Фамилия и имя:</div>
-                         <input type="text" value="{{ user.last_name }} {{ user.first_name }}" name="name_surname" class="form-input input-gray" placeholder="Фамилия и имя" maxlength="50" required="" id="id_name_surname">
+                        <div class="form-item-left">{% trans 'Фамилия и имя' %}:</div>
+                         <input type="text" value="{{ user.last_name }} {{ user.first_name }}" name="name_surname" class="form-input input-gray" placeholder="{% trans 'Фамилия и имя' %}" maxlength="50" required="" id="id_name_surname">
                     </div>
                     <div class="form-item">
-                        <div class="form-item-left">Телефон:</div>
-                        <input type="text" value="{{ user.profile.phone }}" name="phone" class="form-input input-gray" placeholder="Телефон" maxlength="20" required="" id="id_phone">
+                        <div class="form-item-left">{% trans 'Телефон' %}:</div>
+                        <input type="text" value="{{ user.profile.phone }}" name="phone" class="form-input input-gray" placeholder="{% trans 'Телефон' %}" maxlength="20" required="" id="id_phone">
                     </div>
                     <div class="form-item">
                         <div class="form-item-left">Email:</div>
                         <input type="text" value="{{ user.email }}" name="email" class="form-input input-gray" placeholder="Email" required="" id="id_email">
                     </div>
                     <div class="form-item">
-                        <div class="form-item-left">Город:</div>
-                        <input type="text" value="{{ user.profile.city }}" name="city" class="form-input input-gray" placeholder="Город" maxlength="20" required="" id="id_city">
+                        <div class="form-item-left">{% trans 'Город' %}:</div>
+                        <input type="text" value="{{ user.profile.city }}" name="city" class="form-input input-gray" placeholder="{% trans 'Город' %}" maxlength="20" required="" id="id_city">
                     </div>
                     <div class="form-item">
-                        <div class="form-item-left">Улица:</div>
-                        <input type="text" value="{{ user.profile.street }}" name="street" class="form-input input-gray" placeholder="Улица" maxlength="20" required="" id="id_city">
+                        <div class="form-item-left">{% trans 'Улица' %}:</div>
+                        <input type="text" value="{{ user.profile.street }}" name="street" class="form-input input-gray" placeholder="{% trans 'Улица' %}" maxlength="20" required="" id="id_city">
                     </div>
                     <div class="form-item">
-                        <div class="form-item-left">Корпус:</div>
-                        <input type="text" value="{{ user.profile.housing }}" name="housing" class="form-input input-gray" placeholder="Корпус" maxlength="20" required="" id="id_city">
+                        <div class="form-item-left">{% trans 'Корпус' %}:</div>
+                        <input type="text" value="{{ user.profile.housing }}" name="housing" class="form-input input-gray" placeholder="{% trans 'Корпус' %}" maxlength="20" required="" id="id_city">
                     </div>
                     <div class="form-item">
-                        <div class="form-item-left">Дом:</div>
-                        <input type="text" value="{{ user.profile.house }}" name="house" class="form-input input-gray" placeholder="Дом" maxlength="20" required="" id="id_city">
+                        <div class="form-item-left">{% trans 'Дом' %}:</div>
+                        <input type="text" value="{% if user.profile.house %}{{ user.profile.house }}{% else %}{% endif %}" name="house" class="form-input input-gray" placeholder="{% trans 'Дом' %}" maxlength="20" required="" id="id_city">
                     </div>
                     <div class="form-item">
-                        <div class="form-item-left">Квартира:</div>
-                        <input type="text" value="{{ user.profile.apartment }}" name="apartment" class="form-input input-gray" placeholder="Квартира" maxlength="20" required="" id="id_city">
+                        <div class="form-item-left">{% trans 'Квартира' %}:</div>
+                        <input type="text" value="{% if user.profile.apartment %}{{ user.profile.apartment }}{% else %}{% endif %}" name="apartment" class="form-input input-gray" placeholder="{% trans 'Квартира' %}" maxlength="20" required="" id="id_city">
                     </div>
                 </div>
                 <div class="form-footer">
-                    <button class="form-footer-btn btn-black">Оформить</button>
+                    <button class="form-footer-btn btn-black">{% trans 'Оформить' %}</button>
                 </div>
             </form>
         </section>

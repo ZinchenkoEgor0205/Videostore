@@ -39,12 +39,14 @@ nav {
     padding-left: 74px;
     padding-right: 74px;
     align-items: center;
+    justify-content: space-between;
     height: 94px;
     background-color: #fff;
 }
 
-.nav-logo-link {
-    margin-right: auto;
+.nav-logo-container {
+    display: flex;
+    align-items: center;
 }
 
 .nav-logo {
@@ -60,11 +62,10 @@ nav {
 
 .nav-logo-name-link {
     padding-left: 6px;
-    width: 380px;
+    width: 330px;
     height: 50px;
     background: linear-gradient(270.96deg, #0D0D0D 41.86%, #350D0D 78.04%, #350D0D 99.13%);
     border-radius: 0 16px 16px 0;
-    margin-right: 525px;
     font-weight: 600;
     font-size: 35px;
     line-height: 49px;
@@ -72,10 +73,9 @@ nav {
 }
 
 .nav-links {
-    width: 400px;
+    width: 600px;
     display: inline-flex;
     justify-content: right;
-    margin-right: 132px;
 }
 
 .nav-links-item {

@@ -1,11 +1,15 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 from app_basket.forms import BasketAddVideocardForm
 from app_main.forms import FilterForm
 from app_main.models import Videocard
 from django.views.generic.detail import DetailView
+
+from videostore_project import settings
+
 
 def main_view(request):
     videocards = Videocard.objects.filter(promo_type='r')
@@ -56,3 +60,11 @@ class VideocardDetailView(DetailView):
         obj = Videocard.objects.get(id=pk)
         return obj
 
+
+@login_required
+def set_language(request):
+    lang = request.GET.get('l', 'en')
+    request.session[settings.LANGUAGE_SESSION_KEY] = lang
+    response = HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
+    return response

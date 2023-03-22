@@ -1,6 +1,7 @@
 from decimal import Decimal
 
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.http import require_POST
 
@@ -8,6 +9,7 @@ from app_basket.basket import Basket
 from app_basket.models import Order
 from app_basket.forms import BasketAddVideocardForm, OrderForm
 from app_main.models import Videocard
+from videostore_project import settings
 
 
 @require_POST
@@ -64,3 +66,4 @@ def order_view(request):
 
 def gratitude_view(request):
     return render(request, 'gratitude.html')
+

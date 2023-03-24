@@ -1,4 +1,3 @@
-
 {% load static %}
 {% load i18n %}
 
@@ -46,11 +45,11 @@
                 {% endif %}
                 {% endfor %}
                 {% if user.is_authenticated %}
-                    <a href="{% url 'basket_detail_view' %}" class="nav-links-item">Корзина</a>
+                    <a href="{% url 'basket_detail_view' %}" class="nav-links-item">{% trans 'Корзина' %}</a>
                 {% endif %}
                 {% if user.is_anonymous %}
-                    <a href="{% url 'login' %}" class="nav-links-item">Войти</a>
-                    <a href="{% url 'register' %}" class="nav-links-item">Регистрация</a>
+                    <a href="{% url 'login' %}" class="nav-links-item">{% trans 'Войти' %}</a>
+                    <a href="{% url 'register' %}" class="nav-links-item">{% trans 'Регистрация' %}</a>
                 {% else %}
                     <a href="{% url 'account' %}" class="nav-links-item">{{ user.username }}</a>
                 {% endif %}
@@ -64,7 +63,7 @@
                 <h1 class="hero-info-header">{{ videocards_promo.last.manufacturer }} {{ videocards_promo.last.name }}</h1>
                 <p class="hero-info-text">{{ videocards_promo.last.promo_note }}</p>
                 <div class="hero-info-footer">
-                    <a href="{%  url 'videocard_detail' videocards_promo.last.id %}" class="hero-info-btn">Купить сейчас</a>
+                    <a href="{%  url 'videocard_detail' videocards_promo.last.id %}" class="hero-info-btn">{% trans 'Купить сейчас' %}</a>
                     <div class="hero-info-price">{{ videocards_promo.last.price }} USD</div>
                 </div>
             </div>
@@ -73,7 +72,7 @@
     </section>
     <section class="popular">
         <div class="container popular-container">
-            <h1 class="popular-header">Популярные модели</h1>
+            <h1 class="popular-header">{% trans 'Популярные модели' %}</h1>
             <div class="popular-content-positions-block">
                 <div class="popular-content">
                     <div class="popular-content-positions">
@@ -83,7 +82,7 @@
                                 <div class="popular-content-positions-item-footer">
                                     <p class="popular-content-positions-item-footer-info">{{ videocard.manufacturer }} {{ videocard.name }}</p>
                                     <div class="popular-content-positions-item-footer-link">
-                                        <p class="popular-content-positions-item-footer-link-text">купить за</p>
+                                        <p class="popular-content-positions-item-footer-link-text">{% trans 'купить за' %}</p>
                                         <p class="popular-content-positions-item-footer-link-price">{{ videocard.price }} USD</p>
                                     </div>
                                 </div>
@@ -98,7 +97,7 @@
                         </a>
                         <div class="popular-content-positions popular-extended-content">
                             <div class="popular-extended-content-links">
-                                <a href="{% url 'videocard_sorted' %}" class="filter-btn btn-black">Фильтровать товары</a>
+                                <a href="{% url 'videocard_sorted' %}" class="filter-btn btn-black">{% trans 'Фильтровать товары' %}</a>
                             </div>
                             {% for videocard in videocards.reverse|slice:'4:' %}
                                <a href="{% url 'videocard_detail' videocard.id %}" class="popular-content-positions-item popular-extended-content-positions-item">
@@ -106,7 +105,7 @@
                                     <div class="popular-content-positions-item-footer">
                                         <p class="popular-content-positions-item-footer-info">{{ videocard.manufacturer }} {{ videocard.name }}</p>
                                         <div class="popular-content-positions-item-footer-link">
-                                            <p class="popular-content-positions-item-footer-link-text">купить за</p>
+                                            <p class="popular-content-positions-item-footer-link-text">{% trans 'купить за' %}</p>
                                             <p class="popular-content-positions-item-footer-link-price">{{ videocard.price }} USD</p>
                                         </div>
                                     </div>

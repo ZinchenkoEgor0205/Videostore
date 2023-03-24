@@ -9,7 +9,7 @@ from app_basket.basket import Basket
 from app_basket.models import Order
 from app_basket.forms import BasketAddVideocardForm, OrderForm
 from app_main.models import Videocard
-from videostore_project import settings
+from app_user.models import Discount
 
 
 @require_POST
@@ -40,11 +40,13 @@ def basket_detail_view(request):
 
 @login_required
 def order_view(request):
+    basket = Basket(request)
+    total_sum = sum([int(i['price']) * int(i['quantity']) for i in basket])
+    user = request.user
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
-            print(request.user.id)
             Order.objects.create(
                 name_surname=cd['name_surname'],
                 phone=cd['phone'],
@@ -56,12 +58,18 @@ def order_view(request):
                 apartment=cd['apartment'],
                 user_id=request.user.id,
             )
-            basket = Basket(request)
+            user.profile.total_sum += total_sum
+            user.profile.save()
+
+            total_user_sum = user.profile.total_sum
+            discount_status = Discount.objects.all().filter(required_sum__lte=total_user_sum).order_by('required_sum').last()
+            if user.profile.discount != discount_status:
+                user.profile.discount = discount_status
+                user.profile.save()
             basket.clear()
             return redirect('gratitude_view')
     else:
         form = OrderForm()
-        user = request.user
     return render(request, 'order.html', context={'form': form, 'user': user})
 
 def gratitude_view(request):

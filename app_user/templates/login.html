@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +18,7 @@
 {% block afternav %}
     <section class="signup">
         <div class="container signup-container">
-            <h1 class="signup-header">Вход</h1>
+            <h1 class="signup-header">{% trans 'Вход' %}</h1>
             <form action="" method="post" class="signup-form">
                 {% csrf_token %}
                 <div class="signup-form-content">
@@ -25,7 +26,7 @@
                        {{ input }}
                     {% endfor %}
                 </div>
-                <button class="signup-btn">Войти</button>
+                <button class="signup-btn">{% trans 'Войти' %}</button>
             </form>
         </div>
     </section>

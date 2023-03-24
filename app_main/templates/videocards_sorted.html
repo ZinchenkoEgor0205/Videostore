@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,12 +19,15 @@
     <section class="content">
         <div class="content-container container">
             <div class="content-filters">
-                <p class="content-filters-text">Отсортировать по:</p>
+                <p class="content-filters-text">{% trans 'Отсортировать по' %}:</p>
                 <form class="content-filters-form" method="post" action="">
                     {% csrf_token %}
-                    {{ form.parameter }}
-                    {{ form.search }}
-                    <button class="content-filters-form-btn btn btn-black">Применить</button>
+                    <select name="parameter" id="id_parameter">
+                        <option value="1">{% trans 'Цена по возрастанию' %}</option>
+                        <option value="2">{% trans 'Цена по убыванию' %}</option>
+                    </select>
+                    <input type="text" name="search" class="form-input input-gray" placeholder="{% trans 'Поиск' %}" maxlength="30" id="id_search">
+                    <button class="content-filters-form-btn btn btn-black">{% trans 'Применить' %}</button>
                 </form>
             </div>
             <div class="content-items">
@@ -33,7 +37,7 @@
                         <div class="popular-content-positions-item-footer">
                             <p class="popular-content-positions-item-footer-info">{{ videocard.manufacturer }} {{ videocard.name }}</p>
                             <div class="popular-content-positions-item-footer-link">
-                                <p class="popular-content-positions-item-footer-link-text">купить за</p>
+                                <p class="popular-content-positions-item-footer-link-text">{% trans 'купить за' %}</p>
                                 <p class="popular-content-positions-item-footer-link-price">{{ videocard.price }} USD</p>
                             </div>
                         </div>

@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,51 +19,51 @@
 <section class="account">
     <form action="" method="post" class="container account-container">
         {% csrf_token %}
-        <h1 class="account-header">Редактирование профиля</h1>
+        <h1 class="account-header">{% trans 'Редактирование профиля' %}</h1>
         <div class="account-content">
             <div class="account-content-item">
-                <div class="account-content-item-left">Имя пользователя</div>
-                <input type="text" value="{{ user.username }}" name="username" class="form-input account-content-item-right input-gray" placeholder="Имя пользователя" required="" id="id_username">
+                <div class="account-content-item-left">{% trans 'Имя пользователя' %}</div>
+                <input type="text" value="{{ user.username }}" name="username" class="form-input account-content-item-right input-gray" placeholder="{% trans 'Имя пользователя' %}" required="" id="id_username">
             </div>
             <div class="account-content-item">
                 <div class="account-content-item-left">Email</div>
                 <input type="text" value="{{ user.email }}" name="email" class="form-input account-content-item-right input-gray" placeholder="Email" required="" id="id_username">
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Телефон</div>
-                <input type="text" value="{{ user.profile.phone }}" name="phone" class="form-input account-content-item-right input-gray" placeholder="Телефон" required="" id="id_username">
+                <div class="account-content-item-left">{% trans 'Телефон' %}</div>
+                <input type="text" value="{{ user.profile.phone }}" name="phone" class="form-input account-content-item-right input-gray" placeholder="{% trans 'Телефон' %}" required="" id="id_username">
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Имя</div>
-                <input type="text" value="{{ user.first_name }}" name="first_name" class="form-input account-content-item-right input-gray" placeholder="Имя" required="" id="id_username">
+                <div class="account-content-item-left">{% trans 'Имя' %}</div>
+                <input type="text" value="{{ user.first_name }}" name="first_name" class="form-input account-content-item-right input-gray" placeholder="{% trans 'Имя' %}" required="" id="id_username">
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Фамилия</div>
-                <input type="text" value="{{ user.last_name }}" name="last_name" class="form-input account-content-item-right input-gray" placeholder="Фамилия" required="" id="id_username">
+                <div class="account-content-item-left">{% trans 'Фамилия' %}</div>
+                <input type="text" value="{{ user.last_name }}" name="last_name" class="form-input account-content-item-right input-gray" placeholder="{% trans 'Фамилия' %}" required="" id="id_username">
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Город</div>
-                <input type="text" value="{{ user.profile.city }}" name="city" class="form-input account-content-item-right input-gray" placeholder="Город" required="" id="id_username">
+                <div class="account-content-item-left">{% trans 'Город' %}</div>
+                <input type="text" value="{{ user.profile.city }}" name="city" class="form-input account-content-item-right input-gray" placeholder="{% trans 'Город' %}" required="" id="id_username">
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Улица</div>
-                <input type="text" value="{{ user.profile.street }}" name="street" class="form-input account-content-item-right input-gray" placeholder="Улица" required="" id="id_username">
+                <div class="account-content-item-left">{% trans 'Улица' %}</div>
+                <input type="text" value="{{ user.profile.street }}" name="street" class="form-input account-content-item-right input-gray" placeholder="{% trans 'Улица' %}" required="" id="id_username">
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Корпус</div>
-                <input type="text" value="{{ user.profile.housing }}" name="housing" class="form-input account-content-item-right input-gray" placeholder="Корпус" required="" id="id_username">
+                <div class="account-content-item-left">{% trans 'Корпус' %}</div>
+                <input type="text" value="{{ user.profile.housing }}" name="housing" class="form-input account-content-item-right input-gray" placeholder="{% trans 'Корпус' %}" required="" id="id_username">
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Дом</div>
-                <input type="text" value="{% if user.profile.house %}{{ user.profile.house }}{% else %}{% endif %}" name="house" class="form-input account-content-item-right input-gray" placeholder="Дом" required="" id="id_username">
+                <div class="account-content-item-left">{% trans 'Дом' %}</div>
+                <input type="text" value="{% if user.profile.house %}{{ user.profile.house }}{% else %}{% endif %}" name="house" class="form-input account-content-item-right input-gray" placeholder="{% trans 'Дом' %}" required="" id="id_username">
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Квартира</div>
-                <input type="text" value="{% if user.profile.apartment %}{{ user.profile.apartment }}{% else %}{% endif %}" name="apartment" class="form-input account-content-item-right input-gray" placeholder="Квартира" required="" id="id_username">
+                <div class="account-content-item-left">{% trans 'Квартира' %}</div>
+                <input type="text" value="{% if user.profile.apartment %}{{ user.profile.apartment }}{% else %}{% endif %}" name="apartment" class="form-input account-content-item-right input-gray" placeholder="{% trans 'Квартира' %}" required="" id="id_username">
             </div>
         </div>
         <div class="account-footer">
-            <button class="account-btn btn-black">Подтвердить</button>
+            <button class="account-btn btn-black">{% trans 'Подтвердить' %}</button>
         </div>
     </form>
 </section>

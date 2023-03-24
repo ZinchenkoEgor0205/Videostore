@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,10 +18,10 @@
 {% block afternav %}
 <section class="account">
     <div class="container account-container">
-        <h1 class="account-header">Профиль</h1>
+        <h1 class="account-header">{% trans 'Профиль' %}</h1>
         <div class="account-content">
             <div class="account-content-item">
-                <div class="account-content-item-left">Имя пользователя</div>
+                <div class="account-content-item-left">{% trans 'Имя пользователя' %}</div>
                 <div class="account-content-item-right">{{ user.username }}</div>
             </div>
             <div class="account-content-item">
@@ -28,45 +29,45 @@
                 <div class="account-content-item-right">{{ user.email }}</div>
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Телефон</div>
+                <div class="account-content-item-left">{% trans 'Телефон' %}</div>
                 <div class="account-content-item-right">{{ user.profile.phone }}</div>
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Имя</div>
+                <div class="account-content-item-left">{% trans 'Имя' %}</div>
                 <div class="account-content-item-right">{{ user.first_name }}</div>
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Фамилия</div>
+                <div class="account-content-item-left">{% trans 'Фамилия' %}</div>
                 <div class="account-content-item-right">{{ user.last_name }}</div>
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Город</div>
+                <div class="account-content-item-left">{% trans 'Город' %}</div>
                 <div class="account-content-item-right">{{ user.profile.city }}</div>
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Улица</div>
+                <div class="account-content-item-left">{% trans 'Улица' %}</div>
                 <div class="account-content-item-right">{{ user.profile.street }}</div>
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Корпус</div>
+                <div class="account-content-item-left">{% trans 'Корпус' %}</div>
                 <div class="account-content-item-right">{{ user.profile.housing }}</div>
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Дом</div>
+                <div class="account-content-item-left">{% trans 'Дом' %}</div>
                 <div class="account-content-item-right">{% if user.profile.house %}{{ user.profile.house }}{% else %}{% endif %} </div>
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Квартира</div>
+                <div class="account-content-item-left">{% trans 'Квартира' %}</div>
                 <div class="account-content-item-right">{% if user.profile.apartment %}{{ user.profile.apartment }}{% else %}{% endif %}</div>
             </div>
             <div class="account-content-item">
-                <div class="account-content-item-left">Тип скидки</div>
+                <div class="account-content-item-left">{% trans 'Тип скидки' %}</div>
                 <div class="account-content-item-right">{{ user.profile.discount }}</div>
             </div>
         </div>
         <div class="account-footer">
-            <a href="{% url 'account_edit' %}" class="account-btn btn-black">Изменить профиль</a>
-            <a href="{% url 'logout' %}" class="account-btn btn-black">Выйти из профиля</a>
+            <a href="{% url 'account_edit' %}" class="account-btn btn-black">{% trans 'Изменить профиль' %}</a>
+            <a href="{% url 'logout' %}" class="account-btn btn-black">{% trans 'Выйти из профиля' %}</a>
         </div>
     </div>
 </section>

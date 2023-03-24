@@ -6,6 +6,12 @@ from django.utils.translation import gettext_lazy as _
 
 
 class AuthForm(forms.Form):
+
+    def __init__(self, *args, **kwargs):
+        super(AuthForm, self).__init__(*args, **kwargs)
+        self.fields['username'].localize = True
+        self.fields['username'].widget.is_localized = True
+
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Имя пользователя'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-input', 'placeholder': 'Пароль'}))
 

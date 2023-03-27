@@ -12,8 +12,8 @@ class AuthForm(forms.Form):
         self.fields['username'].localize = True
         self.fields['username'].widget.is_localized = True
 
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Имя пользователя'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-input', 'placeholder': 'Пароль'}))
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-input input-gray', 'placeholder': 'Имя пользователя'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-input input-gray', 'placeholder': 'Пароль'}))
 
 
 class RegisterForm(UserCreationForm):

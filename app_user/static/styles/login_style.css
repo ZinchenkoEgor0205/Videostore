@@ -30,6 +30,15 @@
     
 }
 
+.login-error{
+    background: #FFACAC;
+    width: 403px;
+    line-height: 1.1;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
 .signup-form {
     display: flex;
     flex-direction: column;

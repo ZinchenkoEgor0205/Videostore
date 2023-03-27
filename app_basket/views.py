@@ -16,12 +16,13 @@ from app_user.models import Discount
 @login_required(login_url='/user/login/')
 def basket_add_view(request, videocard_id):
     basket = Basket(request)
-    videocard= get_object_or_404(Videocard, id=videocard_id)
+    videocard = get_object_or_404(Videocard, id=videocard_id)
     form = BasketAddVideocardForm(request.POST)
     if form.is_valid():
         cd = form.cleaned_data
         basket.add(videocard=videocard, quantity=cd['quantity'], update_quantity=cd['update'])
     return redirect('basket_detail_view')
+
 
 @login_required(login_url='/user/login/')
 def basket_remove_view(request, videocard_id):
@@ -29,6 +30,7 @@ def basket_remove_view(request, videocard_id):
     videocard = get_object_or_404(Videocard, id=videocard_id)
     basket.remove(videocard)
     return redirect('basket_detail_view')
+
 
 @login_required(login_url='/user/login/')
 def basket_detail_view(request):
@@ -38,10 +40,14 @@ def basket_detail_view(request):
         item['update_quantity_form'] = BasketAddVideocardForm(initial={'quantity': item['quantity'], 'update': True})
     return render(request, 'basket_detail.html')
 
+
 @login_required(login_url='/user/login/')
 def order_view(request):
     basket = Basket(request)
-    total_sum = sum([int(i['price']) * int(i['quantity']) for i in basket]) * request.user.profile.discount.price_multiplier
+    total_sum = sum(
+        [int(i['price']) * int(i['quantity']) for i in basket])
+    total_sum_with_discount = sum(
+        [int(i['price']) * int(i['quantity']) for i in basket]) * request.user.profile.discount.price_multiplier
     user = request.user
     if request.method == 'POST':
         form = OrderForm(request.POST)
@@ -62,7 +68,8 @@ def order_view(request):
             user.profile.save()
 
             total_user_sum = user.profile.total_sum
-            discount_status = Discount.objects.all().filter(required_sum__lte=total_user_sum).order_by('required_sum').last()
+            discount_status = Discount.objects.all().filter(required_sum__lte=total_user_sum).order_by(
+                'required_sum').last()
             if user.profile.discount != discount_status:
                 user.profile.discount = discount_status
                 user.profile.save()
@@ -70,8 +77,9 @@ def order_view(request):
             return redirect('gratitude_view')
     else:
         form = OrderForm()
-    return render(request, 'order.html', context={'form': form, 'user': user, 'total_sum': total_sum})
+        discount = total_sum - total_sum_with_discount
+    return render(request, 'order.html', context={'form': form, 'user': user, 'total_sum_with_discount': total_sum_with_discount, 'discount': discount})
+
 
 def gratitude_view(request):
     return render(request, 'gratitude.html')
-

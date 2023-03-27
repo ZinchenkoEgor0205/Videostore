@@ -8,18 +8,26 @@ from videostore_project.settings import BASE_DIR
 
 def login_view(request):
     if request.method == 'POST':
-        auth_form = AuthForm(request.POST)
-        if auth_form.is_valid():
-            username = auth_form.cleaned_data['username']
-            password = auth_form.cleaned_data['password']
+        form = AuthForm(request.POST)
+
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
             user = authenticate(username=username, password=password)
+            if user is None:
+                message = 'Неверно введён логин или пароль'
+                context = {
+                    'form': form,
+                    'message': message,
+                }
+                return render(request, 'login.html', context=context)
             if user and user.is_active:
                 login(request, user)
                 return redirect('/')
     else:
-        auth_form = AuthForm()
+        form = AuthForm()
     context = {
-        'form': auth_form
+        'form': form
     }
     return render(request, 'login.html', context=context)
 

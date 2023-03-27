@@ -55,7 +55,8 @@
                     </div>
                 </div>
                 <div class="form-right">
-                    <div class="form-right-sum">{% trans 'Сумма заказа' %}: {{ total_sum }} USD</div>
+                    <div class="form-right-sum">{% trans 'Ваша скидка' %}: {{ discount }} USD</div>
+                    <div class="form-right-sum">{% trans 'Сумма заказа' %}: {{ total_sum_with_discount }} USD</div>
                     <button class="form-right-btn btn-black">{% trans 'Оформить' %}</button>
                 </div>
             </form>

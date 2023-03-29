@@ -3,7 +3,7 @@ from django.db import models
 
 class Discount(models.Model):
     status_name = models.CharField(max_length=10)
-    required_sum = models.IntegerField()
+    required_sum = models.IntegerField(default=0)
     price_multiplier = models.DecimalField(max_digits=3, decimal_places=2)
 
     def __str__(self):
@@ -19,7 +19,7 @@ class Profile(models.Model):
     discount = models.ForeignKey(Discount, on_delete=models.CASCADE)
     phone = models.CharField(max_length=15, blank=True)
     verification = models.BooleanField(default=False)
-    total_sum = models.IntegerField()
+    total_sum = models.IntegerField(default=0)
 
     class Meta:
         verbose_name = 'profile'

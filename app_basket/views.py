@@ -1,8 +1,10 @@
+from datetime import timedelta
 from decimal import Decimal
 
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
+from django.utils import timezone
 from django.views.decorators.http import require_POST
 
 from app_basket.basket import Basket
@@ -49,6 +51,11 @@ def order_view(request):
     total_sum_with_discount = sum(
         [int(i['price']) * int(i['quantity']) for i in basket]) * request.user.profile.discount.price_multiplier
     user = request.user
+
+    discount_expiry = timezone.now() - timedelta(days=365)
+    order_history = Order.objects.filter(user=user, date__gte=discount_expiry)
+    active_sum = sum([item.sum for item in order_history])
+
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
@@ -62,13 +69,13 @@ def order_view(request):
                 house=cd['house'],
                 housing=cd['housing'],
                 apartment=cd['apartment'],
+                sum=total_sum_with_discount,
                 user_id=request.user.id,
             )
-            user.profile.total_sum += total_sum
+            user.profile.total_sum = active_sum
             user.profile.save()
 
-            total_user_sum = user.profile.total_sum
-            discount_status = Discount.objects.all().filter(required_sum__lte=total_user_sum).order_by(
+            discount_status = Discount.objects.all().filter(required_sum__lte=active_sum).order_by(
                 'required_sum').last()
             if user.profile.discount != discount_status:
                 user.profile.discount = discount_status

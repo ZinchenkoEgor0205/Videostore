@@ -4,6 +4,6 @@ from app_basket.models import Order
 
 
 @admin.register(Order)
-class VideocardAdmin(admin.ModelAdmin):
-    list_display = ['name_surname', 'phone', 'email', 'city', 'street', 'house', 'housing', 'apartment']
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ['name_surname', 'phone', 'email', 'city', 'street', 'house', 'housing', 'apartment', 'date']
     list_filter = ['name_surname']

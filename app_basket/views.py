@@ -2,13 +2,12 @@ from datetime import timedelta
 from decimal import Decimal
 
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.views.decorators.http import require_POST
 
 from app_basket.basket import Basket
-from app_basket.models import Order
+from app_basket.models import Order, OrderVideocard
 from app_basket.forms import BasketAddVideocardForm, OrderForm
 from app_main.models import Videocard
 from app_user.models import Discount
@@ -48,8 +47,7 @@ def order_view(request):
     basket = Basket(request)
     total_sum = sum(
         [int(i['price']) * int(i['quantity']) for i in basket])
-    total_sum_with_discount = sum(
-        [int(i['price']) * int(i['quantity']) for i in basket]) * request.user.profile.discount.price_multiplier
+    total_sum_with_discount = total_sum * request.user.profile.discount.price_multiplier
     user = request.user
 
     discount_expiry = timezone.now() - timedelta(days=365)
@@ -60,7 +58,7 @@ def order_view(request):
         form = OrderForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
-            Order.objects.create(
+            order = Order.objects.create(
                 name_surname=cd['name_surname'],
                 phone=cd['phone'],
                 email=cd['email'],
@@ -72,6 +70,12 @@ def order_view(request):
                 sum=total_sum_with_discount,
                 user_id=request.user.id,
             )
+            for item in basket:
+                OrderVideocard.objects.create(
+                    videocard=item['videocard'],
+                    order=order,
+                    quantity=item['quantity'],
+                )
             user.profile.total_sum = active_sum
             user.profile.save()
 

@@ -6,6 +6,9 @@ from app_main.forms import FilterForm
 from app_main.models import Videocard
 from django.views.generic.detail import DetailView
 from videostore_project import settings
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializers import *
 
 
 def main_view(request):
@@ -64,3 +67,21 @@ def set_language(request):
     response = HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
     return response
+
+
+
+class VideocardSerializedListView(APIView):
+    """Список всех видеокарт магазина"""
+
+    def get(self, request):
+        videocards = Videocard.objects.all()
+        serializer = VideocardListSerializer(videocards, many=True)
+        return Response(serializer.data)
+
+
+class VideocardSerializedDetailView(APIView):
+
+    def get(self, request, pk):
+        videocard = Videocard.objects.get(id=pk)
+        serializer = VideocardDetailSerializer(videocard)
+        return Response(serializer.data)

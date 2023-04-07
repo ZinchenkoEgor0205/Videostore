@@ -25,7 +25,9 @@ from videostore_project import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('rest_framework.urls')),
     path('', include('app_main.urls')),
     path('user/', include('app_user.urls')),
     path('basket/', include('app_basket.urls')),
+    # path('api/videocards', include('app_main.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

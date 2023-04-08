@@ -1,6 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView, UpdateView
+
 from app_basket.forms import BasketAddVideocardForm
 from app_main.forms import FilterForm
 from app_main.models import Videocard
@@ -68,6 +71,20 @@ def set_language(request):
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
     return response
 
+class VideocardCreateView(CreateView):
+    model = Videocard
+    fields = ['name', 'image', 'manufacturer', 'vendor', 'image_big', 'info']
+    template_name = 'videocard_create.html'
+    success_url = reverse_lazy('main_view')
+
+
+class VideocardUpdateView(UpdateView):
+    model = Videocard
+    fields = ['name', 'image', 'manufacturer', 'vendor', 'image_big', 'info']
+    template_name = 'videocard_update.html'
+
+    def get_success_url(self):
+        return reverse('videocard_detail', kwargs={'pk': self.object.pk})
 
 
 class VideocardSerializedListView(APIView):

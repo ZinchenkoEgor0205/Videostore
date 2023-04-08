@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    </head>
+{% endblock head %}
+<body>
+    {% block afternav %}
+        <h1>Create Videocard</h1>
+        <div class="">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </form>
+        </div>
+    {% endblock afternav %}
+</body>
+</html>

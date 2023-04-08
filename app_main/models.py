@@ -1,5 +1,10 @@
 from django.db import models
 
+
+def videocard_directory_path(instance: 'Videocard', filename: str) -> str:
+    return f'videocards/{instance.name}/image/{filename}'
+
+
 class VideocardInfo(models.Model):
     name = models.CharField(unique=True, max_length=50)
     release_date = models.IntegerField(blank=True)
@@ -12,9 +17,9 @@ class VideocardInfo(models.Model):
     memory_band_width = models.IntegerField(blank=True)
     recommended_energy_supply = models.IntegerField(blank=True)
 
-
     def __str__(self):
         return str(self.name)
+
 
 class Videocard(models.Model):
     PROMO_TYPES_CHOICES = [
@@ -27,7 +32,7 @@ class Videocard(models.Model):
     vendor = models.CharField(max_length=50, blank=True, verbose_name='Вендор')
     promo_type = models.CharField(max_length=10, choices=PROMO_TYPES_CHOICES, default='r')
     promo_note = models.CharField(max_length=300, blank=True, verbose_name='Промо-текст')
-    image = models.FilePathField(path='media/', verbose_name='Изображение', blank=True)
+    image = models.ImageField(upload_to=videocard_directory_path, verbose_name='Изображение', blank=True, null=True)
     image_big = models.FilePathField(path='media/', verbose_name='Изображение большое', blank=True)
     background = models.FilePathField(path='media/', verbose_name='Фон', blank=True)
     info = models.ForeignKey(VideocardInfo, on_delete=models.CASCADE, blank=True)

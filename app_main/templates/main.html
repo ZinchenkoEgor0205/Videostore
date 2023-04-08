@@ -78,7 +78,9 @@
                     <div class="popular-content-positions">
                         {% for videocard in videocards.reverse|slice:':4' %}
                             <a href="{% url 'videocard_detail' videocard.id %}" class="popular-content-positions-item">
-                                <img src='{{ videocard.image }}' alt="videocard" class="popular-content-positions-item-img popular-content-positions-item-img-1">
+                                {% if videocard.image %}
+                                    <img src='{{ videocard.image.url }}' alt="videocard" class="popular-content-positions-item-img popular-content-positions-item-img-1">
+                                {% endif %}
                                 <div class="popular-content-positions-item-footer">
                                     <p class="popular-content-positions-item-footer-info">{{ videocard.manufacturer }} {{ videocard.name }}</p>
                                     <div class="popular-content-positions-item-footer-link">

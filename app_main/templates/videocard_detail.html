@@ -20,7 +20,8 @@
         <div class="detail-container container">
             <h1 class="detail-header">{{ videocard.manufacturer }} {{ videocard.vendor }} {{ videocard.name }}</h1>
             <div class="detail-content">
-                <img src="{{ MEDIA_URL }}/{{ videocard.image }}" alt="" class="detail-content-img">
+                <img src="{{ videocard.image.url }}" alt="" class="detail-content-img">
+                <h1>{{ MEDIA_URL }}</h1>
                 <div class="detail-content-info">
                     <div class="detail-content-info-item">
                         <p class="detail-content-info-item-left">{% trans 'Год выпуска' %}:</p>

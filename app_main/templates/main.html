@@ -67,7 +67,9 @@
                     <div class="hero-info-price">{{ videocards_promo.last.price }} USD</div>
                 </div>
             </div>
-            <img class="hero-img" src="{{ videocards_promo.last.image_big }}" alt="">
+            {% if videocards_promo.last.image %}
+                <img class="hero-img" src="{{ videocards_promo.last.image_big.url }}" alt="">
+            {% endif %}
         </div>
     </section>
     <section class="popular">

@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
     <link rel="stylesheet" href="{% static 'styles/main_styles.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -58,7 +58,7 @@
     </nav>
     {% block afternav %}
     <section class="hero">
-        <div class="container hero-container" style="background-image: url({{ videocards_promo.last.background }});">
+        <div class="container hero-container" style="background-image: url({% static 'images/hero-background.webp' %});">
             <div class="hero-info">
                 <h1 class="hero-info-header">{{ videocards_promo.last.manufacturer }} {{ videocards_promo.last.name }}</h1>
                 <p class="hero-info-text">{{ videocards_promo.last.promo_note }}</p>
@@ -67,7 +67,7 @@
                     <div class="hero-info-price">{{ videocards_promo.last.price }} USD</div>
                 </div>
             </div>
-            <img class="hero-img" src="media/amd-hero.png" alt="">
+            <img class="hero-img" src="{{ videocards_promo.last.image_big }}" alt="">
         </div>
     </section>
     <section class="popular">
@@ -79,7 +79,9 @@
                         {% for videocard in videocards.reverse|slice:':4' %}
                             <a href="{% url 'videocard_detail' videocard.id %}" class="popular-content-positions-item">
                                 {% if videocard.image %}
-                                    <img src='{{ videocard.image.url }}' alt="videocard" class="popular-content-positions-item-img popular-content-positions-item-img-1">
+                                    <img src='{{ videocard.image.url }}' alt="videocard" class="popular-content-positions-item-img">
+                                    {% else %}
+                                    <div class="popular-content-positions-item-img">{% trans 'Нет изображения' %}</div>
                                 {% endif %}
                                 <div class="popular-content-positions-item-footer">
                                     <p class="popular-content-positions-item-footer-info">{{ videocard.manufacturer }} {{ videocard.name }}</p>
@@ -103,7 +105,11 @@
                             </div>
                             {% for videocard in videocards.reverse|slice:'4:' %}
                                <a href="{% url 'videocard_detail' videocard.id %}" class="popular-content-positions-item popular-extended-content-positions-item">
-                                    <img src={{ videocard.image }} alt="videocard" class="popular-content-positions-item-img popular-content-positions-item-img-1">
+                                    {% if videocard.image %}
+                                        <img src={{ videocard.image.url }} alt="videocard" class="popular-content-positions-item-img">
+                                        {% else %}
+                                        <div class="popular-content-positions-item-img">{% trans 'Нет изображения' %}</div>
+                                    {% endif %}
                                     <div class="popular-content-positions-item-footer">
                                         <p class="popular-content-positions-item-footer-info">{{ videocard.manufacturer }} {{ videocard.name }}</p>
                                         <div class="popular-content-positions-item-footer-link">
@@ -116,6 +122,7 @@
                         </div>
                     </div>
                 </div>
+                <a href="{% url 'videocard_create' %}">Добавить товар</a>
             </div>
         </div>
     </section>

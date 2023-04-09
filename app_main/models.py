@@ -34,7 +34,7 @@ class Videocard(models.Model):
     promo_note = models.CharField(max_length=300, blank=True, verbose_name='Промо-текст')
     image = models.ImageField(upload_to=videocard_directory_path, verbose_name='Изображение', blank=True, null=True)
     image_big = models.FilePathField(path='media/', verbose_name='Изображение большое', blank=True)
-    background = models.FilePathField(path='media/', verbose_name='Фон', blank=True)
+    # background = models.FilePathField(path='media/', verbose_name='Фон', blank=True)
     info = models.ForeignKey(VideocardInfo, on_delete=models.CASCADE, blank=True)
 
     def __str__(self):

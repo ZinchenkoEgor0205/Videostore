@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
     <link rel="stylesheet" href="{% static 'styles/videocard_detail_style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -20,7 +20,11 @@
         <div class="detail-container container">
             <h1 class="detail-header">{{ videocard.manufacturer }} {{ videocard.vendor }} {{ videocard.name }}</h1>
             <div class="detail-content">
-                <img src="{{ videocard.image.url }}" alt="" class="detail-content-img">
+                {% if videocard.image %}
+                    <img src="{{ videocard.image.url }}" alt="" class="detail-content-img">
+                    {% else %}
+                    <div class="detail-content-img">{% trans 'Нет изображения' %}</div>
+                {% endif %}
                 <h1>{{ MEDIA_URL }}</h1>
                 <div class="detail-content-info">
                     <div class="detail-content-info-item">
@@ -62,6 +66,7 @@
                     {% csrf_token %}
                     <input type="submit" class="detail-content-info-footer-btn btn-black" value="{% trans 'В корзину' %}">
                 </form>
+                <a href="{% url 'videocard_update' videocard.id %}">{% trans 'Изменить товар' %}</a>
             </div>
         </div>
     </section>

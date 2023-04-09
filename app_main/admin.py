@@ -6,7 +6,7 @@ from app_main.models import Videocard, VideocardInfo
 
 @admin.register(Videocard)
 class VideocardAdmin(admin.ModelAdmin):
-    list_display = ['name', 'manufacturer', 'price', 'vendor', 'image_show', 'background', 'image_big', 'promo_type', 'promo_note']
+    list_display = ['name', 'manufacturer', 'price', 'vendor', 'image_show', 'image_big', 'promo_type', 'promo_note']
     list_filter = ['price']
     list_editable = ['price', 'promo_type']
 

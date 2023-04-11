@@ -80,6 +80,7 @@
     justify-content: space-between;
     padding-left: 16px;
     padding-right: 16px;
+    margin-right: 20px;
 }
 
 .detail-content-info-footer-text {
@@ -136,4 +137,17 @@
     font-size: 18px;
     line-height: 24px;
     color: #F1F1F1;
+}
+
+.detail-content-edit-btn-block {
+    display: flex;
+    align-items: center;
+}
+
+.detail-content-edit-btn {
+    width: 170px;
+    height: 35px;
+    border-radius: 12px;
+    font-size: 16px;
+    line-height: 20px;
 }

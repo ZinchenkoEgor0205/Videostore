@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/main_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/main_style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -124,7 +124,9 @@
                         </div>
                     </div>
                 </div>
-                <a href="{% url 'videocard_create' %}">Добавить товар</a>
+                {% if user.is_superuser %}
+                    <a href="{% url 'videocard_create' %}" class="popular-content-positions-block-create btn-black">Добавить товар</a>
+                {% endif %}
             </div>
         </div>
     </section>

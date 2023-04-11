@@ -102,9 +102,14 @@ section {
     border: 0;
     transition-duration: 0.2s;
     transition-property: transform, background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
     cursor: pointer;
     background-color: #0D0D0D;
-    color: #FFFFFF;
+    color: #F1F1F1;
+    border-radius: 16px;
 }
 
 .btn-black:hover {

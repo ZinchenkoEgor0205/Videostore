@@ -9,8 +9,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/videocard_detail_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/videocard_detail_styles.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 {% endblock head %}
@@ -66,7 +66,11 @@
                     {% csrf_token %}
                     <input type="submit" class="detail-content-info-footer-btn btn-black" value="{% trans 'В корзину' %}">
                 </form>
-                <a href="{% url 'videocard_update' videocard.id %}">{% trans 'Изменить товар' %}</a>
+                <div class="detail-content-edit-btn-block">
+                    {% if user.is_superuser %}
+                        <a href="{% url 'videocard_update' videocard.id %}" class="detail-content-edit-btn btn-black">{% trans 'Изменить товар' %}</a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </section>

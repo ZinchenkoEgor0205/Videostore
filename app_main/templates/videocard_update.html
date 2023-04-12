@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,19 +10,43 @@
         <title>Title</title>
         <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
         <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/videocard_update_style.css' %}">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     </head>
 {% endblock head %}
 <body>
     {% block afternav %}
-        <h1>Update Videocard</h1>
-        <div class="">
-            <form action="" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button>Update</button>
-            </form>
-        </div>
+        <section class="update">
+            <div class="update-container container">
+                <h1 class="update-header">{% trans 'Изменить данные видеокарты' %}</h1>
+                <form action="" method="post" class="update-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="update-form-inputs">
+                        <div class="update-form-input">
+                            {{ form.name }}
+                        </div>
+                        <div class="update-form-input">
+                            {{ form.image }}
+                        </div>
+                        <div class="update-form-input">
+                            {{ form.manufacturer }}
+                        </div>
+                        <div class="update-form-input">
+                            {{ form.vendor }}
+                        </div>
+                        <div class="update-form-input">
+                            {{ form.image_big }}
+                        </div>
+                        <div class="update-form-input">
+                            {{ form.info }}
+                        </div>
+
+                    </div>
+                    <button class="update-form-btn btn-black">{% trans 'Изменить' %}</button>
+                </form>
+            </div>
+        </section>
+
     {% endblock afternav %}
 </body>
 </html>

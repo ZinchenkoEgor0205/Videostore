@@ -7,13 +7,26 @@ a {
     color: #000;
 }
 
-input {
+input,
+select {
     font-family: 'Montserrat', sans-serif;
+    outline: 0;
+    border: none;
 }
 
-input:active {
+input:focus,
+select:focus {
     border: 0;
     outline: 0;
+}
+
+select:hover {
+    outline: 0;
+    border: 0;
+}
+
+select::-ms-expand {
+    display: none;
 }
 
 html {

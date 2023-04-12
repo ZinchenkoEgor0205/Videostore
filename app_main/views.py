@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
@@ -6,7 +7,6 @@ from django.views.generic import CreateView, UpdateView
 
 from app_basket.forms import BasketAddVideocardForm
 from app_main.forms import FilterForm
-from app_main.models import Videocard
 from django.views.generic.detail import DetailView
 from videostore_project import settings
 from rest_framework.response import Response
@@ -51,6 +51,7 @@ def videocards_sorted_view(request):
     return render(request, 'videocards_sorted.html', context=context)
 
 
+
 class VideocardDetailView(DetailView):
     model = Videocard
     template_name = 'videocard_detail.html'
@@ -71,17 +72,20 @@ def set_language(request):
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
     return response
 
-class VideocardCreateView(CreateView):
+
+class VideocardCreateView(PermissionRequiredMixin, CreateView):
     model = Videocard
     fields = ['name', 'image', 'manufacturer', 'vendor', 'image_big', 'info']
     template_name = 'videocard_create.html'
     success_url = reverse_lazy('main_view')
+    permission_required = 'add_videocard'
 
 
-class VideocardUpdateView(UpdateView):
+class VideocardUpdateView(PermissionRequiredMixin, UpdateView):
     model = Videocard
     fields = ['name', 'image', 'manufacturer', 'vendor', 'image_big', 'info']
     template_name = 'videocard_update.html'
+    permission_required = 'edit_videocard'
 
     def get_success_url(self):
         return reverse('videocard_detail', kwargs={'pk': self.object.pk})

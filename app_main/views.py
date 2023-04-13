@@ -75,7 +75,7 @@ def set_language(request):
 
 class VideocardCreateView(PermissionRequiredMixin, CreateView):
     model = Videocard
-    fields = ['name', 'image', 'manufacturer', 'vendor', 'image_big', 'info']
+    fields = ['name', 'image', 'manufacturer', 'vendor', 'image_big', 'info', 'price']
     template_name = 'videocard_create.html'
     success_url = reverse_lazy('main_view')
     permission_required = 'add_videocard'
@@ -83,7 +83,7 @@ class VideocardCreateView(PermissionRequiredMixin, CreateView):
 
 class VideocardUpdateView(PermissionRequiredMixin, UpdateView):
     model = Videocard
-    fields = ['name', 'image', 'manufacturer', 'vendor', 'image_big', 'info']
+    fields = ['name', 'image', 'manufacturer', 'vendor', 'image_big', 'info', 'price']
     template_name = 'videocard_update.html'
     permission_required = 'edit_videocard'
 

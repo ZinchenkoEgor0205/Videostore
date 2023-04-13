@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,19 +9,59 @@
         <meta charset="UTF-8">
         <title>Title</title>
         <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-        <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/videocard_create_style.css' %}">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     </head>
 {% endblock head %}
 <body>
     {% block afternav %}
-        <h1>Create Videocard</h1>
-        <div class="">
-            <form action="" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-            </form>
-        </div>
+        <section class="create">
+            <div class="create-container container">
+                <h1 class="create-header">{% trans 'Добавить видеокарту' %}</h1>
+                <form action="" method="post" class="create-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="create-form-inputs">
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Название видеокарты:' %}</p>
+                            {{ form.name }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Изображение:' %}</p>
+                            {{ form.image }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Производитель:' %}</p>
+                            {{ form.manufacturer }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Вендор:' %}</p>
+                            {{ form.vendor }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Большое изображение:' %}</p>
+                            {{ form.image_big }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Модель видеокарты:' %}</p>
+                            {{ form.info }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Цена:' %} USD</p>
+                            {{ form.price }}
+                            <div style="display: inline-block">USD</div>
+                        </div>
+
+                    </div>
+                    <button class="create-form-btn btn-black">{% trans 'Добавить' %}</button>
+                </form>
+            </div>
+        </section>
+        <script>
+            $('#browse').click(function(){
+                $(this).parent().find('input').click();
+            });
+        </script>
     {% endblock afternav %}
 </body>
 </html>

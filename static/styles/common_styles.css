@@ -116,6 +116,20 @@ section {
     justify-content: center;
 }
 
+.btn {
+    transition-duration: 0.2s;
+    transition-property: transform, background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.03);
+    background: #D3D3D3;
+}
+
 .btn-black {
     border: 0;
     transition-duration: 0.2s;

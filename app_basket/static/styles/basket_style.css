@@ -69,7 +69,11 @@
     margin-right: 65px;
 }
 
+
 #id_quantity {
+    appearance: unset;
+    transition-duration: 0.2s;
+    transition-property: transform, background;
     width: 101px;
     height: 52px;
     background: #F1F1F1;
@@ -83,8 +87,8 @@
     max-width: 100%;
     box-sizing: border-box;
     margin: 0;
-    appearance: unset;
     margin-right: 100px;
+    cursor: pointer;
 }
 
 #id_quantity::after {
@@ -95,7 +99,7 @@
     display: none;
 }
 #id_quantity:hover {
-    border-color: #888;
+    background: #D3D3D3;
 }
 #id_quantity:focus {
     border: 0;
@@ -109,7 +113,6 @@
 .basket-item-form {
     display: flex;
     align-items: center;
-    /*width: 500px;*/
 }
 
 .basket-item-form-btns {

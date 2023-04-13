@@ -9,8 +9,8 @@
         <meta charset="UTF-8">
         <title>Title</title>
         <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-        <link rel="stylesheet" href="{% static 'styles/common_style.css' %}">
-        <link rel="stylesheet" href="{% static 'styles/videocard_update_styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/videocard_update_style.css' %}">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     </head>
 {% endblock head %}
@@ -45,6 +45,11 @@
                         <div class="update-form-input">
                             <p class="form-input-text">{% trans 'Модель видеокарты:' %}</p>
                             {{ form.info }}
+                        </div>
+                        <div class="update-form-input">
+                            <p class="form-input-text">{% trans 'Цена:' %}</p>
+                            {{ form.price }}
+                            <div style="display: inline-block">USD</div>
                         </div>
 
                     </div>

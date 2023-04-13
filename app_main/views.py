@@ -94,7 +94,16 @@ class VideocardInfoCreateView(PermissionRequiredMixin, CreateView):
     model = VideocardInfo
     fields = '__all__'
     template_name = 'videocard_info_create.html'
+    success_url = reverse_lazy('main_view')
     permission_required = 'add_videocardinfo'
+
+class VideocardInfoUpdateView(PermissionRequiredMixin, UpdateView):
+    model = VideocardInfo
+    fields = '__all__'
+    template_name = 'videocard_info_update.html'
+    success_url = reverse_lazy('main_view')
+    permission_required = 'edit_videocardinfo'
+
 
 
 class VideocardSerializedListView(APIView):

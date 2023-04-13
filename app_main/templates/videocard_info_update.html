@@ -18,7 +18,7 @@
     {% block afternav %}
         <section class="create">
             <div class="create-container container">
-                <h1 class="create-header">{% trans 'Добавить модель видеокарты' %}</h1>
+                <h1 class="create-header">{% trans 'Изменить модель видеокарты' %}</h1>
                 <form action="" method="post" class="create-form" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="create-form-inputs">
@@ -64,7 +64,7 @@
                         </div>
 
                     </div>
-                    <button class="create-form-btn btn-black">{% trans 'Добавить' %}</button>
+                    <button class="create-form-btn btn-black">{% trans 'изменить' %}</button>
                 </form>
             </div>
         </section>

@@ -59,6 +59,7 @@
     font-size: 18px;
     border-radius: 8px;
     padding-left: 10px;
+    margin-right: 10px;
 }
 
 
@@ -69,6 +70,18 @@
 
 #id_image_big {
     margin-left: -10px;
+}
+
+
+.form-input-model-btn {
+    width: 200px;
+    height: 30px;
+    display: inline-flex;
+    margin-right: 10px;
+}
+
+.update-form-input-model-btn {
+    width: 300px;
 }
 
 .update-form-btn{

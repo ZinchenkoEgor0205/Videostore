@@ -45,6 +45,8 @@
                         <div class="update-form-input">
                             <p class="form-input-text">{% trans 'Модель видеокарты:' %}</p>
                             {{ form.info }}
+                            <a href="{% url 'videocard_info_update' videocard.info_id %}" class="form-input-model-btn update-form-input-model-btn btn-black">{% trans 'Изменить данные модели' %}</a>
+                            <a href="{% url 'videocard_info_create' %}" class="form-input-model-btn create-form-input-model-btn btn-black">{% trans 'Добавить модель' %}</a>
                         </div>
                         <div class="update-form-input">
                             <p class="form-input-text">{% trans 'Цена:' %}</p>

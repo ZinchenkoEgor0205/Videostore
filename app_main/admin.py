@@ -19,6 +19,6 @@ class VideocardAdmin(admin.ModelAdmin):
 
 @admin.register(VideocardInfo)
 class VideocardInfoAdmin(admin.ModelAdmin):
-    list_display = ['name', 'release_date']
+    list_display = ['name',]
 
 

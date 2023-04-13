@@ -1,0 +1,78 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/videocard_info_create_style.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    </head>
+{% endblock head %}
+<body>
+    {% block afternav %}
+        <section class="create">
+            <div class="create-container container">
+                <h1 class="create-header">{% trans 'Добавить модель видеокарты' %}</h1>
+                <form action="" method="post" class="create-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="create-form-inputs">
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Название модели видеокарты:' %}</p>
+                            {{ form.name }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Год выпуска:' %}</p>
+                            {{ form.release_date }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Количество ядер:' %}</p>
+                            {{ form.core_count }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Частота ядер:' %}</p>
+                            {{ form.core_frequency }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Интерфейс:' %}</p>
+                            {{ form.interface }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Размер шины:' %}</p>
+                            {{ form.memory_band_width }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Частота памяти:' %}</p>
+                            {{ form.memory_frequency }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Объём памяти:' %}</p>
+                            {{ form.memory_volume }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Рекомендованная мощность источника питания:' %}</p>
+                            {{ form.recommended_energy_supply }}
+                        </div>
+                        <div class="create-form-input">
+                            <p class="form-input-text">{% trans 'Тип памяти:' %}</p>
+                            {{ form.memory_type }}
+                        </div>
+
+                    </div>
+                    <button class="create-form-btn btn-black">{% trans 'Добавить' %}</button>
+                </form>
+            </div>
+        </section>
+        <script>
+            $('#browse').click(function(){
+                $(this).parent().find('input').click();
+            });
+        </script>
+    {% endblock afternav %}
+</body>
+</html>

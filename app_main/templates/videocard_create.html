@@ -10,7 +10,7 @@
         <title>Title</title>
         <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
         <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
-        <link rel="stylesheet" href="{% static 'styles/videocard_create_style.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/videocard_create_styles.css' %}">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     </head>
 {% endblock head %}
@@ -45,9 +45,10 @@
                         <div class="create-form-input">
                             <p class="form-input-text">{% trans 'Модель видеокарты:' %}</p>
                             {{ form.info }}
+                            <a href="{% url 'videocard_info_create' %}" class="create-form-input-model-btn btn-black">{% trans 'Добавить модель' %}</a>
                         </div>
                         <div class="create-form-input">
-                            <p class="form-input-text">{% trans 'Цена:' %} USD</p>
+                            <p class="form-input-text">{% trans 'Цена:' %}</p>
                             {{ form.price }}
                             <div style="display: inline-block">USD</div>
                         </div>

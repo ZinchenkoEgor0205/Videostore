@@ -1,0 +1,84 @@
+.create-container {
+    padding-left: 120px;
+    padding-right: 120px;
+    background: linear-gradient(308.47deg, #BB0000 34.38%, #0B0B0B 73.49%);
+    border-radius: 32px;
+    padding-top: 33px;
+    padding-bottom: 33px;
+}
+
+.create-header {
+    height: 95px;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 49px;
+    color: #F1F1F1;
+}
+
+.create-form {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.create-form-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-form-input:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.create-form-input {
+    background: #D3D3D3;
+    width: 1100px;
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 18px;
+    line-height: 24px;
+
+}
+
+.form-input-text {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#id_name,
+#id_image,
+#id_manufacturer,
+#id_vendor,
+#id_image_big,
+#id_info,
+#id_price {
+    transition-duration: 0.2s;
+    transition-property: background;
+    width: 200px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    padding-left: 10px;
+    margin-right: 10px;
+}
+
+#id_image,
+#id_image_big {
+    width: 800px;
+}
+
+#id_image_big {
+    margin-left: -10px;
+}
+
+.create-form-input-model-btn {
+    width: 200px;
+    height: 30px;
+    display: inline-flex;
+}
+
+.create-form-btn{
+    font-size: 20px;
+    width: 150px;
+    height: 40px;
+}

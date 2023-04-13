@@ -90,6 +90,12 @@ class VideocardUpdateView(PermissionRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse('videocard_detail', kwargs={'pk': self.object.pk})
 
+class VideocardInfoCreateView(PermissionRequiredMixin, CreateView):
+    model = VideocardInfo
+    fields = '__all__'
+    template_name = 'videocard_info_create.html'
+    permission_required = 'add_videocardinfo'
+
 
 class VideocardSerializedListView(APIView):
     """Список всех видеокарт магазина"""

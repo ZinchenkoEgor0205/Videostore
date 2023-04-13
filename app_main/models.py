@@ -7,7 +7,7 @@ def videocard_directory_path(instance: 'Videocard', filename: str) -> str:
 
 class VideocardInfo(models.Model):
     name = models.CharField(unique=True, max_length=50)
-    release_date = models.IntegerField(blank=True)
+    release_date = models.IntegerField(blank=True, null=True)
     interface = models.CharField(max_length=50, blank=True)
     core_frequency = models.IntegerField(blank=True)
     core_count = models.IntegerField(blank=True)

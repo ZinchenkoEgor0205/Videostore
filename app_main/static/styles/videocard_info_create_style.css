@@ -34,9 +34,12 @@
     background: #D3D3D3;
     width: 1100px;
     border-radius: 12px;
-    padding: 10px;
+    padding: 10px 100px 10px 10px;
     font-size: 18px;
     line-height: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
 }
 
@@ -45,30 +48,16 @@
     margin-right: 10px;
 }
 
-#id_name,
-#id_image,
-#id_manufacturer,
-#id_vendor,
-#id_image_big,
-#id_info,
-#id_price {
+input {
     transition-duration: 0.2s;
     transition-property: background;
-    width: 200px;
+    width: 400px;
     height: 30px;
     font-size: 18px;
     border-radius: 8px;
     padding-left: 10px;
 }
 
-#id_image,
-#id_image_big {
-    width: 800px;
-}
-
-#id_image_big {
-    margin-left: -10px;
-}
 
 .create-form-btn{
     font-size: 20px;

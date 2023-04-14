@@ -6,7 +6,7 @@
 {% block head %}
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% trans 'Главная' %}</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
     <link rel="stylesheet" href="{% static 'styles/main_style.css' %}">
@@ -60,15 +60,15 @@
     <section class="hero">
         <div class="container hero-container" style="background-image: url({% static 'images/hero-background.webp' %});">
             <div class="hero-info">
-                <h1 class="hero-info-header">{{ videocards_promo.last.manufacturer }} {{ videocards_promo.last.name }}</h1>
-                <p class="hero-info-text">{{ videocards_promo.last.promo_note }}</p>
+                <h1 class="hero-info-header">{{ videocards_promo.manufacturer }} {{ videocards_promo.name }}</h1>
+                <p class="hero-info-text">{{ videocards_promo.promo_note }}</p>
                 <div class="hero-info-footer">
-                    <a href="{%  url 'videocard_detail' videocards_promo.last.id %}" class="hero-info-btn">{% trans 'Купить сейчас' %}</a>
-                    <div class="hero-info-price">{{ videocards_promo.last.price }} USD</div>
+                    <a href="{%  url 'videocard_detail' videocards_promo.id %}" class="hero-info-btn">{% trans 'Купить сейчас' %}</a>
+                    <div class="hero-info-price">{{ videocards_promo.price }} USD</div>
                 </div>
             </div>
-            {% if videocards_promo.last.image %}
-                <img class="hero-img" src="{{ videocards_promo.last.image_big.url }}" alt="">
+            {% if videocards_promo.image %}
+                <img class="hero-img" src="{{ videocards_promo.image_big.url }}" alt="">
             {% endif %}
         </div>
     </section>

@@ -1,8 +1,12 @@
+import random
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.db.models import Max
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
+from django.views import View
 from django.views.generic import CreateView, UpdateView
 
 from app_basket.forms import BasketAddVideocardForm
@@ -14,11 +18,27 @@ from rest_framework.views import APIView
 from .serializers import *
 
 
-def main_view(request):
-    videocards = Videocard.objects.filter(promo_type='r')
-    videocards_promo = Videocard.objects.filter(promo_type='n')
-    user = request.user
-    return render(request, 'main.html', context={'videocards': videocards, 'videocards_promo': videocards_promo, 'user': user})
+class MainView(View):
+
+    def get_random_videocard_promo(self):
+        max_id = Videocard.objects.filter(promo_type='n').aggregate(max_id=Max("id"))['max_id']
+        while True:
+            pk = random.randint(1, max_id)
+            videocard_promo = Videocard.objects.filter(promo_type='n', pk=pk).first()
+            if videocard_promo:
+                return videocard_promo
+    def get(self, request):
+        videocards = Videocard.objects.all()
+        videocards_promo = self.get_random_videocard_promo()
+        user = request.user
+        return render(request, 'main.html',
+                      context={'videocards': videocards, 'videocards_promo': videocards_promo, 'user': user})
+
+# def main_view(request):
+#     videocards = Videocard.objects.all()
+#     videocards_promo = Videocard.objects.filter(promo_type='n')
+#     user = request.user
+#     return render(request, 'main.html', context={'videocards': videocards, 'videocards_promo': videocards_promo, 'user': user})
 
 
 def videocards_sorted_view(request):

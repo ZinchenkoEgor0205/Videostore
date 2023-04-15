@@ -78,7 +78,7 @@
             <div class="popular-content-positions-block">
                 <div class="popular-content">
                     <div class="popular-content-positions">
-                        {% for videocard in videocards.reverse|slice:':4' %}
+                        {% for videocard in videocards|slice:':4' %}
                             <a href="{% url 'videocard_detail' videocard.id %}" class="popular-content-positions-item">
                                 {% if videocard.image %}
                                     <img src='{{ videocard.image.url }}' alt="videocard" class="popular-content-positions-item-img">
@@ -101,11 +101,11 @@
                                 <path d="M26 3C26 1.34315 24.6569 0 23 0C21.3431 0 20 1.34315 20 3H26ZM20.8787 32.1213C22.0503 33.2929 23.9497 33.2929 25.1213 32.1213L44.2132 13.0294C45.3848 11.8579 45.3848 9.95837 44.2132 8.7868C43.0416 7.61522 41.1421 7.61522 39.9706 8.7868L23 25.7574L6.02944 8.7868C4.85786 7.61522 2.95837 7.61522 1.7868 8.7868C0.615223 9.95837 0.615223 11.8579 1.7868 13.0294L20.8787 32.1213ZM20 3V30H26V3H20Z" fill="#F1F1F1"/>
                             </svg>
                         </a>
-                        <div class="popular-content-positions popular-extended-content">
+                        <div class="popular-content-positions popular-extended-content-positions">
                             <div class="popular-extended-content-links">
                                 <a href="{% url 'videocard_sorted' %}" class="filter-btn btn-black">{% trans 'Фильтровать товары' %}</a>
                             </div>
-                            {% for videocard in videocards.reverse|slice:'4:' %}
+                            {% for videocard in videocards|slice:'4:' %}
                                <a href="{% url 'videocard_detail' videocard.id %}" class="popular-content-positions-item popular-extended-content-positions-item">
                                     {% if videocard.image %}
                                         <img src={{ videocard.image.url }} alt="videocard" class="popular-content-positions-item-img">

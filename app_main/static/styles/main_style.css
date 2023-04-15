@@ -134,9 +134,9 @@
 
 .popular-content-positions {
     display: inline-flex;
-    justify-content: space-between;
     width: 1230px;
     margin-bottom: 50px;
+    justify-content: space-between;
 }
 
 .popular-content-positions-item {
@@ -238,12 +238,10 @@
     flex-direction: column;
 }
 
-.popular-extended-btn {
 
-}
 
-.popular-extended-content {
-    display: inline-flex;
+.popular-extended-content-positions {
+    display: flex;
     flex-wrap: wrap;
     margin-top: 30px;
     padding-top: 50px;
@@ -253,6 +251,11 @@
     background: linear-gradient(270deg, #BC0101 54.11%, #280303 116.46%);
     width: 1550px;
     border-radius: 0 0 15px 15px;
+}
+
+
+.popular-extended-content-positions-item:nth-child(n-4) {
+    margin-bottom: 40px;
 }
 
 .popular-extended-content-links {
@@ -276,9 +279,7 @@
     color: #F1F1F1;
 }
 
-.popular-extended-content-positions-item:nth-child(n-4) {
-    margin-bottom: 40px;
-}
+
 
 
 

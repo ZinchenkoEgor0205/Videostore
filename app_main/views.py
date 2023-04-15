@@ -21,7 +21,8 @@ from .serializers import *
 class MainView(View):
 
     def get_random_videocard_promo(self):
-        max_id = Videocard.objects.filter(promo_type='n').aggregate(max_id=Max("id"))['max_id']
+        videocard_max_id = Videocard.objects.filter(promo_type='n').aggregate(max_id=Max("id"))
+        max_id = videocard_max_id['max_id']
         while True:
             pk = random.randint(1, max_id)
             videocard_promo = Videocard.objects.filter(promo_type='n', pk=pk).first()

@@ -7,7 +7,7 @@
 {% block head %}
 <head>
     <meta charset="UTF-8">
-    <title>{{ videocard.name }}</title>
+    <title>{{ data.videocard.name }}</title>
     <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
     <link rel="stylesheet" href="{% static 'styles/common_styles.css' %}">
     <link rel="stylesheet" href="{% static 'styles/videocard_detail_styles.css' %}">
@@ -18,80 +18,80 @@
 {% block afternav %}
     <section class="detail">
         <div class="detail-container container">
-            <h1 class="detail-header">{{ videocard.manufacturer }} {{ videocard.vendor }} {{ videocard.name }}</h1>
+            <h1 class="detail-header">{{ data.videocard.manufacturer }} {{ data.videocard.vendor }} {{ data.videocard.name }}</h1>
             <div class="detail-content">
-                {% if videocard.image %}
-                    <img src="{{ videocard.image.url }}" alt="" class="detail-content-img">
+                {% if data.videocard.image %}
+                    <img src="{{ data.videocard.image.url }}" alt="" class="detail-content-img">
                     {% else %}
                     <div class="detail-content-img">{% trans 'Нет изображения' %}</div>
                 {% endif %}
                 <h1>{{ MEDIA_URL }}</h1>
                 <div class="detail-content-info">
-                    {% if videocard.info.release_date %}
+                    {% if data.videocard.info.release_date %}
                         <div class="detail-content-info-item">
                             <p class="detail-content-info-item-left">{% trans 'Год выпуска' %}:</p>
-                            <p class="detail-content-info-item-right">{{ videocard.info.release_date }}</p>
+                            <p class="detail-content-info-item-right">{{ data.videocard.info.release_date }}</p>
                         </div>
                     {% endif %}
-                    {% if videocard.info.interface %}
+                    {% if data.videocard.info.interface %}
                         <div class="detail-content-info-item">
                             <p class="detail-content-info-item-left">{% trans 'Интерфейс' %}:</p>
-                            <p class="detail-content-info-item-right">{{ videocard.info.interface }}</p>
+                            <p class="detail-content-info-item-right">{{ data.videocard.info.interface }}</p>
                         </div>
                     {% endif %}
 
-                    {% if object.info.core_frequency %}
+                    {% if data.videocard.info.core_frequency %}
                         <div class="detail-content-info-item">
                             <p class="detail-content-info-item-left">{% trans 'Частота ядер' %}:</p>
-                            <p class="detail-content-info-item-right">{{ videocard.info.core_frequency }} GHz</p>
+                            <p class="detail-content-info-item-right">{{ data.videocard.info.core_frequency }} GHz</p>
                         </div>
                     {% endif %}
 
-                    {% if object.info.core_count %}
+                    {% if data.videocard.info.core_count %}
                         <div class="detail-content-info-item">
                             <p class="detail-content-info-item-left">{% trans 'Количество ядер' %}:</p>
-                            <p class="detail-content-info-item-right">{{ videocard.info.core_count }}</p>
+                            <p class="detail-content-info-item-right">{{ data.videocard.info.core_count }}</p>
                         </div>
                     {% endif %}
 
-                    {% if object.info.memory_frequency %}
+                    {% if data.videocard.info.memory_frequency %}
                         <div class="detail-content-info-item">
                             <p class="detail-content-info-item-left">{% trans 'Частота памяти' %}:</p>
-                            <p class="detail-content-info-item-right">{{ videocard.info.memory_frequency }} GHz</p>
+                            <p class="detail-content-info-item-right">{{ data.videocard.info.memory_frequency }} GHz</p>
                         </div>
                     {% endif %}
 
-                    {% if object.info.memory_volume %}
+                    {% if data.videocard.info.memory_volume %}
                         <div class="detail-content-info-item">
                             <p class="detail-content-info-item-left">{% trans 'Объём памяти' %}:</p>
-                            <p class="detail-content-info-item-right">{{ videocard.info.memory_volume }} gb</p>
+                            <p class="detail-content-info-item-right">{{ data.videocard.info.memory_volume }} gb</p>
                         </div>
                     {% endif %}
 
-                    {% if object.info.memory_band_width %}
+                    {% if data.videocard.info.memory_band_width %}
                         <div class="detail-content-info-item">
                             <p class="detail-content-info-item-left">{% trans 'Размер шины' %}:</p>
-                            <p class="detail-content-info-item-right">{{ videocard.info.memory_band_width }} bit</p>
+                            <p class="detail-content-info-item-right">{{ data.videocard.info.memory_band_width }} bit</p>
                         </div>
                     {% endif %}
 
-                    {% if videocard.info.recommended_energy_supply %}
+                    {% if data.videocard.info.recommended_energy_supply %}
                         <div class="detail-content-info-item">
                             <p class="detail-content-info-item-left">{% trans 'Рекомендуемая мощность питания' %}:</p>
-                            <p class="detail-content-info-item-right">{{ videocard.info.recommended_energy_supply }} W</p>
+                            <p class="detail-content-info-item-right">{{ data.videocard.info.recommended_energy_supply }} W</p>
                         </div>
                     {% endif %}
 
                 </div>
-                <form class="detail-content-info-footer" action="{% url 'basket_add_view' videocard.id %}" method="post">
+                <form class="detail-content-info-footer" action="{% url 'basket_add_view' data.videocard.id %}" method="post">
                     <p class="detail-content-info-footer-text">{% trans 'Количество' %}:</p>
                     {{ basket_videocard_form.quantity }}
                     {% csrf_token %}
                     <input type="submit" class="detail-content-info-footer-btn btn-black" value="{% trans 'В корзину' %}">
                 </form>
                 <div class="detail-content-edit-btn-block">
-                    {% if user.is_superuser %}
-                        <a href="{% url 'videocard_update' videocard.id %}" class="detail-content-edit-btn btn-black">{% trans 'Изменить товар' %}</a>
+                    {% if data.permission %}
+                        <a href="{% url 'videocard_update' data.videocard.id %}" class="detail-content-edit-btn btn-black">{% trans 'Изменить товар' %}</a>
                     {% endif %}
                 </div>
             </div>

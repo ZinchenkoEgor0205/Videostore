@@ -32,18 +32,25 @@ class MainView(View):
         videocards = Videocard.objects.all()
         videocards_promo = self.get_random_videocard_promo()
         user = request.user
-        return render(request, 'main.html',
-                      context={'videocards': videocards, 'videocards_promo': videocards_promo, 'user': user})
+        context = {'videocards': videocards, 'videocards_promo': videocards_promo, 'user': user}
+        if user.has_perm('app_main.add_videocard'):
+            context['permission'] = True
 
-# def main_view(request):
-#     videocards = Videocard.objects.all()
-#     videocards_promo = Videocard.objects.filter(promo_type='n')
-#     user = request.user
-#     return render(request, 'main.html', context={'videocards': videocards, 'videocards_promo': videocards_promo, 'user': user})
+        return render(request, 'main.html', context=context)
 
 
-def videocards_sorted_view(request):
-    if request.method == 'POST':
+class VideocardsSortedView(View):
+
+    def get(self, request):
+        form = FilterForm()
+        videocards = Videocard.objects.all()
+        context = {
+            'videocards': videocards,
+            'form': form,
+        }
+        return render(request, 'videocards_sorted.html', context=context)
+
+    def post(self, request):
         form = FilterForm(request.POST)
         if form.is_valid():
             parameter = form.cleaned_data['parameter']
@@ -62,27 +69,22 @@ def videocards_sorted_view(request):
                 'form': form
             }
             return render(request, 'videocards_sorted.html', context=context)
-    else:
-        form = FilterForm()
-    videocards = Videocard.objects.all()
-    context = {
-        'videocards': videocards,
-        'form': form,
-    }
-    return render(request, 'videocards_sorted.html', context=context)
-
 
 
 class VideocardDetailView(DetailView):
     model = Videocard
     template_name = 'videocard_detail.html'
-    context_object_name = 'videocard'
+    context_object_name = 'data'
     basket_videocard_form = BasketAddVideocardForm()
     extra_context = {'basket_videocard_form': basket_videocard_form}
 
     def get_object(self, queryset=None):
         pk = self.kwargs['pk']
-        obj = Videocard.objects.get(id=pk)
+        obj = {'videocard': Videocard.objects.get(id=pk)}
+        user = self.request.user
+        if user.has_perm('app_main.edit_videocard'):
+            obj['permission'] = True
+        # obj = Videocard.objects.get(id=pk)
         return obj
 
 
@@ -99,14 +101,15 @@ class VideocardCreateView(PermissionRequiredMixin, CreateView):
     fields = ['name', 'image', 'manufacturer', 'vendor', 'image_big', 'info', 'price']
     template_name = 'videocard_create.html'
     success_url = reverse_lazy('main_view')
-    permission_required = 'add_videocard'
+    permission_required = 'app_main.add_videocard'
 
 
 class VideocardUpdateView(PermissionRequiredMixin, UpdateView):
     model = Videocard
     fields = ['name', 'image', 'manufacturer', 'vendor', 'image_big', 'info', 'price']
     template_name = 'videocard_update.html'
-    permission_required = 'edit_videocard'
+    success_url = reverse_lazy('main_view')
+    permission_required = 'app_main.change_videocard'
 
     def get_success_url(self):
         return reverse('videocard_detail', kwargs={'pk': self.object.pk})

@@ -47,17 +47,19 @@ class VideocardSortedViewTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'videocards_sorted.html')
 
+    def test_videocards_sorted_view_post(self):
+        response = self.client.post(reverse('videocard_sorted'), {'parameter': 1, 'search': '3060'})
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'videocards_sorted.html')
+
 
 class VideocardCreateViewTestCase(TestCase):
 
-
     def setUp(self) -> None:
-
         self.user = User.objects.create_user(username='test1', password='test1')
         permission = Permission.objects.get(codename='add_videocard')
         self.user.user_permissions.add(permission)
         self.client.force_login(user=self.user)
-
 
     def tearDown(self):
         self.user.delete()
@@ -67,14 +69,17 @@ class VideocardCreateViewTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'videocard_create.html')
 
+    def test_videocard_create_view_post(self):
+        response = self.client.post(reverse('videocard_create'), {'name': 'RTX 3060', 'manufacturer': 'Nvidia', 'price': 500, 'promo_type': 'r', 'info': 4})
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'videocard_create.html')
+
 
 class VideocardUpdateViewTestCase(TestCase):
-
-    fixtures = ['app_main-fixtures.json',]
+    fixtures = ['app_main-fixtures.json', ]
 
     def setUp(self) -> None:
-
-        self.videocard = Videocard.objects.last()
+        self.videocard = Videocard.objects.get(name='RTX 3060ti', vendor='MSI')
         self.user = User.objects.create_user(username='test1', password='test1')
         permission = Permission.objects.get(codename='change_videocard')
         self.user.user_permissions.add(permission)
@@ -83,7 +88,12 @@ class VideocardUpdateViewTestCase(TestCase):
     def tearDown(self):
         self.user.delete()
 
-    def test_videocard_create_view(self):
+    def test_videocard_update_view(self):
         response = self.client.get(reverse('videocard_update', kwargs={'pk': self.videocard.pk}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'videocard_update.html')
+
+    def test_videocard_update_view_post(self):
+        response = self.client.post(reverse('videocard_update', kwargs={'pk': self.videocard.pk}), {'name': 'RTX 3060ti', 'manufacturer': 'Nvidia', 'price': 200, 'promo_type': 'r', 'info': 8,})
+        self.assertEqual(response.status_code, 302)
+

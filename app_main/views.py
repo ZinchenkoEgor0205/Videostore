@@ -84,7 +84,6 @@ class VideocardDetailView(DetailView):
         user = self.request.user
         if user.has_perm('app_main.edit_videocard'):
             obj['permission'] = True
-        # obj = Videocard.objects.get(id=pk)
         return obj
 
 
@@ -108,7 +107,6 @@ class VideocardUpdateView(PermissionRequiredMixin, UpdateView):
     model = Videocard
     fields = ['name', 'image', 'manufacturer', 'vendor', 'image_big', 'info', 'price']
     template_name = 'videocard_update.html'
-    success_url = reverse_lazy('main_view')
     permission_required = 'app_main.change_videocard'
 
     def get_success_url(self):

@@ -1,11 +1,12 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views import View
 
 from app_user.forms import AuthForm, RegisterForm, AccountEditForm
 from app_user.models import Profile
-from django.urls import reverse
-
+from django.urls import reverse, reverse_lazy
 
 
 class LoginView(View):
@@ -69,8 +70,9 @@ class RegisterView(View):
             return redirect('/')
 
 
-class AccountView(View):
+class AccountView(LoginRequiredMixin, View):
 
+    login_url = reverse_lazy('login')
     def get(self, request):
         context = {
             'user': request.user

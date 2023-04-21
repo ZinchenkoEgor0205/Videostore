@@ -17,11 +17,11 @@ class AuthForm(forms.Form):
 
 
 class RegisterForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=False, help_text='Name', widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Имя'}))
-    last_name = forms.CharField(max_length=30, required=False, help_text='Last name', widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Фамилия'}))
-    email = forms.EmailField(required=False, widget=forms.EmailInput(attrs={'class': 'form-input', 'placeholder': 'Email'}))
-    city = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Город'}))
-    phone = forms.CharField(required=False, widget=forms.NumberInput(attrs={'class': 'form-input', 'placeholder': 'Телефон'}))
+    first_name = forms.CharField(max_length=30, required=False, help_text='Name', widget=forms.TextInput(attrs={'class': 'form-input input-gray', 'placeholder': 'Имя'}))
+    last_name = forms.CharField(max_length=30, required=False, help_text='Last name', widget=forms.TextInput(attrs={'class': 'form-input input-gray', 'placeholder': 'Фамилия'}))
+    email = forms.EmailField(required=False, widget=forms.EmailInput(attrs={'class': 'form-input input-gray', 'placeholder': 'Email'}))
+    city = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'form-input input-gray', 'placeholder': 'Город'}))
+    phone = forms.CharField(required=False, widget=forms.NumberInput(attrs={'class': 'form-input input-gray', 'placeholder': 'Телефон'}))
 
     class Meta:
         model = User

@@ -70,6 +70,15 @@
     line-height: 22px;
     color: #0D0D0D;
     border: none;
+    transition-duration: 0.2s;
+    transition-property: background;
+}
+
+#id_username:hover,
+#id_password1:hover,
+#id_password2:hover,
+.form-input:hover {
+    background: #F5F5F5;
 }
 
 #id_username::placeholder,

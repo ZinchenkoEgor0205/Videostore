@@ -20,7 +20,6 @@ from django.urls import path, include
 
 import videostore_project.settings
 from app_main.views import *
-from app_user.views import login_view, register_view, account_view, logout_view
 from videostore_project import settings
 
 urlpatterns = [

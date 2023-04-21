@@ -1,15 +1,25 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
+from django.views import View
 
 from app_user.forms import AuthForm, RegisterForm, AccountEditForm
 from app_user.models import Profile
-from videostore_project.settings import BASE_DIR
+from django.urls import reverse
 
 
-def login_view(request):
-    if request.method == 'POST':
+
+class LoginView(View):
+
+    def get(self, request):
+        form = AuthForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'login.html', context=context)
+
+    def post(self, request):
+
         form = AuthForm(request.POST)
-
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
@@ -23,16 +33,18 @@ def login_view(request):
                 return render(request, 'login.html', context=context)
             if user and user.is_active:
                 login(request, user)
-                return redirect('/')
-    else:
-        form = AuthForm()
-    context = {
-        'form': form
-    }
-    return render(request, 'login.html', context=context)
+                return redirect(reverse('main_view'))
+            else:
+                return render(request, 'login.html')
 
-def register_view(request):
-    if request.method == 'POST':
+
+class RegisterView(View):
+
+    def get(self, request):
+        form = RegisterForm()
+        return render(request, 'register.html', {'form': form})
+
+    def post(self, request):
         form = RegisterForm(request.POST)
         if form.errors:
             errors = []
@@ -55,19 +67,26 @@ def register_view(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect('/')
-    else:
-        form = RegisterForm()
-    return render(request, 'register.html', {'form': form})
 
-def account_view(request):
-    context = {
-        'user': request.user
-    }
-    return render(request, 'account.html', context=context)
 
-def account_edit_view(request):
-    user = request.user
-    if request.method == 'POST':
+class AccountView(View):
+
+    def get(self, request):
+        context = {
+            'user': request.user
+        }
+        return render(request, 'account.html', context=context)
+
+
+class AccountEditView(View):
+
+    def get(self, request):
+        user = request.user
+        form = AccountEditForm()
+        return render(request, 'account-edit.html', {'form': form, 'user': user})
+
+    def post(self, request):
+        user = request.user
         form = AccountEditForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
@@ -84,9 +103,7 @@ def account_edit_view(request):
             user.save()
             user.profile.save()
             return redirect('/user/account')
-    else:
-        form = AccountEditForm()
-    return  render(request, 'account-edit.html', {'form': form, 'user': user})
+
 
 def logout_view(request):
     logout(request)

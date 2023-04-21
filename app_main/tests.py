@@ -1,5 +1,4 @@
 from django.contrib.auth.models import User, Permission
-from django.db.models import Max
 from django.test import TestCase
 from django.urls import reverse
 

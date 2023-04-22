@@ -54,6 +54,8 @@ class VideocardSortedViewTestCase(TestCase):
 
 class VideocardCreateViewTestCase(TestCase):
 
+    fixtures = ['app_main-fixtures.json',]
+
     def setUp(self) -> None:
         self.user = User.objects.create_user(username='test1', password='test1')
         permission = Permission.objects.get(codename='add_videocard')
@@ -69,9 +71,11 @@ class VideocardCreateViewTestCase(TestCase):
         self.assertTemplateUsed(response, 'videocard_create.html')
 
     def test_videocard_create_view_post(self):
-        response = self.client.post(reverse('videocard_create'), {'name': 'RTX 3060', 'manufacturer': 'Nvidia', 'price': 500, 'promo_type': 'r', 'info': 4})
+        response = self.client.post(reverse('videocard_create'), {'name': 'RTX 3060', 'manufacturer': 'Nvidia', 'price': 562, 'promo_type': 'r', 'info': 4}, follow=True)
+        videocard = Videocard.objects.get(price=562, name='RTX 3060')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'videocard_create.html')
+        self.assertTemplateUsed(response, 'main.html')
+        self.assertTrue(videocard)
 
 
 class VideocardUpdateViewTestCase(TestCase):

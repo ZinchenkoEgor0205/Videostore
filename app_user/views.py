@@ -73,6 +73,7 @@ class RegisterView(View):
 class AccountView(LoginRequiredMixin, View):
 
     login_url = reverse_lazy('login')
+
     def get(self, request):
         context = {
             'user': request.user
@@ -80,7 +81,9 @@ class AccountView(LoginRequiredMixin, View):
         return render(request, 'account.html', context=context)
 
 
-class AccountEditView(View):
+class AccountEditView(LoginRequiredMixin, View):
+
+    login_url = reverse_lazy('login')
 
     def get(self, request):
         user = request.user
@@ -104,7 +107,7 @@ class AccountEditView(View):
             user.profile.apartment = cd['apartment']
             user.save()
             user.profile.save()
-            return redirect('/user/account')
+            return redirect(reverse('account'))
 
 
 def logout_view(request):

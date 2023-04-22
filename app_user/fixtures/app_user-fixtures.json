@@ -1,0 +1,102 @@
+[
+  {
+    "model": "app_user.discount",
+    "pk": 1,
+    "fields": {
+      "status_name": "Bronze",
+      "required_sum": 2000,
+      "price_multiplier": "0.90"
+    }
+  },
+  {
+    "model": "app_user.discount",
+    "pk": 2,
+    "fields": {
+      "status_name": "Silver",
+      "required_sum": 5000,
+      "price_multiplier": "0.80"
+    }
+  },
+  {
+    "model": "app_user.discount",
+    "pk": 3,
+    "fields": {
+      "status_name": "Gold",
+      "required_sum": 10000,
+      "price_multiplier": "0.70"
+    }
+  },
+  {
+    "model": "app_user.discount",
+    "pk": 4,
+    "fields": {
+      "status_name": "┴хч ёъшфъш",
+      "required_sum": 0,
+      "price_multiplier": "1.00"
+    }
+  },
+  {
+    "model": "app_user.profile",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "city": "Minsk",
+      "street": "Lenina",
+      "housing": "1",
+      "house": 2,
+      "apartment": 3,
+      "discount": 1,
+      "phone": "88005553535",
+      "verification": true,
+      "total_sum": 4025
+    }
+  },
+  {
+    "model": "app_user.profile",
+    "pk": 2,
+    "fields": {
+      "user": 3,
+      "city": "Berdzyansk",
+      "street": "",
+      "housing": "",
+      "house": null,
+      "apartment": null,
+      "discount": 2,
+      "phone": "88005553535",
+      "verification": false,
+      "total_sum": 0
+    }
+  },
+  {
+    "model": "app_user.profile",
+    "pk": 7,
+    "fields": {
+      "user": 8,
+      "city": "",
+      "street": "",
+      "housing": "",
+      "house": null,
+      "apartment": null,
+      "discount": 1,
+      "phone": "",
+      "verification": false,
+      "total_sum": 0
+    }
+  },
+  {
+    "model": "app_user.profile",
+    "pk": 8,
+    "fields": {
+      "user": 11,
+      "city": "test",
+      "street": "",
+      "housing": "",
+      "house": null,
+      "apartment": null,
+      "discount": 4,
+      "phone": "88005553535",
+      "verification": false,
+      "total_sum": 0
+    }
+  }
+]

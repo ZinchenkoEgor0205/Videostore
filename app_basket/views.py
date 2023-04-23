@@ -1,13 +1,11 @@
 from datetime import timedelta
 from decimal import Decimal
-
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 from django.views import View
-from django.views.decorators.http import require_POST
+from django.http import HttpResponseRedirect
 
 from app_basket.basket import Basket
 from app_basket.models import Order, OrderVideocard
@@ -61,16 +59,19 @@ class OrderView(LoginRequiredMixin, View):
 
     def get(self, request):
         basket = Basket(request)
-        total_sum = sum(
-            [int(i['price']) * int(i['quantity']) for i in basket])
-        total_sum_with_discount = total_sum * request.user.profile.discount.price_multiplier
-        user = request.user
-        form = OrderForm()
-        discount = total_sum - total_sum_with_discount
+        if basket.basket:
+            total_sum = sum(
+                [int(i['price']) * int(i['quantity']) for i in basket])
+            total_sum_with_discount = total_sum * request.user.profile.discount.price_multiplier
+            user = request.user
+            form = OrderForm()
+            discount = total_sum - total_sum_with_discount
 
-        return render(request, 'order.html',
-                      context={'form': form, 'user': user, 'total_sum_with_discount': total_sum_with_discount,
-                               'discount': discount})
+            return render(request, 'order.html',
+                          context={'form': form, 'user': user, 'total_sum_with_discount': total_sum_with_discount,
+                                   'discount': discount})
+        else:
+            return redirect('main_view')
 
     def post(self, request):
         basket = Basket(request)
@@ -112,7 +113,10 @@ class OrderView(LoginRequiredMixin, View):
                 user.profile.discount = discount_status
                 user.profile.save()
             basket.clear()
-            return redirect('gratitude_view')
+            return HttpResponseRedirect(reverse('gratitude_view'))
+        else:
+            return redirect('basket_detail_view')
+
 
 
 

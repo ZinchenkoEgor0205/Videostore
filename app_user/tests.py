@@ -48,7 +48,6 @@ class RegisterViewTestCase(TestCase):
 class AccountViewTestCase(TestCase):
 
     def setUp(self) -> None:
-        self.client = Client()
         self.credentials = {
             'username': 'test',
             'password': 'test'}
@@ -73,7 +72,6 @@ class AccountEditViewTestCase(TestCase):
 
     fixtures = ['database-fixtures.json',]
     def setUp(self) -> None:
-        self.client = Client()
         self.credentials = {
             'username': 'test99',
             'password': 'test'}

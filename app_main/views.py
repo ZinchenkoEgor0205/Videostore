@@ -104,6 +104,10 @@ class VideocardCreateView(PermissionRequiredMixin, CreateView):
 
 
 class VideocardUpdateView(PermissionRequiredMixin, UpdateView):
+
+    login_url = reverse_lazy('login')
+    permission_denied_message = 'Для выполнения действия требуются дополнительные права пользователя'
+
     model = Videocard
     fields = ['name', 'image', 'manufacturer', 'vendor', 'image_big', 'info', 'price']
     template_name = 'videocard_update.html'

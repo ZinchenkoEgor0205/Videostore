@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-25 15:14+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\account-edit.html:10 .\templates\account-edit.html:22
+msgid "Редактирование профиля"
+msgstr "Profile editing"
+
+#: .\templates\account-edit.html:25 .\templates\account-edit.html:26
+#: .\templates\account.html:24
+msgid "Имя пользователя"
+msgstr "Username"
+
+#: .\templates\account-edit.html:33 .\templates\account-edit.html:34
+#: .\templates\account.html:32
+msgid "Телефон"
+msgstr "Phone"
+
+#: .\templates\account-edit.html:37 .\templates\account-edit.html:38
+#: .\templates\account.html:36
+msgid "Имя"
+msgstr "Name"
+
+#: .\templates\account-edit.html:41 .\templates\account-edit.html:42
+#: .\templates\account.html:40
+msgid "Фамилия"
+msgstr "Surname"
+
+#: .\templates\account-edit.html:45 .\templates\account-edit.html:46
+#: .\templates\account.html:44
+msgid "Город"
+msgstr "City"
+
+#: .\templates\account-edit.html:49 .\templates\account-edit.html:50
+#: .\templates\account.html:48
+msgid "Улица"
+msgstr "Street"
+
+#: .\templates\account-edit.html:53 .\templates\account-edit.html:54
+#: .\templates\account.html:52
+msgid "Корпус"
+msgstr "Housing"
+
+#: .\templates\account-edit.html:57 .\templates\account-edit.html:58
+#: .\templates\account.html:56
+msgid "Дом"
+msgstr "House"
+
+#: .\templates\account-edit.html:61 .\templates\account-edit.html:62
+#: .\templates\account.html:60
+msgid "Квартира"
+msgstr "Apartment"
+
+#: .\templates\account-edit.html:66 .\templates\register.html:36
+msgid "Подтвердить"
+msgstr "Apply"
+
+#: .\templates\account.html:10
+msgid "Аккаунт"
+msgstr "Account"
+
+#: .\templates\account.html:21
+msgid "Профиль"
+msgstr "Profile"
+
+#: .\templates\account.html:64
+msgid "Тип скидки"
+msgstr "Discount type"
+
+#: .\templates\account.html:69
+msgid "Изменить профиль"
+msgstr "Apply changes"
+
+#: .\templates\account.html:70
+msgid "Выйти из профиля"
+msgstr "Quit from profile"
+
+#: .\templates\login.html:10 .\templates\login.html:32
+msgid "Войти"
+msgstr "Login"
+
+#: .\templates\login.html:21
+msgid "Вход"
+msgstr "Login"
+
+#: .\templates\register.html:10
+msgid "Зарегистрироваться"
+msgstr "Register"
+
+#: .\templates\register.html:21
+msgid "Регистрация"
+msgstr "Registration"
+
+#: .\views.py:29
+msgid "Неверно введён логин или пароль"
+msgstr "Wrong login or password"

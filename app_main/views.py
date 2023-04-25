@@ -1,6 +1,6 @@
 import random
 
-from django.contrib.auth.decorators import login_required
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.models import Max
 from django.http import HttpResponseRedirect
@@ -106,7 +106,7 @@ class VideocardCreateView(PermissionRequiredMixin, CreateView):
 class VideocardUpdateView(PermissionRequiredMixin, UpdateView):
 
     login_url = reverse_lazy('login')
-    permission_denied_message = 'Для выполнения действия требуются дополнительные права пользователя'
+    permission_denied_message = _('Для выполнения действия требуются дополнительные права пользователя')
 
     model = Videocard
     fields = ['name', 'image', 'manufacturer', 'vendor', 'image_big', 'info', 'price']

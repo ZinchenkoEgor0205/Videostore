@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views import View
@@ -26,7 +26,7 @@ class LoginView(View):
             password = form.cleaned_data['password']
             user = authenticate(username=username, password=password)
             if user is None:
-                message = 'Неверно введён логин или пароль'
+                message = _('Неверно введён логин или пароль')
                 context = {
                     'form': form,
                     'message': message,

@@ -1,0 +1,288 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-25 15:14+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\models.py:30
+msgid "Название"
+msgstr ""
+
+#: .\models.py:31
+msgid "Производитель"
+msgstr ""
+
+#: .\models.py:32
+msgid "цена"
+msgstr ""
+
+#: .\models.py:33
+msgid "Вендор"
+msgstr ""
+
+#: .\models.py:35
+msgid "Промо-текст"
+msgstr ""
+
+#: .\models.py:36
+msgid "Изображение"
+msgstr ""
+
+#: .\models.py:37
+msgid "Изображение большое"
+msgstr ""
+
+#: .\templates\main.html:9
+msgid "Главная"
+msgstr "Main"
+
+#: .\templates\main.html:48
+msgid "Корзина"
+msgstr "Cart"
+
+#: .\templates\main.html:51
+msgid "Войти"
+msgstr "Login"
+
+#: .\templates\main.html:52
+msgid "Регистрация"
+msgstr "Register"
+
+#: .\templates\main.html:66
+msgid "Купить сейчас"
+msgstr "Buy now"
+
+#: .\templates\main.html:77
+msgid "Популярные модели"
+msgstr "Popular models"
+
+#: .\templates\main.html:86 .\templates\main.html:113
+#: .\templates\videocard_detail.html:26 .\templates\videocards_sorted.html:39
+msgid "Нет изображения"
+msgstr "No image"
+
+#: .\templates\main.html:91 .\templates\main.html:118
+#: .\templates\videocards_sorted.html:44
+msgid "купить за"
+msgstr "buy for"
+
+#: .\templates\main.html:106
+msgid "Фильтровать товары"
+msgstr "Filter goods"
+
+#: .\templates\videocard_create.html:10
+msgid "Добавление товара"
+msgstr "Add a good"
+
+#: .\templates\videocard_create.html:21
+msgid "Добавить видеокарту"
+msgstr "Add a videocard"
+
+#: .\templates\videocard_create.html:26 .\templates\videocard_update.html:26
+msgid "Название видеокарты:"
+msgstr "Videocard's name"
+
+#: .\templates\videocard_create.html:30 .\templates\videocard_update.html:30
+msgid "Изображение:"
+msgstr "Image"
+
+#: .\templates\videocard_create.html:34 .\templates\videocard_update.html:34
+msgid "Производитель:"
+msgstr "Manufacturer"
+
+#: .\templates\videocard_create.html:38 .\templates\videocard_update.html:38
+msgid "Вендор:"
+msgstr "Vendor"
+
+#: .\templates\videocard_create.html:42 .\templates\videocard_update.html:42
+msgid "Большое изображение:"
+msgstr "Big image"
+
+#: .\templates\videocard_create.html:46 .\templates\videocard_update.html:46
+msgid "Модель видеокарты:"
+msgstr "Videocard's model"
+
+#: .\templates\videocard_create.html:48 .\templates\videocard_update.html:49
+msgid "Добавить модель"
+msgstr "Add a model"
+
+#: .\templates\videocard_create.html:51 .\templates\videocard_update.html:52
+msgid "Цена:"
+msgstr "Price:"
+
+#: .\templates\videocard_create.html:57
+#: .\templates\videocard_info_create.html:67
+msgid "Добавить"
+msgstr "Add"
+
+#: .\templates\videocard_detail.html:32
+msgid "Год выпуска"
+msgstr "Release year"
+
+#: .\templates\videocard_detail.html:38
+msgid "Интерфейс"
+msgstr "Interface"
+
+#: .\templates\videocard_detail.html:45
+msgid "Частота ядер"
+msgstr "Core frequency"
+
+#: .\templates\videocard_detail.html:52
+msgid "Количество ядер"
+msgstr "Core count"
+
+#: .\templates\videocard_detail.html:59
+msgid "Частота памяти"
+msgstr "Memory frequency"
+
+#: .\templates\videocard_detail.html:66
+msgid "Объём памяти"
+msgstr "Memory volume"
+
+#: .\templates\videocard_detail.html:73
+msgid "Размер шины"
+msgstr "Bus width"
+
+#: .\templates\videocard_detail.html:80
+msgid "Рекомендуемая мощность питания"
+msgstr "Recommended power supply"
+
+#: .\templates\videocard_detail.html:87
+msgid "Количество"
+msgstr "Count"
+
+#: .\templates\videocard_detail.html:90
+msgid "В корзину"
+msgstr "To the cart"
+
+#: .\templates\videocard_detail.html:94
+msgid "Изменить товар"
+msgstr "Edit a good"
+
+#: .\templates\videocard_info_create.html:10
+msgid "Добавление модели товара"
+msgstr "Creation of good's model"
+
+#: .\templates\videocard_info_create.html:21
+msgid "Добавить модель видеокарты"
+msgstr "Create videocard's model"
+
+#: .\templates\videocard_info_create.html:26
+#: .\templates\videocard_info_update.html:26
+msgid "Название модели видеокарты:"
+msgstr "Videocard's model's name:"
+
+#: .\templates\videocard_info_create.html:30
+#: .\templates\videocard_info_update.html:30
+msgid "Год выпуска:"
+msgstr "Release year:"
+
+#: .\templates\videocard_info_create.html:34
+#: .\templates\videocard_info_update.html:34
+msgid "Количество ядер:"
+msgstr "Core count:"
+
+#: .\templates\videocard_info_create.html:38
+#: .\templates\videocard_info_update.html:38
+msgid "Частота ядер:"
+msgstr "Core frequency:"
+
+#: .\templates\videocard_info_create.html:42
+#: .\templates\videocard_info_update.html:42
+msgid "Интерфейс:"
+msgstr "Interface:"
+
+#: .\templates\videocard_info_create.html:46
+#: .\templates\videocard_info_update.html:46
+msgid "Размер шины:"
+msgstr "Bus width:"
+
+#: .\templates\videocard_info_create.html:50
+#: .\templates\videocard_info_update.html:50
+msgid "Частота памяти:"
+msgstr "Memory frequency:"
+
+#: .\templates\videocard_info_create.html:54
+#: .\templates\videocard_info_update.html:54
+msgid "Объём памяти:"
+msgstr "Memory volume:"
+
+#: .\templates\videocard_info_create.html:58
+#: .\templates\videocard_info_update.html:58
+msgid "Рекомендованная мощность источника питания:"
+msgstr "Recommended power supply:"
+
+#: .\templates\videocard_info_create.html:62
+#: .\templates\videocard_info_update.html:62
+msgid "Тип памяти:"
+msgstr "Memory type:"
+
+#: .\templates\videocard_info_update.html:10
+msgid "Изменение сведений о модели"
+msgstr "Editing model's info"
+
+#: .\templates\videocard_info_update.html:21
+msgid "Изменить модель видеокарты"
+msgstr "Edit videocard's model"
+
+#: .\templates\videocard_info_update.html:67
+msgid "изменить"
+msgstr "apply"
+
+#: .\templates\videocard_update.html:10
+msgid "Изменение сведений о товаре"
+msgstr "Edditing good's info"
+
+#: .\templates\videocard_update.html:21
+msgid "Изменить данные видеокарты"
+msgstr "Edit videocard's info"
+
+#: .\templates\videocard_update.html:48
+msgid "Изменить данные модели"
+msgstr "Edit model's info"
+
+#: .\templates\videocard_update.html:58
+msgid "Изменить"
+msgstr "Apply"
+
+#: .\templates\videocards_sorted.html:10
+msgid "Список товаров"
+msgstr "Good's list"
+
+#: .\templates\videocards_sorted.html:22
+msgid "Отсортировать по"
+msgstr "Sort by"
+
+#: .\templates\videocards_sorted.html:26
+msgid "Цена по возрастанию"
+msgstr "Ascending price"
+
+#: .\templates\videocards_sorted.html:27
+msgid "Цена по убыванию"
+msgstr "Descending price"
+
+#: .\templates\videocards_sorted.html:29
+msgid "Поиск"
+msgstr "Search"
+
+#: .\templates\videocards_sorted.html:30
+msgid "Применить"
+msgstr "Apply"
+
+#: .\views.py:109
+msgid "Для выполнения действия требуются дополнительные права пользователя"
+msgstr "For proceeding you need extra user permissions"

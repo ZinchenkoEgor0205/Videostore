@@ -119,58 +119,5 @@ class OrderView(LoginRequiredMixin, View):
 
 
 
-
-# @login_required(login_url=reverse_lazy('login'))
-# def order_view(request):
-#     basket = Basket(request)
-#     total_sum = sum(
-#         [int(i['price']) * int(i['quantity']) for i in basket])
-#     total_sum_with_discount = total_sum * request.user.profile.discount.price_multiplier
-#     user = request.user
-#
-#     discount_expiry = timezone.now() - timedelta(days=365)
-#     order_history = Order.objects.filter(user=user, date__gte=discount_expiry)
-#     active_sum = sum([item.sum for item in order_history])
-#
-#     if request.method == 'POST':
-#         form = OrderForm(request.POST)
-#         if form.is_valid():
-#             cd = form.cleaned_data
-#             order = Order.objects.create(
-#                 name_surname=cd['name_surname'],
-#                 phone=cd['phone'],
-#                 email=cd['email'],
-#                 city=cd['city'],
-#                 street=cd['street'],
-#                 house=cd['house'],
-#                 housing=cd['housing'],
-#                 apartment=cd['apartment'],
-#                 sum=total_sum_with_discount,
-#                 user_id=request.user.id,
-#             )
-#             for item in basket:
-#                 OrderVideocard.objects.create(
-#                     videocard=item['videocard'],
-#                     order=order,
-#                     quantity=item['quantity'],
-#                 )
-#             user.profile.total_sum = active_sum
-#             user.profile.save()
-#
-#             discount_status = Discount.objects.all().filter(required_sum__lte=active_sum).order_by(
-#                 'required_sum').last()
-#             if user.profile.discount != discount_status:
-#                 user.profile.discount = discount_status
-#                 user.profile.save()
-#             basket.clear()
-#             return redirect('gratitude_view')
-#     else:
-#         form = OrderForm()
-#         discount = total_sum - total_sum_with_discount
-#     return render(request, 'order.html',
-#                   context={'form': form, 'user': user, 'total_sum_with_discount': total_sum_with_discount,
-#                            'discount': discount})
-
-
 def gratitude_view(request):
     return render(request, 'gratitude.html')

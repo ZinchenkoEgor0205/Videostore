@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 
+from app_basket.models import Order
 from app_main.models import Videocard, VideocardInfo
 from app_user.models import Profile
 from videostore_project import settings
@@ -160,3 +161,5 @@ class OrderViewTestCase(TestCase):
                                      'apartment': self.user.profile.apartment}, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'gratitude.html')
+        order = Order.objects.filter(name_surname=f'{self.user.first_name} {self.user.last_name}').last()
+        self.assertTrue(order)

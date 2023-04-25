@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-25 14:59+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\templates\basket_detail.html:10
+msgid "Корзина"
+msgstr "Cart"
+
+#: .\templates\basket_detail.html:23
+msgid "Ваша корзина"
+msgstr "Your cart"
+
+#: .\templates\basket_detail.html:32
+msgid "Сумма"
+msgstr "Sum"
+
+#: .\templates\basket_detail.html:37
+msgid "Обновить"
+msgstr "Refresh"
+
+#: .\templates\basket_detail.html:38
+msgid "Удалить"
+msgstr "Delete"
+
+#: .\templates\basket_detail.html:47 .\templates\order.html:59
+msgid "Сумма заказа"
+msgstr "Order sum"
+
+#: .\templates\basket_detail.html:48
+msgid "Оформить заказ"
+msgstr "Make an order"
+
+#: .\templates\basket_detail.html:50
+msgid "Вернуться в магазин"
+msgstr "Return to the shop"
+
+#: .\templates\gratitude.html:10
+msgid "Благодарность"
+msgstr "Gratitude"
+
+#: .\templates\gratitude.html:21
+msgid "Спасибо за покупку"
+msgstr "Thanks for purchase"
+
+#: .\templates\gratitude.html:22
+msgid "Вернуться на главную"
+msgstr "Return to the main page"
+
+#: .\templates\order.html:10
+msgid "Заказ"
+msgstr "Order"
+
+#: .\templates\order.html:23
+msgid "Оформление заказа"
+msgstr "Order creation"
+
+#: .\templates\order.html:25 .\templates\order.html:26
+msgid "Фамилия и имя"
+msgstr "Surname and name"
+
+#: .\templates\order.html:29 .\templates\order.html:30
+msgid "Телефон"
+msgstr "Phone"
+
+#: .\templates\order.html:37 .\templates\order.html:38
+msgid "Город"
+msgstr "City"
+
+#: .\templates\order.html:41 .\templates\order.html:42
+msgid "Улица"
+msgstr "Street"
+
+#: .\templates\order.html:45 .\templates\order.html:46
+msgid "Корпус"
+msgstr "Housing"
+
+#: .\templates\order.html:49 .\templates\order.html:50
+msgid "Дом"
+msgstr "House"
+
+#: .\templates\order.html:53 .\templates\order.html:54
+msgid "Квартира"
+msgstr "Apartment"
+
+#: .\templates\order.html:58
+msgid "Ваша скидка"
+msgstr "Your discount"
+
+#: .\templates\order.html:60
+msgid "Оформить"
+msgstr "Confirm"

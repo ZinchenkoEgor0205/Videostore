@@ -10,7 +10,6 @@ from django.views import View
 from django.views.generic import CreateView, UpdateView
 
 from app_basket.forms import BasketAddVideocardForm
-from app_main.forms import FilterForm
 from django.views.generic.detail import DetailView
 from videostore_project import settings
 from rest_framework.response import Response
@@ -101,6 +100,7 @@ class VideocardCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'videocard_create.html'
     success_url = reverse_lazy('main_view')
     permission_required = 'app_main.add_videocard'
+    # form_class = VideocardCreateForm
 
 
 class VideocardUpdateView(PermissionRequiredMixin, UpdateView):

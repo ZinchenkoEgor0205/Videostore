@@ -60,7 +60,7 @@
     <section class="hero">
         <div class="container hero-container" style="background-image: url({% static 'images/hero-background.webp' %});">
             <div class="hero-info">
-                <h1 class="hero-info-header">{{ videocards_promo.manufacturer }} {{ videocards_promo.name }}</h1>
+                <h1 class="hero-info-header">{{ videocards_promo.vendor }} {{ videocards_promo.manufacturer }}<br/>{{ videocards_promo.name }}</h1>
                 <p class="hero-info-text">{{ videocards_promo.promo_note }}</p>
                 <div class="hero-info-footer">
                     <a href="{%  url 'videocard_detail' videocards_promo.id %}" class="hero-info-btn">{% trans 'Купить сейчас' %}</a>
@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 {% if permission %}
-                    <a href="{% url 'videocard_create' %}" class="popular-content-positions-block-create btn-black">Добавить товар</a>
+                    <a href="{% url 'videocard_create' %}" class="popular-content-positions-block-create btn-black">{% trans 'Добавить товар' %}</a>
                 {% endif %}
             </div>
         </div>

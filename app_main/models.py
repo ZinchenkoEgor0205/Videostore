@@ -29,7 +29,7 @@ class Videocard(models.Model):
     ]
     name = models.CharField(max_length=50, verbose_name=_('Название'))
     manufacturer = models.CharField(max_length=20, verbose_name=_('Производитель'))
-    price = models.IntegerField(null=True, verbose_name=_('цена'))
+    price = models.IntegerField(null=True, verbose_name=_('Цена'))
     vendor = models.CharField(max_length=50, blank=True, verbose_name=_('Вендор'))
     promo_type = models.CharField(max_length=10, choices=PROMO_TYPES_CHOICES, default='r')
     promo_note = models.CharField(max_length=300, blank=True, verbose_name=_('Промо-текст'))

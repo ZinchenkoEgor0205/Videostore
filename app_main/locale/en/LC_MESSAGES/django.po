@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-25 15:14+0300\n"
+"POT-Creation-Date: 2023-04-26 16:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,33 +18,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\admin.py:20
+msgid "Картинка"
+msgstr "Image"
+
 #: .\models.py:30
 msgid "Название"
-msgstr ""
+msgstr "Name"
 
 #: .\models.py:31
 msgid "Производитель"
-msgstr ""
+msgstr "Manufacturer"
 
 #: .\models.py:32
-msgid "цена"
-msgstr ""
+msgid "Цена"
+msgstr "Price"
 
 #: .\models.py:33
 msgid "Вендор"
-msgstr ""
+msgstr "Vendor"
 
 #: .\models.py:35
 msgid "Промо-текст"
-msgstr ""
+msgstr "Promo text"
 
 #: .\models.py:36
 msgid "Изображение"
-msgstr ""
+msgstr "Image"
 
 #: .\models.py:37
 msgid "Изображение большое"
-msgstr ""
+msgstr "Big image"
 
 #: .\templates\main.html:9
 msgid "Главная"
@@ -83,6 +87,10 @@ msgstr "buy for"
 #: .\templates\main.html:106
 msgid "Фильтровать товары"
 msgstr "Filter goods"
+
+#: .\templates\main.html:128
+msgid "Добавить товар"
+msgstr "Add a good"
 
 #: .\templates\videocard_create.html:10
 msgid "Добавление товара"
@@ -286,3 +294,6 @@ msgstr "Apply"
 #: .\views.py:109
 msgid "Для выполнения действия требуются дополнительные права пользователя"
 msgstr "For proceeding you need extra user permissions"
+
+#~ msgid "цена"
+#~ msgstr "price"

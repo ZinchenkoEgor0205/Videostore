@@ -1,5 +1,8 @@
+
+
 from django.contrib import admin
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext_lazy as _
 
 from app_main.models import Videocard, VideocardInfo
 
@@ -14,8 +17,8 @@ class VideocardAdmin(admin.ModelAdmin):
         if obj.image:
             return mark_safe(f'<img src="/{obj.image}" width="60" alt="image">')
         return 'None'
-
-    image_show.__name__ = 'Картинка'
+    i = _('Картинка')
+    image_show.__name__ = str(i)
 
 @admin.register(VideocardInfo)
 class VideocardInfoAdmin(admin.ModelAdmin):

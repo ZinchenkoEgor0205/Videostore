@@ -24,8 +24,8 @@
                 <form class="content-filters-form" method="post" action="">
                     {% csrf_token %}
                     <select name="parameter" id="id_parameter">
-                        <option value="1">{% trans 'Цена по возрастанию' %}</option>
-                        <option value="2">{% trans 'Цена по убыванию' %}</option>
+                        <option value="1" class="Asc">{% trans 'Цена по возрастанию' %}</option>
+                        <option value="2" class="Desc">{% trans 'Цена по убыванию' %}</option>
                     </select>
                     <input type="text" name="search" class="form-input input-gray" placeholder="{% trans 'Поиск' %}" maxlength="30" id="id_search">
                     <button class="content-filters-form-btn btn btn-black">{% trans 'Применить' %}</button>

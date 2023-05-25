@@ -14,6 +14,8 @@ from django.views.generic.detail import DetailView
 from videostore_project import settings
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+from .forms import FilterForm
 from .serializers import *
 
 

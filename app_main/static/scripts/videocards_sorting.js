@@ -4,15 +4,15 @@ let videocardsBlock = document.getElementsByClassName('content-items')[0]
 
 nameInput.addEventListener('input', () => {
     let timeout = setTimeout(() => {
-        let inputText = nameInput.value
+        let inputText = nameInput.value.toLowerCase()
         videocards.forEach((videocard) => {
-            let videocardName = videocard.querySelector('.popular-content-positions-item-footer-info').textContent
+            let videocardName = videocard.querySelector('.popular-content-positions-item-footer-info').textContent.toLowerCase()
             if (videocardName.includes(inputText)) {
                 videocard.remove()
                 videocardsBlock.append(videocard)
             } else videocard.remove()
         })
-    }, 1000)
+    }, 500)
     clearTimeout(timeout - 1)
 })
 

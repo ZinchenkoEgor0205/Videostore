@@ -29,6 +29,7 @@ class MainView(View):
             videocard_promo = Videocard.objects.filter(promo_type='n', pk=pk).first()
             if videocard_promo:
                 return videocard_promo
+
     def get(self, request):
         videocards = Videocard.objects.all()
         videocards_promo = self.get_random_videocard_promo()
@@ -43,33 +44,11 @@ class MainView(View):
 class VideocardsSortedView(View):
 
     def get(self, request):
-        form = FilterForm()
         videocards = Videocard.objects.all()
         context = {
             'videocards': videocards,
-            'form': form,
         }
         return render(request, 'videocards_sorted.html', context=context)
-
-    def post(self, request):
-        form = FilterForm(request.POST)
-        if form.is_valid():
-            parameter = form.cleaned_data['parameter']
-            search = form.cleaned_data['search']
-            if search:
-                videocards = Videocard.objects.filter(name__contains=search)
-            else:
-                videocards = Videocard.objects.all()
-            if parameter == 1:
-                videocards = videocards.order_by('price')
-            else:
-                videocards = videocards.order_by('price').reverse()
-            form = FilterForm()
-            context = {
-                'videocards': videocards,
-                'form': form
-            }
-            return render(request, 'videocards_sorted.html', context=context)
 
 
 class VideocardDetailView(DetailView):
@@ -106,7 +85,6 @@ class VideocardCreateView(PermissionRequiredMixin, CreateView):
 
 
 class VideocardUpdateView(PermissionRequiredMixin, UpdateView):
-
     login_url = reverse_lazy('login')
     permission_denied_message = _('Для выполнения действия требуются дополнительные права пользователя')
 
@@ -118,6 +96,7 @@ class VideocardUpdateView(PermissionRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse('videocard_detail', kwargs={'pk': self.object.pk})
 
+
 class VideocardInfoCreateView(PermissionRequiredMixin, CreateView):
     model = VideocardInfo
     fields = '__all__'
@@ -125,13 +104,13 @@ class VideocardInfoCreateView(PermissionRequiredMixin, CreateView):
     success_url = reverse_lazy('main_view')
     permission_required = 'add_videocardinfo'
 
+
 class VideocardInfoUpdateView(PermissionRequiredMixin, UpdateView):
     model = VideocardInfo
     fields = '__all__'
     template_name = 'videocard_info_update.html'
     success_url = reverse_lazy('main_view')
     permission_required = 'edit_videocardinfo'
-
 
 
 class VideocardSerializedListView(APIView):

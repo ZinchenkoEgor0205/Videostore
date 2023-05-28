@@ -15,10 +15,8 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.auth.views import LogoutView
 from django.urls import path, include
 
-import videostore_project.settings
 from app_main.views import *
 from videostore_project import settings
 

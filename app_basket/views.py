@@ -10,12 +10,12 @@ from django.http import HttpResponseRedirect
 from app_basket.basket import Basket
 from app_basket.models import Order, OrderVideocard
 from app_basket.forms import BasketAddVideocardForm, OrderForm
+from app_basket.signals import order_saved
 from app_main.models import Videocard
 from app_user.models import Discount
 
 
 class BasketDetailView(LoginRequiredMixin, View):
-
     login_url = reverse_lazy('login')
 
     def get(self, request):
@@ -27,9 +27,7 @@ class BasketDetailView(LoginRequiredMixin, View):
         return render(request, 'basket_detail.html')
 
 
-
 class BasketAddView(LoginRequiredMixin, View):
-
     login_url = reverse_lazy('login')
 
     def post(self, request, videocard_id):
@@ -43,7 +41,6 @@ class BasketAddView(LoginRequiredMixin, View):
 
 
 class BasketRemoveView(LoginRequiredMixin, View):
-
     login_url = reverse_lazy('login')
 
     def get(self, request, videocard_id):
@@ -54,7 +51,6 @@ class BasketRemoveView(LoginRequiredMixin, View):
 
 
 class OrderView(LoginRequiredMixin, View):
-
     login_url = reverse_lazy('login')
 
     def get(self, request):
@@ -113,10 +109,10 @@ class OrderView(LoginRequiredMixin, View):
                 user.profile.discount = discount_status
                 user.profile.save()
             basket.clear()
+            order_saved.send(sender=Order, instance=order, request=request)
             return HttpResponseRedirect(reverse('gratitude_view'))
         else:
             return redirect('basket_detail_view')
-
 
 
 def gratitude_view(request):

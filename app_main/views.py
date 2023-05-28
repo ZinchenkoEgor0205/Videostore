@@ -14,8 +14,6 @@ from django.views.generic.detail import DetailView
 from videostore_project import settings
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
-from .forms import FilterForm
 from .serializers import *
 
 
@@ -35,8 +33,15 @@ class MainView(View):
         videocards_promo = self.get_random_videocard_promo()
         user = request.user
         context = {'videocards': videocards, 'videocards_promo': videocards_promo, 'user': user}
+        if request.session.get('success'):
+            context['gratitude'] = True
+            request.session['success'] = False
+            request.session.save()
         if user.has_perm('app_main.add_videocard'):
             context['permission'] = True
+
+        #todo delete
+        context['gratitude'] = True
 
         return render(request, 'main.html', context=context)
 
@@ -81,7 +86,6 @@ class VideocardCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'videocard_create.html'
     success_url = reverse_lazy('main_view')
     permission_required = 'app_main.add_videocard'
-    # form_class = VideocardCreateForm
 
 
 class VideocardUpdateView(PermissionRequiredMixin, UpdateView):

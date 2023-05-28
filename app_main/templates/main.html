@@ -25,10 +25,16 @@
         $('a#button').click(function() {
     $('#button-svg').toggleClass("down"); $('#button').toggleClass("down")});
     });
+
     </script>
+    {% if gratitude %}
+        <script src="{% static 'scripts/gratitude.js' %}" defer>
+        </script>
+    {% endif %}
 </head>
 {% endblock %}
 <body>
+<div class="hidden">{% trans 'Спасибо за покупку' %}</div>
     <nav>
         <div class="container nav-container">
             <div class="nav-logo-container">

@@ -17,7 +17,6 @@
 <body>
 {% block afternav %}
 
-
     <section class="basket-section">
         <div class="container basket-container">
             <h1 class="basket-header">{% trans 'Ваша корзина' %}</h1>
@@ -26,7 +25,7 @@
                     {% with videocard=item.videocard %}
                         <div class="basket-item">
                             <a href="{{ videocard.get_absolute_url }}">
-                                <img src="{{ MEDIA_URL }}/{{ videocard.image }}" alt="" class="basket-item-img">
+                                <img src="{{ videocard.image.url }}" alt="" class="basket-item-img">
                             </a>
                             <h3 class="basket-item-name">{{ videocard.manufacturer }} {{ videocard.name }}</h3>
                             <h3 class="basket-item-info">{{ item.quantity }}x {{ item.price }} USD<br>{% trans 'Сумма' %}: {{ item.total_price }} USD</h3>

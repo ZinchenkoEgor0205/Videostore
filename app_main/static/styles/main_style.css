@@ -296,6 +296,30 @@
     color: #F1F1F1;
 }
 
+.gratitude {
+    height: 160px;
+    position: fixed;
+    top: 360px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 
+.gratitude-container{
+    width: 813px;
+    background-color: #A2A2A2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gratitude-text {
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #F1F1F1;
+}
 
 

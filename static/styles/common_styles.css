@@ -164,3 +164,8 @@ section {
     outline: 0;
 }
 
+.hidden {
+    position: absolute;
+    opacity: 0;
+}
+

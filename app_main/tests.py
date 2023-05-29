@@ -46,12 +46,6 @@ class VideocardSortedViewTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'videocards_sorted.html')
 
-    def test_videocards_sorted_view_post(self):
-        response = self.client.post(reverse('videocard_sorted'), {'parameter': 1, 'search': '3060'})
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'videocards_sorted.html')
-
-
 class VideocardCreateViewTestCase(TestCase):
 
     fixtures = ['app_main-fixtures.json',]

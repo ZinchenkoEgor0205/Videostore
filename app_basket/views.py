@@ -110,10 +110,9 @@ class OrderView(LoginRequiredMixin, View):
                 user.profile.save()
             basket.clear()
             order_saved.send(sender=Order, instance=order, request=request)
-            return HttpResponseRedirect(reverse('gratitude_view'))
+            return redirect('main_view')
         else:
             return redirect('basket_detail_view')
 
 
-def gratitude_view(request):
-    return render(request, 'gratitude.html')
+

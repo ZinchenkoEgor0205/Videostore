@@ -160,6 +160,6 @@ class OrderViewTestCase(TestCase):
                                      'house': self.user.profile.house, 'housing': self.user.profile.housing,
                                      'apartment': self.user.profile.apartment}, follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'gratitude.html')
+        self.assertTemplateUsed(response, 'main.html')
         order = Order.objects.filter(name_surname=f'{self.user.first_name} {self.user.last_name}').last()
         self.assertTrue(order)

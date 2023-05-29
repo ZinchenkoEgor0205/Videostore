@@ -40,9 +40,6 @@ class MainView(View):
         if user.has_perm('app_main.add_videocard'):
             context['permission'] = True
 
-        #todo delete
-        context['gratitude'] = True
-
         return render(request, 'main.html', context=context)
 
 

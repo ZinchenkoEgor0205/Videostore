@@ -100,10 +100,10 @@ class OrderView(LoginRequiredMixin, View):
                     order=order,
                     quantity=item['quantity'],
                 )
-            user.profile.total_sum = active_sum
+            user.profile.total_sum = active_sum + total_sum_with_discount
             user.profile.save()
 
-            discount_status = Discount.objects.all().filter(required_sum__lte=active_sum).order_by(
+            discount_status = Discount.objects.all().filter(required_sum__lte=user.profile.total_sum).order_by(
                 'required_sum').last()
             if user.profile.discount != discount_status:
                 user.profile.discount = discount_status

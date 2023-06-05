@@ -20,12 +20,14 @@
         <div class="detail-container container">
             <h1 class="detail-header">{{ data.videocard.manufacturer }} {{ data.videocard.vendor }} {{ data.videocard.name }}</h1>
             <div class="detail-content">
-                {% if data.videocard.image %}
-                    <img src="{{ data.videocard.image.url }}" alt="" class="detail-content-img">
-                    {% else %}
-                    <div class="detail-content-img">{% trans 'Нет изображения' %}</div>
-                {% endif %}
-                <h1>{{ MEDIA_URL }}</h1>
+                <div class="detail-content-left">
+                    {% if data.videocard.image %}
+                        <img src="{{ data.videocard.image.url }}" alt="" class="detail-content-img">
+                        {% else %}
+                        <div class="detail-content-img">{% trans 'Нет изображения' %}</div>
+                    {% endif %}
+                    <div class="detail-content-left-price">{% trans 'Цена:' %} {{ data.videocard.price }} USD</div>
+                </div>
                 <div class="detail-content-info">
                     {% if data.videocard.info.release_date %}
                         <div class="detail-content-info-item">
@@ -81,18 +83,19 @@
                             <p class="detail-content-info-item-right">{{ data.videocard.info.recommended_energy_supply }} W</p>
                         </div>
                     {% endif %}
-
-                </div>
-                <form class="detail-content-info-footer" action="{% url 'basket_add_view' data.videocard.id %}" method="post">
-                    <p class="detail-content-info-footer-text">{% trans 'Количество' %}:</p>
-                    {{ basket_videocard_form.quantity }}
-                    {% csrf_token %}
-                    <input type="submit" class="detail-content-info-footer-btn btn-black" value="{% trans 'В корзину' %}">
-                </form>
-                <div class="detail-content-edit-btn-block">
-                    {% if data.permission %}
-                        <a href="{% url 'videocard_update' data.videocard.id %}" class="detail-content-edit-btn btn-black">{% trans 'Изменить товар' %}</a>
-                    {% endif %}
+                    <div class="detail-content-info-footer-block">
+                        <form class="detail-content-info-footer" action="{% url 'basket_add_view' data.videocard.id %}" method="post">
+                            <p class="detail-content-info-footer-text">{% trans 'Количество' %}:</p>
+                            {{ basket_videocard_form.quantity }}
+                            {% csrf_token %}
+                            <input type="submit" class="detail-content-info-footer-btn btn-black" value="{% trans 'В корзину' %}">
+                        </form>
+                        <div class="detail-content-edit-btn-block">
+                            {% if data.permission %}
+                                <a href="{% url 'videocard_update' data.videocard.id %}" class="detail-content-edit-btn btn-black">{% trans 'Изменить товар' %}</a>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

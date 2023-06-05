@@ -18,9 +18,9 @@ class Order(models.Model):
     date = models.DateField(auto_now=False, auto_now_add=timezone.now().date(), verbose_name=_('Дата'))
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('Пользователь'))
     videocards = models.ManyToManyField(Videocard, through='OrderVideocard', verbose_name=_('Видеокарты'))
+
     def __str__(self):
         return self.name_surname
-
 
 
 class OrderVideocard(models.Model):

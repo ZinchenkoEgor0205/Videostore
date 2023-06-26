@@ -1,0 +1,6 @@
+version: '3.11'
+services:
+   web:
+       image: egorzinchenko/videostore
+       ports:
+         - '0.0.0.0:8000:8000'

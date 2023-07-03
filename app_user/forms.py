@@ -17,6 +17,24 @@ class AuthForm(forms.Form):
 
 
 class RegisterForm(UserCreationForm):
+    username = forms.CharField(
+        label=_("Username"),
+        strip=False,
+        widget=forms.PasswordInput(attrs={"autocomplete": "new-password", 'placeholder': _('Имя пользователя')}),
+        help_text=password_validation.password_validators_help_text_html(),
+    )
+    password1 = forms.CharField(
+        label=_("Password"),
+        strip=False,
+        widget=forms.PasswordInput(attrs={"autocomplete": "new-password", 'placeholder': _('Пароль')}),
+        help_text=password_validation.password_validators_help_text_html(),
+    )
+    password2 = forms.CharField(
+        label=_("Password confirmation"),
+        widget=forms.PasswordInput(attrs={"autocomplete": "new-password", 'placeholder': _('Повторите пароль')}),
+        strip=False,
+        help_text=_("Enter the same password as before, for verification."),
+    )
     first_name = forms.CharField(max_length=30, required=False, help_text='Name', widget=forms.TextInput(attrs={'class': 'form-input input-gray', 'placeholder': 'Имя'}))
     last_name = forms.CharField(max_length=30, required=False, help_text='Last name', widget=forms.TextInput(attrs={'class': 'form-input input-gray', 'placeholder': 'Фамилия'}))
     email = forms.EmailField(required=False, widget=forms.EmailInput(attrs={'class': 'form-input input-gray', 'placeholder': 'Email'}))

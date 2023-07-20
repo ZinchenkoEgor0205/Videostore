@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-25 14:59+0300\n"
+"POT-Creation-Date: 2023-07-20 09:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,53 +17,94 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\models.py:9
+msgid "Имя и фамилия"
+msgstr "Name and surname"
+
+#: .\models.py:10 .\templates\order.html:29 .\templates\order.html:30
+msgid "Телефон"
+msgstr "Phone"
+
+#: .\models.py:11
+msgid "Электронная почта"
+msgstr "Email"
+
+#: .\models.py:12 .\templates\order.html:37 .\templates\order.html:38
+msgid "Город"
+msgstr "City"
+
+#: .\models.py:13 .\templates\order.html:41 .\templates\order.html:42
+msgid "Улица"
+msgstr "Street"
+
+#: .\models.py:14 .\templates\order.html:49 .\templates\order.html:50
+msgid "Дом"
+msgstr "House"
+
+#: .\models.py:15 .\templates\order.html:45 .\templates\order.html:46
+msgid "Корпус"
+msgstr "Housing"
+
+#: .\models.py:16 .\templates\order.html:53 .\templates\order.html:54
+msgid "Квартира"
+msgstr "Apartment"
+
+#: .\models.py:17 .\templates\basket_detail.html:31
+msgid "Сумма"
+msgstr "Sum"
+
+#: .\models.py:18
+msgid "Дата"
+msgstr "Date"
+
+#: .\models.py:19
+msgid "Пользователь"
+msgstr "User"
+
+#: .\models.py:20
+msgid "Видеокарты"
+msgstr "Videocards"
+
+#: .\models.py:27 .\templates\order.html:10
+msgid "Заказ"
+msgstr "Order"
+
+#: .\models.py:28
+msgid "Видеокарта"
+msgstr "Videocard"
+
+#: .\models.py:29
+msgid "Количество"
+msgstr "Quantity"
+
 #: .\templates\basket_detail.html:10
 msgid "Корзина"
 msgstr "Cart"
 
-#: .\templates\basket_detail.html:23
+#: .\templates\basket_detail.html:22
 msgid "Ваша корзина"
 msgstr "Your cart"
 
-#: .\templates\basket_detail.html:32
-msgid "Сумма"
-msgstr "Sum"
-
-#: .\templates\basket_detail.html:37
+#: .\templates\basket_detail.html:36
 msgid "Обновить"
 msgstr "Refresh"
 
-#: .\templates\basket_detail.html:38
+#: .\templates\basket_detail.html:37
 msgid "Удалить"
 msgstr "Delete"
 
-#: .\templates\basket_detail.html:47 .\templates\order.html:59
+#: .\templates\basket_detail.html:46 .\templates\order.html:59
 msgid "Сумма заказа"
 msgstr "Order sum"
 
-#: .\templates\basket_detail.html:48
+#: .\templates\basket_detail.html:47
 msgid "Оформить заказ"
 msgstr "Make an order"
 
-#: .\templates\basket_detail.html:50
+#: .\templates\basket_detail.html:49
 msgid "Вернуться в магазин"
 msgstr "Return to the shop"
-
-#: .\templates\gratitude.html:10
-msgid "Благодарность"
-msgstr "Gratitude"
-
-#: .\templates\gratitude.html:21
-msgid "Спасибо за покупку"
-msgstr "Thanks for purchase"
-
-#: .\templates\gratitude.html:22
-msgid "Вернуться на главную"
-msgstr "Return to the main page"
-
-#: .\templates\order.html:10
-msgid "Заказ"
-msgstr "Order"
 
 #: .\templates\order.html:23
 msgid "Оформление заказа"
@@ -73,30 +114,6 @@ msgstr "Order creation"
 msgid "Фамилия и имя"
 msgstr "Surname and name"
 
-#: .\templates\order.html:29 .\templates\order.html:30
-msgid "Телефон"
-msgstr "Phone"
-
-#: .\templates\order.html:37 .\templates\order.html:38
-msgid "Город"
-msgstr "City"
-
-#: .\templates\order.html:41 .\templates\order.html:42
-msgid "Улица"
-msgstr "Street"
-
-#: .\templates\order.html:45 .\templates\order.html:46
-msgid "Корпус"
-msgstr "Housing"
-
-#: .\templates\order.html:49 .\templates\order.html:50
-msgid "Дом"
-msgstr "House"
-
-#: .\templates\order.html:53 .\templates\order.html:54
-msgid "Квартира"
-msgstr "Apartment"
-
 #: .\templates\order.html:58
 msgid "Ваша скидка"
 msgstr "Your discount"
@@ -104,3 +121,12 @@ msgstr "Your discount"
 #: .\templates\order.html:60
 msgid "Оформить"
 msgstr "Confirm"
+
+#~ msgid "Благодарность"
+#~ msgstr "Gratitude"
+
+#~ msgid "Спасибо за покупку"
+#~ msgstr "Thanks for purchase"
+
+#~ msgid "Вернуться на главную"
+#~ msgstr "Return to the main page"

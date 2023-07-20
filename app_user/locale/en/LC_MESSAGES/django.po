@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-25 15:14+0300\n"
+"POT-Creation-Date: 2023-07-20 09:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,54 +18,105 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\templates\account-edit.html:10 .\templates\account-edit.html:22
-msgid "Редактирование профиля"
-msgstr "Profile editing"
-
+#: .\forms.py:15 .\forms.py:21 .\forms.py:23 .\forms.py:51
 #: .\templates\account-edit.html:25 .\templates\account-edit.html:26
 #: .\templates\account.html:24
 msgid "Имя пользователя"
 msgstr "Username"
 
-#: .\templates\account-edit.html:33 .\templates\account-edit.html:34
-#: .\templates\account.html:32
-msgid "Телефон"
-msgstr "Phone"
+#: .\forms.py:16 .\forms.py:27 .\forms.py:29
+msgid "Пароль"
+msgstr "Password"
 
-#: .\templates\account-edit.html:37 .\templates\account-edit.html:38
-#: .\templates\account.html:36
+#: .\forms.py:33 .\forms.py:34
+msgid "Повторите пароль"
+msgstr "Repeat the password"
+
+#: .\forms.py:36
+msgid "Повторите ранее написанный пароль для верификации."
+msgstr "Enter the same password as before, for verification."
+
+#: .\forms.py:38 .\forms.py:53 .\templates\account-edit.html:37
+#: .\templates\account-edit.html:38 .\templates\account.html:36
 msgid "Имя"
 msgstr "Name"
 
-#: .\templates\account-edit.html:41 .\templates\account-edit.html:42
-#: .\templates\account.html:40
+#: .\forms.py:39 .\forms.py:55 .\templates\account-edit.html:41
+#: .\templates\account-edit.html:42 .\templates\account.html:40
 msgid "Фамилия"
 msgstr "Surname"
 
-#: .\templates\account-edit.html:45 .\templates\account-edit.html:46
-#: .\templates\account.html:44
+#: .\forms.py:40 .\forms.py:57
+msgid "Email"
+msgstr "Email"
+
+#: .\forms.py:41 .\forms.py:59 .\models.py:15 .\templates\account-edit.html:45
+#: .\templates\account-edit.html:46 .\templates\account.html:44
 msgid "Город"
 msgstr "City"
 
-#: .\templates\account-edit.html:49 .\templates\account-edit.html:50
-#: .\templates\account.html:48
+#: .\forms.py:42 .\forms.py:61 .\models.py:21 .\templates\account-edit.html:33
+#: .\templates\account-edit.html:34 .\templates\account.html:32
+msgid "Телефон"
+msgstr "Phone"
+
+#: .\forms.py:63 .\models.py:16 .\templates\account-edit.html:49
+#: .\templates\account-edit.html:50 .\templates\account.html:48
 msgid "Улица"
 msgstr "Street"
 
-#: .\templates\account-edit.html:53 .\templates\account-edit.html:54
-#: .\templates\account.html:52
+#: .\forms.py:65 .\models.py:17 .\templates\account-edit.html:53
+#: .\templates\account-edit.html:54 .\templates\account.html:52
 msgid "Корпус"
 msgstr "Housing"
 
-#: .\templates\account-edit.html:57 .\templates\account-edit.html:58
-#: .\templates\account.html:56
+#: .\forms.py:67 .\models.py:18 .\templates\account-edit.html:57
+#: .\templates\account-edit.html:58 .\templates\account.html:56
 msgid "Дом"
 msgstr "House"
 
-#: .\templates\account-edit.html:61 .\templates\account-edit.html:62
-#: .\templates\account.html:60
+#: .\forms.py:69 .\models.py:19 .\templates\account-edit.html:61
+#: .\templates\account-edit.html:62 .\templates\account.html:60
 msgid "Квартира"
 msgstr "Apartment"
+
+#: .\models.py:6
+msgid "Название"
+msgstr "Name"
+
+#: .\models.py:7
+msgid "Требуемая сумма"
+msgstr "Required sum"
+
+#: .\models.py:8
+msgid "Множитель цены"
+msgstr "Price multiplier"
+
+#: .\models.py:14
+#, fuzzy
+#| msgid "Имя пользователя"
+msgid "Пользователь"
+msgstr "Username"
+
+#: .\models.py:20
+#, fuzzy
+#| msgid "Тип скидки"
+msgid "Скидка"
+msgstr "Discount type"
+
+#: .\models.py:22
+#, fuzzy
+#| msgid "Регистрация"
+msgid "Верификация"
+msgstr "Registration"
+
+#: .\models.py:23
+msgid "Общая сумма"
+msgstr "Total sum"
+
+#: .\templates\account-edit.html:10 .\templates\account-edit.html:22
+msgid "Редактирование профиля"
+msgstr "Profile editing"
 
 #: .\templates\account-edit.html:66 .\templates\register.html:36
 msgid "Подтвердить"
@@ -110,3 +161,8 @@ msgstr "Registration"
 #: .\views.py:29
 msgid "Неверно введён логин или пароль"
 msgstr "Wrong login or password"
+
+#, fuzzy
+#~| msgid "Подтвердить"
+#~ msgid "Подтвердите пароль"
+#~ msgstr "Apply"

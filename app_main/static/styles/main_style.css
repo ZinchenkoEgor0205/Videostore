@@ -232,8 +232,13 @@
     align-items: center;
     margin-top: 20px;
     margin-bottom: 8px;
-    transition-property: width;
+    transition-property: width, scale, background;
     transition-duration: 0.3s;
+}
+
+.popular-content-btn:hover {
+    scale: 1.1;
+    background: #232323;
 }
 
 #button.down {

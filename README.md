@@ -9,7 +9,7 @@ The app provides users with functions:
   * To add/change account info;
   * To deal with a cart(add/remove/change quantity of goods);
   * Swap app's localization between russian and english;
-  * Have an access to extended functionality(editing goods) if you are a superuser;
+  * To have access to extended functionality(editing goods) if you are a superuser;
   * To perform an order(order info will be added to the database).
 
 To run this app you need either to create a database, connect to it, set connection info in settings.py, apply migraitons or to use loaded SQLite database
